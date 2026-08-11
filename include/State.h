@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <array>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -15,7 +16,8 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "openglErrorReporting.h"
-#include "shader.h"
+
+
 
 struct State {
 	bool depthTesting = false;
@@ -23,27 +25,38 @@ struct State {
 	bool faceCulling = false;
 	bool blending = false;
 	GLenum blendFactorS = GL_SRC_ALPHA, blendFactorD = GL_ONE_MINUS_SRC_ALPHA;
-	uint32_t vao{};
-	GLenum primitive = GL_TRIANGLES;
-	uint32_t shader{};
-	uint32_t texture{};
+	uint32_t VAO{};
+	uint32_t shaderID{};
 
+	
+	std::array<uint32_t, 32> boundTextures{ 0 };
+	uint32_t activeTextureUnit = 0;
 };
 
 class StateManager {
 public:
 	State state;
 
-	void setShader(const Shader& shader) {
-		if (state.shader.ID != shader.ID) {
-			state.shader.use();
-			state.shader = shader;
+	void setShader(uint32_t shaderID) {
+		if (state.shaderID != shaderID) {
+			glUseProgram(shaderID);
+			state.shaderID = shaderID;
 		}
 	}
-	void setTexture(uint32_t texture, GLenum textureTarget = GL_TEXTURE_2D) {
-		if (state.texture != texture) {
-			glBindTexture(textureTarget, texture);
-			state.texture = texture;
+	void setTexture(uint32_t unit, uint32_t textureID, GLenum textureTarget = GL_TEXTURE_2D) {
+		if (state.activeTextureUnit != unit) {
+			glActiveTexture(GL_TEXTURE0 + unit);
+			state.activeTextureUnit = unit;
+		}
+		if (state.boundTextures[unit] != textureID) {
+			glBindTexture(textureTarget, textureID);
+			state.boundTextures[unit] = textureID;
+		}
+	}
+	void setVAO(uint32_t VAO) {
+		if (state.VAO != VAO) {
+			glBindVertexArray(VAO);
+			state.VAO = VAO;
 		}
 	}
 	void setDepthTesting(bool depthTest) {
@@ -67,9 +80,22 @@ public:
 			else glDisable(GL_CULL_FACE);
 		}
 	}
+	void setBlending(bool enabled, GLenum src = GL_SRC_ALPHA, GLenum dst = GL_ONE_MINUS_SRC_ALPHA) {
+		if (state.blending != enabled) {
+			if (enabled) glEnable(GL_BLEND);
+			else glDisable(GL_BLEND);
+			state.blending = enabled;
+		}
+
+		if (enabled) {
+			glBlendFunc(src, dst);
+		}
+	}
 	void switchState (const State& newState) {
-		setShader(newState.shader);
-		setTexture(newState.texture);
+		setShader(newState.shaderID);
+		for (int i = 0; i < state.boundTextures.size(); ++i) 
+			setTexture(i, newState.boundTextures[i]);
+		
 		setDepthTesting(newState.depthTesting);
 		setStencilTesting(newState.stencilTesting);
 		setFaceCulling(newState.faceCulling);

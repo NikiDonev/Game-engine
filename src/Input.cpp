@@ -1,19 +1,5 @@
 #include "Input.h"
-#include "Input.h"
 
-
-std::array<bool, 350> Input::currentKeys{ false };
-std::array<bool, 350> Input::previousKeys{ false };
-
-std::array<bool, 8> Input::currentMouse{ false };
-std::array<bool, 8> Input::previousMouse{ false };
-
-std::array<Joystick, 16> Input::joysticks{ };
-
-std::string Input::textBuffer{};
-
-double Input::mouseX{}, Input::mouseY{};
-double Input::scrollX{}, Input::scrollY{};
 
 
 void Input::Update() {
@@ -26,8 +12,6 @@ void Input::Update() {
 			joysticks[i].QueryData(i);
 		}
 	}
-
-	glfwPollEvents(); // needs to be last
 }
 
 void Input::ClearTextBuffer() {
@@ -118,10 +102,9 @@ void Input::CharCallback(GLFWwindow* window, unsigned int codepoint) {
 void Input::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset) {
 	ImGui_ImplGlfw_ScrollCallback(window, xoffset, yoffset);
 
-	// 2. Check if ImGui wants to capture the mouse (e.g., hovering over a panel)
 	ImGuiIO& io = ImGui::GetIO();
 	if (io.WantCaptureMouse) {
-		return; // Don't scroll your game world if you are scrolling a debug menu!
+		return;
 	}
 
 	scrollX += xoffset;
@@ -139,12 +122,41 @@ void Input::JoystickCallback(int jid, int event) {
 }
 
 void Input::SetupCallbacks(GLFWwindow* window) {
-	glfwSetKeyCallback(window, KeyCallback);
-	glfwSetMouseButtonCallback(window, MouseButtonCallback);
-	glfwSetCursorPosCallback(window, CursorPosCallback);
-	glfwSetCharCallback(window, CharCallback);
-	glfwSetScrollCallback(window, ScrollCallback);
-	glfwSetJoystickCallback(JoystickCallback);
+	    glfwSetWindowUserPointer(window, this);
+
+    // 2. Register standard callbacks using C-compatible Lambdas
+    glfwSetKeyCallback(window, [](GLFWwindow* win, int key, int scancode, int action, int mods) {
+        auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
+        if (input) input->KeyCallback(win, key, scancode, action, mods);
+    });
+
+    glfwSetMouseButtonCallback(window, [](GLFWwindow* win, int button, int action, int mods) {
+        auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
+        if (input) input->MouseButtonCallback(win, button, action, mods);
+    });
+
+    glfwSetCursorPosCallback(window, [](GLFWwindow* win, double xpos, double ypos) {
+        auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
+        if (input) input->CursorPosCallback(win, xpos, ypos);
+    });
+
+    glfwSetCharCallback(window, [](GLFWwindow* win, unsigned int codepoint) {
+        auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
+        if (input) input->CharCallback(win, codepoint);
+    });
+
+    glfwSetScrollCallback(window, [](GLFWwindow* win, double xoffset, double yoffset) {
+        auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
+        if (input) input->ScrollCallback(win, xoffset, yoffset);
+    });
+
+    // 3. SPECIAL CASE: Joystick callbacks don't receive a window pointer!
+    // We must use a static wrapper function or global pointer specifically for joysticks.
+    // Let's store a reference pointer for the joystick system:
+    s_Instance = this; 
+    glfwSetJoystickCallback([](int jid, int event) {
+        if (s_Instance) s_Instance->JoystickCallback(jid, event);
+    });
 
 	CheckActiveJoysticks();
 }

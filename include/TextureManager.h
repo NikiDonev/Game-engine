@@ -10,15 +10,8 @@
 
 class TextureManager {
 public:
+	TextureManager() = default;
 	~TextureManager();
-
-	TextureManager(const TextureManager&) = delete;
-	TextureManager& operator=(const TextureManager&) = delete;
-
-	static TextureManager& Get() {
-		static TextureManager instance;
-		return instance;
-	}
 
 	unsigned int loadTexture(const char* path, bool flip = false,
 		GLint swrap = GL_REPEAT, GLint twrap = GL_REPEAT, GLint minFilter = GL_LINEAR_MIPMAP_LINEAR, GLint magFilter = GL_LINEAR);
@@ -31,7 +24,6 @@ public:
 	unsigned int componentsToFormat(unsigned int components);
 
 private:
-	TextureManager() = default;
 
 	std::unordered_map<std::string, unsigned int> textures;
 	std::vector<unsigned int> createdTextures;

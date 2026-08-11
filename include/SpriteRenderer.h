@@ -4,8 +4,6 @@
 #include "Sprite.h"
 
 
-
-
 class SpriteRenderer {
 public:
 	VertexLayout spriteLayout;
@@ -20,7 +18,7 @@ public:
 		spriteLayout.attributes = {
 			{ 2, GL_FLOAT, false, offsetof(SpriteVertex, position) },  // location 0
 			{ 4, GL_FLOAT, false, offsetof(SpriteVertex, color) },     // location 1
-			{ 2, GL_FLOAT, false, offsetof(SpriteVertex, texCoords) },  // location 2
+			{ 2, GL_FLOAT, false, offsetof(SpriteVertex, texCoords) }, // location 2
 			{ 1, GL_FLOAT, false, offsetof(SpriteVertex, texIndex) }   // location 3
 		};
 		renderer.Init(spriteLayout);
@@ -31,8 +29,7 @@ public:
 			shader.setInt(textureUniform, i);
 		}
 
-		emptyTexture = TextureManager::Get().createTexture(1, 1, GL_RGB);
-
+		//emptyTexture = TextureManager::Get().createTexture(1, 1, GL_RGB);
 	}
 	glm::vec2 transformPosition(Transform transform, glm::vec2 position) {
 		if (abs(transform.rotation) < 0.001f) {
@@ -47,6 +44,7 @@ public:
 		view = newView;
 	}
 	void Add(const Sprite& sprite) {
+
 		std::vector<SpriteVertex> quadVertices;
 		uint32_t spriteTexture = sprite.textureID;
 		if (spriteTexture == 0) spriteTexture = emptyTexture;
