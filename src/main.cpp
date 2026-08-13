@@ -1,4 +1,4 @@
-#include "EngineContex.h"
+#include "EngineContext.h"
 
 int WIDTH{ 800 }, HEIGHT{ 600 };
 
@@ -7,45 +7,63 @@ void frame_buffer_size_callback(GLFWwindow* window, int width, int height) {
 	WIDTH = width;
 	HEIGHT = height;
 }
+float prevFactor = 0.0f;
+
+void moveView(EngineContext& engine) {
+	if (engine.input.KeyHeld(GLFW_KEY_UP)) engine.mainView.move({ 0.0f,   -500 * engine.deltaTime });
+	if (engine.input.KeyHeld(GLFW_KEY_DOWN)) engine.mainView.move({ 0.0f,  500 * engine.deltaTime });
+	if (engine.input.KeyHeld(GLFW_KEY_LEFT)) engine.mainView.move({ 500 * engine.deltaTime, 0.0f });
+	if (engine.input.KeyHeld(GLFW_KEY_RIGHT)) engine.mainView.move({ -500 * engine.deltaTime, 0.0f });
+	float factor = engine.input.getScroll().y;
+
+	float zoom = factor - prevFactor;
+	if (zoom > 0.01f) engine.mainView.zoom(1.1f);
+	else if (zoom < -0.01f) engine.mainView.zoom(0.9f);
+	prevFactor = factor;
+
+
+	if (engine.input.KeyHeld(GLFW_KEY_Z)) engine.mainView.scale(glm::vec2{ 200 * engine.deltaTime });
+	if (engine.input.KeyHeld(GLFW_KEY_X)) engine.mainView.scale(glm::vec2{ 1.0f / 2.0f * engine.deltaTime });
+}
 
 int main() {
-	EngineContex engine;
+
+	EngineContext engine;
 	engine.Initialize(WIDTH, HEIGHT, "2D game engine");
 
-	engine.mainView.scale = glm::vec2(80.0f);
+	Shader customShader;
+	customShader.create(SHADERS "sprite.vert", SHADERS "custom.frag");
 
-	Sprite s1, s2;
-	s1.color = { 1.0f, 0.0f, 0.0f, 1.0f };
-	s2.color = { 0.0f, 1.0f, 1.0f, 1.0f };
 
-	uint32_t mossTexture = engine.textureManager.loadTexture(RESOURCES_PATH "moss.png");
-	uint32_t deepslateTexture = engine.textureManager.loadTexture(RESOURCES_PATH "deepslate.png");
+	glm::vec2 position{1.0f};
+	glm::vec2 velocity{8.0f, 5.0f};
+	Arrow vector(velocity, 0.1f, 0.2f, glm::vec4(0.0f, 1.0f, 1.0f, 1.0f));
+	vector.setPosition(position);
 
-	s1.textureID = mossTexture;
-	s2.textureID = deepslateTexture;
+	engine.mainView.setZoom(0.01);
 
 	while (engine.window.IsOpen()) {
 		engine.BeginFrame();
 		if (engine.input.KeyHeld(GLFW_KEY_ESCAPE)) {
 			engine.window.Close();
 		}
-		if (engine.input.KeyHeld(GLFW_KEY_W)) s1.transform.pos.y += 5 * engine.deltaTime;
-		if (engine.input.KeyHeld(GLFW_KEY_S)) s1.transform.pos.y -= 5 * engine.deltaTime;
-		if (engine.input.KeyHeld(GLFW_KEY_D)) s1.transform.pos.x += 5 * engine.deltaTime;
-		if (engine.input.KeyHeld(GLFW_KEY_A)) s1.transform.pos.x -= 5 * engine.deltaTime;
+		moveView(engine);
+		//if (engine.input.KeyHeld(GLFW_KEY_W)) s1.move({ 0.0f,  5 * engine.deltaTime });
+		//if (engine.input.KeyHeld(GLFW_KEY_S)) s1.move({ 0.0f, -5 * engine.deltaTime });
+		//if (engine.input.KeyHeld(GLFW_KEY_D)) s1.move({  5 * engine.deltaTime, 0.0f });
+		//if (engine.input.KeyHeld(GLFW_KEY_A)) s1.move({ -5 * engine.deltaTime, 0.0f });
 
 
-		s2.transform.pos.x = 3 * sin(glfwGetTime());
-		s2.transform.pos.y = 3 * cos(glfwGetTime());
 
-		engine.spriteRenderer.Add(s1);
-		engine.spriteRenderer.Add(s2);
+
 
 
 		ImGuiBegin();
 		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / engine.deltaTime, engine.deltaTime * 1000.0f);
-		ImGui::DragFloat2("cube 1 position ", glm::value_ptr(s1.transform.pos));
+		ImGui::DragFloat2("Position", glm::value_ptr(position));
+		ImGui::DragFloat2("Velocity", glm::value_ptr(velocity));
 		ImGui::Text("width %i, height %i", WIDTH, HEIGHT);
+		ImGui::Text("View zoom %f, input zoom %f", engine.mainView.getZoom(), engine.input.getScroll().y);
 		ImGuiEnd();
 		engine.mainView.setSize(WIDTH, HEIGHT);
 

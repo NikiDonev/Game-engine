@@ -31,6 +31,8 @@ add_subdirectory(thirdparty/imgui-docking)
 # DON'T ADD THE SOURCES BY HAND, they are already added with this macro
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
+file(GLOB_RECURSE LIBRARY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/2D framework/src/*.cpp")
+
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 add_executable("${CMAKE_PROJECT_NAME}")
@@ -52,6 +54,7 @@ endif()
 target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC SHADERS="${CMAKE_CURRENT_SOURCE_DIR}/shaders/")
 
 target_sources("${CMAKE_PROJECT_NAME}" PRIVATE ${MY_SOURCES} )
+target_sources("${CMAKE_PROJECT_NAME}" PRIVATE ${LIBRARY_SOURCES} )
 
 if(MSVC) # If using the VS compiler...
     target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC _CRT_SECURE_NO_WARNINGS)
@@ -62,8 +65,9 @@ if(MSVC) # If using the VS compiler...
 endif()
 
 target_include_directories("${CMAKE_PROJECT_NAME}" PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include/")
+target_include_directories("${CMAKE_PROJECT_NAME}" PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/2D framework/include")
 
-# Linking 'assimp' automatically pulls 'zlib' along with it now
+
 target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE 
     glm 
     glfw 
