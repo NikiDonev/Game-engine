@@ -47,6 +47,7 @@ bool Input::MouseReleased(int button) {
 	return !currentMouse[button] && previousMouse[button];
 }
 
+
 glm::vec2 Input::getMousePos() {
 	return glm::vec2((float)mouseX, (float)mouseY);
 }
@@ -149,6 +150,11 @@ void Input::SetupCallbacks(GLFWwindow* window) {
         auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
         if (input) input->ScrollCallback(win, xoffset, yoffset);
     });
+	
+	//glfwSetFramebufferSizeCallback(window, [](GLFWwindow* win, double xpos, double ypos) {
+	//	auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
+	//	if (input) input->CursorPosCallback(win, xpos, ypos);
+	//	});
 
 
     s_Instance = this; 

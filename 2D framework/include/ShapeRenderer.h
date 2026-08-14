@@ -94,53 +94,105 @@ public:
 
 class Arrow : public Shape {
 public:
-	Arrow() = default;
-	Arrow(glm::vec2 direction, float shaftThickness = 2.0f, float headSize = 10.0f, glm::vec4 color = glm::vec4(1.0f)) {
-		float length = glm::length(direction);
-		if (length < 0.0001f) return;
-
-		float shaftLength = std::max(0.0f, length - headSize);
-		float halfShaft = shaftThickness / 2.0f;
-		float halfHead = headSize;
-
-		vertices = {
-			// Rectangle points (0 to 3)
-			{ { 0.0f,        -halfShaft }, color },
-			{ { 0.0f,         halfShaft }, color },
-			{ { shaftLength, -halfShaft }, color },
-			{ { shaftLength,  halfShaft }, color },
-			// Head points (4 to 6)
-			{ { shaftLength, -halfHead },  color },
-			{ { shaftLength,  halfHead },  color },
-			{ { length,       0.0f },      color }
-		};
-
-		indices = {
-			0, 1, 2, 1, 3, 2, // Rectangle
-			4, 5, 6           // Head triangle
-		};
-
-		float angle = glm::degrees(atan2(direction.y, direction.x));
-		setRotation(angle);
+	Arrow() {
+		generateGeometry();
 	}
 
+	Arrow(glm::vec2 direction, float shaftThickness = 2.0f, float headSize = 10.0f, glm::vec4 color = glm::vec4(1.0f))
+		: m_Direction(direction), m_ShaftThickness(shaftThickness), m_HeadSize(headSize), m_Color(color) {
+		generateGeometry();
+	}
+
+	Arrow& setDirection(const glm::vec2& direction) {
+		m_Direction = direction;
+		generateGeometry();
+		return *this;
+	}
+
+	Arrow& setShaftThickness(float thickness) {
+		m_ShaftThickness = thickness;
+		generateGeometry();
+		return *this;
+	}
+
+	Arrow& setHeadSize(float size) {
+		m_HeadSize = size;
+		generateGeometry();
+		return *this;
+	}
+
+	Arrow& setColor(const glm::vec4& color) {
+		m_Color = color;
+		for (auto& vertex : vertices) {
+			vertex.color = color;
+		}
+		return *this;
+	}
+
+	// Getters for inspection
+	const glm::vec2& getDirection() const { return m_Direction; }
+	float getShaftThickness() const { return m_ShaftThickness; }
+	float getHeadSize() const { return m_HeadSize; }
+	const glm::vec4& getColor() const { return m_Color; }
+
+	// OVERRIDES: Covariant method chaining updates for Transformable base methods
 	Arrow& setPosition(const glm::vec2& pos) { Transformable::setPosition(pos); return *this; }
 	Arrow& setRotation(float degrees) { Transformable::setRotation(degrees); return *this; }
 	Arrow& setScale(const glm::vec2& scale) { Transformable::setScale(scale); return *this; }
 	Arrow& setOrigin(const glm::vec2& origin) { Transformable::setOrigin(origin); return *this; }
 	Arrow& move(const glm::vec2& offset) { Transformable::move(offset); return *this; }
 	Arrow& rotate(float degrees) { Transformable::rotate(degrees); return *this; }
+
+private:
+
+	glm::vec2 m_Direction{ 1.0f, 0.0f };
+	float m_ShaftThickness{ 2.0f };
+	float m_HeadSize{ 10.0f };
+	glm::vec4 m_Color{ 1.0f };
+
+	void generateGeometry() {
+		vertices.clear();
+		indices.clear();
+
+		float length = glm::length(m_Direction);
+		if (length < 0.0001f) return;
+
+		float shaftLength = std::max(0.0f, length - m_HeadSize);
+		float halfShaft = m_ShaftThickness / 2.0f;
+		float halfHead = m_HeadSize;
+
+
+		vertices = {
+
+			{ { 0.0f,        -halfShaft }, m_Color },
+			{ { 0.0f,         halfShaft }, m_Color },
+			{ { shaftLength, -halfShaft }, m_Color },
+			{ { shaftLength,  halfShaft }, m_Color },
+
+			{ { shaftLength, -halfHead },  m_Color },
+			{ { shaftLength,  halfHead },  m_Color },
+			{ { length,       0.0f },      m_Color }
+		};
+
+		indices = {
+			0, 1, 2, 1, 3, 2, 
+			4, 5, 6           
+		};
+
+		float angle = glm::degrees(atan2(m_Direction.y, m_Direction.x));
+		setRotation(angle);
+	}
 };
 
 class Circle : public Shape {
 private:
 	float m_radius{ 1.0f };
-	glm::vec4 m_color{ 1.0f };
+	glm::vec4 m_Color{ 1.0f };
 
 public:
 	Circle() = default;
 	Circle(float radius, glm::vec4 color = glm::vec4(1.0f), uint32_t segments = 32)
-		: m_radius(radius), m_color(color) {
+		: m_radius(radius), m_Color(color) {
 		regenerateGeometry(segments); // Default resolution
 	}
 
@@ -169,12 +221,12 @@ private:
 		indices.clear();
 		if (segments < 3) segments = 3;
 
-		vertices.push_back({ { 0.0f, 0.0f }, m_color });
+		vertices.push_back({ { 0.0f, 0.0f }, m_Color });
 
 		for (uint32_t i = 0; i < segments; ++i) {
 			float angle = (static_cast<float>(i) / segments) * 2.0f * glm::pi<float>();
 			glm::vec2 pos = glm::vec2(cos(angle), sin(angle)) * m_radius;
-			vertices.push_back({ pos, m_color });
+			vertices.push_back({ pos, m_Color });
 		}
 
 		for (uint32_t i = 1; i <= segments; ++i) {

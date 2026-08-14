@@ -44,14 +44,15 @@ public:
 		time = currentFrame;
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
-	}
-
-	void EndFrame() {
 
 		spriteRenderer.setView(mainView);
 		shapeRenderer.setView(mainView);
 		spriteRenderer.Draw();
 		shapeRenderer.Draw();
+	}
+
+	void EndFrame() {
+
 		window.Display();
 	}
 

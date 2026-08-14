@@ -63,6 +63,7 @@ public:
 	void CursorPosCallback(GLFWwindow* window, double xpos, double ypos);
 	void CharCallback(GLFWwindow* window, unsigned int codepoint);
 	void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
+	//void WindowSizeCallback(GLFWwindow* window)
 
 	void JoystickCallback(int jid, int event);
 	

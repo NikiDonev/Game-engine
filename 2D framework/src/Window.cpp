@@ -1,5 +1,11 @@
 #include "Window.h"
 
+//void frame_buffer_size_callback(GLFWwindow* window, int Width, int Height) {
+//	glViewport(0, 0, Width, Height);
+//	width = Width;
+//	height = Height;
+//}
+
 
 void ImGuiBegin() {
 	ImGui_ImplOpenGL3_NewFrame();

@@ -16,16 +16,17 @@
 #include "openglErrorReporting.h"
 
 
-void frame_buffer_size_callback(GLFWwindow* window, int width, int height);
 
 void ImGuiBegin();
 void ImGuiEnd();
 
+	void frame_buffer_size_callback(GLFWwindow* window, int width, int height);
 
 
 class Window {
 public:
 	GLFWwindow* glfwWindow = nullptr;
+	int width, height;
 
 	Window() = default;
 
@@ -39,6 +40,7 @@ public:
 
 		glfwTerminate();
 	}
+
 
 	void Init(uint32_t width, uint32_t height, const char* title) {
 		glfwInit();
