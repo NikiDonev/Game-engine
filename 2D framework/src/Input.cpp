@@ -1,7 +1,5 @@
 #include "Input.h"
 
-
-
 void Input::Update() {
 	previousKeys = currentKeys;
 	previousMouse = currentMouse; 
@@ -48,8 +46,27 @@ bool Input::MouseReleased(int button) {
 }
 
 
-glm::vec2 Input::getMousePos() {
+glm::vec2 Input::getMousePixelPos() {
 	return glm::vec2((float)mouseX, (float)mouseY);
+}
+
+glm::vec2 Input::pixelToWorld(glm::vec2 pixelCoords, const View& view) {
+	int windowWidth = Width, windowHeight = Height;
+	if (windowWidth == 0 || windowHeight == 0) return glm::vec2(0.0f);
+
+	float ndcX = (2.0f * pixelCoords.x / windowWidth) - 1.0f;  	// Convert screen pixels to NDC
+	float ndcY = 1.0f - (2.0f * pixelCoords.y / windowHeight);
+
+	glm::vec4 ndcPos(ndcX, ndcY, 0.0f, 1.0f);
+	glm::mat4 invViewProj = glm::inverse(view.getViewProjMatrix());
+
+	glm::vec4 worldPos = invViewProj * ndcPos; // Unproject the coordinate into world space
+
+	return glm::vec2(worldPos.x, worldPos.y);
+}
+
+glm::vec2 Input::getMouseWorldPos(const View& view) {
+	return pixelToWorld(getMousePixelPos(), view);
 }
 
 glm::vec2 Input::getScroll() {
@@ -112,6 +129,12 @@ void Input::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset) {
 	scrollY += yoffset;
 }
 
+void Input::WindowSizeCallback(GLFWwindow* window, int width, int height) {
+	glViewport(0, 0, width, height);
+	Width = width;
+	Height = height;
+}
+
 void Input::JoystickCallback(int jid, int event) {
 	if (event == GLFW_CONNECTED) {
 		joysticks[jid].active = true;
@@ -151,10 +174,10 @@ void Input::SetupCallbacks(GLFWwindow* window) {
         if (input) input->ScrollCallback(win, xoffset, yoffset);
     });
 	
-	//glfwSetFramebufferSizeCallback(window, [](GLFWwindow* win, double xpos, double ypos) {
-	//	auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
-	//	if (input) input->CursorPosCallback(win, xpos, ypos);
-	//	});
+	glfwSetFramebufferSizeCallback(window, [](GLFWwindow* win, int width, int height) {
+		auto* input = static_cast<Input*>(glfwGetWindowUserPointer(win));
+		if (input) input->WindowSizeCallback(win, width, height);
+		});
 
 
     s_Instance = this; 

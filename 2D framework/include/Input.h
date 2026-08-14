@@ -1,13 +1,18 @@
 #pragma once
 
 #include <GLFW/glfw3.h>
+#include <glad/glad.h>
+
 #include <array>
 #include <string>
 #include <vector>
+
 #include <glm/glm.hpp>
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
+
+#include "View.h"
 
 struct Joystick {
 	
@@ -38,7 +43,9 @@ struct Joystick {
 
 class Input {
 public:
-		
+	int Width{ 800 }, Height{ 600 };
+
+
 	void Update();
 	void ClearTextBuffer();
 	const std::string& getTextBuffer() { return textBuffer; };
@@ -53,7 +60,10 @@ public:
 	bool MousePressed(int button);
 	bool MouseReleased(int button);
 
-	glm::vec2 getMousePos();
+	glm::vec2 getMousePixelPos();
+	glm::vec2 pixelToWorld(glm::vec2 pixelCoords, const View& view);
+	glm::vec2 getMouseWorldPos(const View& view);
+
 	glm::vec2 getScroll();
 	
 	void CheckActiveJoysticks();
@@ -63,7 +73,7 @@ public:
 	void CursorPosCallback(GLFWwindow* window, double xpos, double ypos);
 	void CharCallback(GLFWwindow* window, unsigned int codepoint);
 	void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
-	//void WindowSizeCallback(GLFWwindow* window)
+	void WindowSizeCallback(GLFWwindow* window, int width, int height);
 
 	void JoystickCallback(int jid, int event);
 	

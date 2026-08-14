@@ -24,7 +24,12 @@ public:
 	float deltaTime = 0.0f;
 	float lastFrame = 0.0f;
 
+	const int& width = input.Width;
+	const int& height = input.Height;
+
 	void Initialize(int width, int height, const char* title) {
+		input.Width = width;
+		input.Height = height = height;
 		window.Init(width, height, title);
 		mainView.setSize((float)width, (float)height);
 
@@ -45,14 +50,23 @@ public:
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
+
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+	}
+
+	void EndFrame() {
 		spriteRenderer.setView(mainView);
 		shapeRenderer.setView(mainView);
 		spriteRenderer.Draw();
 		shapeRenderer.Draw();
-	}
 
-	void EndFrame() {
 
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+		mainView.setSize(width, height);
 		window.Display();
 	}
 

@@ -16,17 +16,14 @@
 #include "openglErrorReporting.h"
 
 
-
 void ImGuiBegin();
 void ImGuiEnd();
 
-	void frame_buffer_size_callback(GLFWwindow* window, int width, int height);
 
 
 class Window {
 public:
 	GLFWwindow* glfwWindow = nullptr;
-	int width, height;
 
 	Window() = default;
 
@@ -48,6 +45,9 @@ public:
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+
+
+
 		glfwWindow = glfwCreateWindow(width, height, title, NULL, NULL);
 		if (glfwWindow == NULL) {
 			std::cerr << "Failed to create a window" << std::endl;
@@ -63,8 +63,6 @@ public:
 		}
 
 		glViewport(0, 0, width, height);
-
-		glfwSetFramebufferSizeCallback(glfwWindow, frame_buffer_size_callback);
 
 
 		IMGUI_CHECKVERSION();
@@ -93,6 +91,14 @@ public:
 		glfwGetWindowSize(glfwWindow, &width, &height);
 		return { width, height };
 	}
+
+	void maximizeWindow() {
+		glfwMaximizeWindow(glfwWindow);
+	}
+	void setSize(int width, int height) {
+		glfwSetWindowSize(glfwWindow, width, height);
+	}
+
 	int getWidth() const {
 		int width, height;
 		glfwGetWindowSize(glfwWindow, &width, &height);
