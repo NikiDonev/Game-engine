@@ -4,20 +4,20 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include "glm/gtx/rotate_vector.hpp"
 
+
 struct Entity{
 	int id{};
-	Triangle body;
-	Arrow direction;
-	Arrow wanderDir;
 	float maxSpeed = 50.0f;
 	float maxForce = 1.0f;
 	float wanderAngle{0.0f};
 	glm::vec2 pos{ 0.0f }, vel{ 0.0f }, acc{ 0.0f }, desired{ 0.0f };
 	glm::vec4 bounds{};
+
+	Triangle body{ { -1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 2.0f } };
+	Arrow direction{ vel, 0.1f, 0.3f, glm::vec4(1.0f, 0.0f, 0.0f, 1.0f) };
+	Arrow wanderDir{ vel, 0.1f, 0.3f, glm::vec4(0.0f, 1.0f, 1.0f, 1.0f) };
+
 	Entity(int id) :id(id){
-		body = Triangle({ -1.0f, 0.0f }, { 1.0f, 0.0f }, { 0.0f, 2.0f });
-		direction = Arrow(vel, 0.1f, 0.3f, glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
-		wanderDir = Arrow(vel, 0.1f, 0.3f, glm::vec4(0.0f, 1.0f, 1.0f, 1.0f));
 	}
 	void Update(float deltaTime, glm::vec2 target, glm::vec2 otherVel) {
 		if (id == 0) desired = chase(target);

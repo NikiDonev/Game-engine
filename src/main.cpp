@@ -1,6 +1,4 @@
 #include "EngineContext.h"
-#include "Entity.h"
-
 
 float prevFactor = 0.0f;
 
@@ -17,7 +15,6 @@ void moveView(EngineContext& engine) {
 	prevFactor = factor;
 }
 
-
 int main() {
 	EngineContext engine;
 	engine.Initialize(800, 600, "2D game engine");
@@ -25,14 +22,9 @@ int main() {
 	uint32_t mossTexture = engine.textureManager.loadTexture(RESOURCES_PATH "moss.png");
 	Sprite background({ 500.0f, 500.0f }, mossTexture);
 
-	Entity bird(0);
-	Entity worm(1);
-
-	worm.pos = { 10.0f, 0.0f };
-
-	worm.direction.setColor(glm::vec4(1.0f, 0.0f, 1.0f, 1.0f));
 	engine.mainView.setZoom(0.1f);
-
+	glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 1.0f }, green = { 0.0f, 1.0f, 0.0f, 1.0f },
+		black = { 0.0f, 0.0f, 0.0f, 1.0f }, yellow = { 1.0f, 1.0f, 0.0f, 1.0f };
 
 	while (engine.window.IsOpen()) {
 		engine.BeginFrame();
@@ -42,29 +34,22 @@ int main() {
 		}
 		moveView(engine);
 
-		glm::vec2 mousePos = engine.input.getMouseWorldPos(engine.mainView);
-
-		glm::vec2 bottomLeft = engine.input.pixelToWorld({ 0.0f, 0.0f }, engine.mainView);
-		glm::vec2 topRight = engine.input.pixelToWorld({ engine.width, engine.height }, engine.mainView);
-		bird.setBounds({ bottomLeft, topRight });
-		worm.setBounds({ bottomLeft, topRight });
-
-		engine.Draw(background);
-		glm::vec2 chase = worm.pos - bird.pos;
-		bird.Update(engine.deltaTime, worm.pos, worm.vel);
-		worm.Update(engine.deltaTime, bird.pos, bird.vel);
-
+		engine.Draw(Circle(10.0f, red, 100).setOutline(1.0f, black).setScale({ 2.0f, 1.0f }));
+		engine.Draw(Rect({ 10.0f, 6.0f }, blue).setPosition({ 20.0f, 0.0f }).setOutline(-0.1f, yellow));
+		engine.Draw(Line({ 1.0f, 4.0f }, { 10.0f, -6.0f }, 1.0f, black).setOutline(1.0f, red));
+		//engine.Draw(Point(red, 2.0f).setPosition({ 50.0f, 20.0f }));
+		//engine.Draw(RoundedRect({ 20.0f, 16.0f }, 5.0f).setOutline(5.0f, red));
+		//engine.Draw(Triangle({ 20.0f, 16.0f }, { 3.0f, -15.0f}, { 1.0f, 4.0f }, blue).setOutline(5.0f, black));
 
 		ImGui::Begin("Debug");
 		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / engine.deltaTime, engine.deltaTime * 1000.0f);
-		ImGui::Text("width %i, height %i", engine.input.Width, engine.input.Height);
+		ImGui::Text("Average FPS: %f", engine.getAverageFPS());
+		ImGui::Text("width %i, height %i", engine.width, engine.height);
 		ImGui::Text("View zoom %f, input zoom %f", engine.mainView.getZoom(), engine.input.getScroll().y);
-		bird.Draw(engine.shapeRenderer);
-		worm.Draw(engine.shapeRenderer);
 		ImGui::End();
-
-
+		
 
 		engine.EndFrame();
 	}
 }
+

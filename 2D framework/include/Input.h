@@ -43,7 +43,6 @@ struct Joystick {
 
 class Input {
 public:
-	int Width{ 800 }, Height{ 600 };
 
 
 	void Update();
@@ -94,4 +93,7 @@ private:
 	std::array<bool, 8> previousMouse{ false };
 
 	static inline Input* s_Instance = nullptr;
+
+	int m_Width{ 800 }, m_Height{ 600 };
+	friend class EngineContext;
 };

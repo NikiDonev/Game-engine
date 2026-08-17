@@ -1,11 +1,9 @@
 #include "GenericBatchRenderer.h"
 
 
-void GenericBatchRenderer::Init(const VertexLayout& vertexLayout, 
-	uint32_t maxObjects, uint32_t verticesPerObject, uint32_t indicesPerObject) {
-	MAX_OBJECTS = maxObjects;
-	maxVertices = MAX_OBJECTS * verticesPerObject;
-	maxIndices = MAX_OBJECTS * indicesPerObject;
+void GenericBatchRenderer::Init(const VertexLayout& vertexLayout, uint32_t MaxObjects, uint32_t verticesPerObject, uint32_t indicesPerObject) {
+	maxVertices = MaxObjects * verticesPerObject;
+	maxIndices = MaxObjects * indicesPerObject;
 	layout = vertexLayout;
 
 
@@ -39,9 +37,9 @@ void GenericBatchRenderer::Init(const VertexLayout& vertexLayout,
 
 
 void GenericBatchRenderer::PushGeometry(const void* vertexData, uint32_t vertexCount, const uint32_t* indexData, uint32_t indexCount) {
-	uint32_t currentVertexCount = vertexBuffer.size() / layout.size;
 	if (currentVertexCount + vertexCount > maxVertices || indexBuffer.size() + indexCount > maxIndices) {
 		Flush();
+		flushCount++;
 	}
 
 	uint32_t newVerticesSize = vertexCount * layout.size;
@@ -49,9 +47,9 @@ void GenericBatchRenderer::PushGeometry(const void* vertexData, uint32_t vertexC
 	vertexBuffer.insert(vertexBuffer.end(), bytePointer, bytePointer + newVerticesSize);
 
 	for (int i = 0; i < indexCount; ++i) {
-		indexBuffer.push_back(indexData[i] + currentIndexCount);
+		indexBuffer.push_back(indexData[i] + currentVertexCount);
 	}
-	currentIndexCount += vertexCount;
+	currentVertexCount += vertexCount;
 }
 
 
@@ -71,6 +69,6 @@ void GenericBatchRenderer::Flush() {
 
 	vertexBuffer.clear();
 	indexBuffer.clear();
-	currentIndexCount = 0;
+	currentVertexCount = 0;
 }
 

@@ -17,7 +17,6 @@ struct SpriteVertex {
 
 
 
-
 struct Sprite : public Transformable {
 public:
     glm::vec4 color{ 1.0f };

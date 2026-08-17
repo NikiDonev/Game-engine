@@ -24,12 +24,14 @@ public:
 	float deltaTime = 0.0f;
 	float lastFrame = 0.0f;
 
-	const int& width = input.Width;
-	const int& height = input.Height;
+	uint32_t frameCount = 0;
+
+	const int& width = input.m_Width;
+	const int& height = input.m_Height;
 
 	void Initialize(int width, int height, const char* title) {
-		input.Width = width;
-		input.Height = height = height;
+		input.m_Width = width;
+		input.m_Height = height = height;
 		window.Init(width, height, title);
 		mainView.setSize((float)width, (float)height);
 
@@ -49,6 +51,7 @@ public:
 		time = currentFrame;
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
+		frameCount++;
 
 
 		ImGui_ImplOpenGL3_NewFrame();
@@ -75,5 +78,9 @@ public:
 	}
 	void Draw(const Sprite& sprite) {
 		spriteRenderer.Add(sprite);
+	}
+
+	float getAverageFPS() {
+		return (float)frameCount / time;
 	}
 };

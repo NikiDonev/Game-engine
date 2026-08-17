@@ -4,6 +4,7 @@
 #include "Sprite.h"
 
 
+
 class SpriteRenderer {
 public:
 	VertexLayout spriteLayout;

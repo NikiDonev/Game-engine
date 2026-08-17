@@ -29,13 +29,14 @@ struct VertexLayout {
 
 class GenericBatchRenderer {
 public:
-	uint32_t MAX_OBJECTS = 2000;
-	uint32_t maxVertices = MAX_OBJECTS * 4;
-	uint32_t maxIndices = MAX_OBJECTS * 6;
-	uint32_t currentIndexCount = 0;
+	int flushCount = 0;
+	uint32_t maxObjects = 2000;
+	uint32_t maxVertices = maxObjects * 4;
+	uint32_t maxIndices = maxObjects * 6;
+	uint32_t currentIndexCount = 0, currentVertexCount = 0;
 	uint32_t currentShaderID{};
 
-	void Init(const VertexLayout& vertexLayout, uint32_t maxObjects = 2000, uint32_t verticesPerObject = 4, uint32_t indicesPerObject = 6);
+	void Init(const VertexLayout& vertexLayout, uint32_t MaxObjects = 2000, uint32_t verticesPerObject = 4, uint32_t indicesPerObject = 6);
 
 	void PushGeometry(const void* vertexData, uint32_t vertexCount, const uint32_t* indexData, uint32_t indexCount);
 

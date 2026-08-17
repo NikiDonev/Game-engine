@@ -1,4 +1,5 @@
 #include "Input.h"
+#include <iostream>
 
 void Input::Update() {
 	previousKeys = currentKeys;
@@ -51,7 +52,7 @@ glm::vec2 Input::getMousePixelPos() {
 }
 
 glm::vec2 Input::pixelToWorld(glm::vec2 pixelCoords, const View& view) {
-	int windowWidth = Width, windowHeight = Height;
+	int windowWidth = m_Width, windowHeight = m_Height;
 	if (windowWidth == 0 || windowHeight == 0) return glm::vec2(0.0f);
 
 	float ndcX = (2.0f * pixelCoords.x / windowWidth) - 1.0f;  	// Convert screen pixels to NDC
@@ -131,8 +132,8 @@ void Input::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset) {
 
 void Input::WindowSizeCallback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);
-	Width = width;
-	Height = height;
+	m_Width = width;
+	m_Height = height;
 }
 
 void Input::JoystickCallback(int jid, int event) {
