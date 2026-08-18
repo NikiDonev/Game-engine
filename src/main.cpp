@@ -22,12 +22,11 @@ int main() {
 	engine.Initialize(800, 600, "2D game engine");
 
 
-	Ref<Texture> moss = engine.resourceManager.Load<Texture>(RESOURCES_PATH "mosse.png");
+	Ref<Texture> moss = engine.resourceManager.Load<Texture>(RESOURCES_PATH "moss.png", GL_REPEAT, GL_LINEAR);
 	uint8_t data[4] = { 255, 0, 0, 255 };
 	Ref<Texture> custom = engine.resourceManager.Load<Texture>("runtime://custom", data, 1, 1, 4);
 	Ref<Texture> white = Texture::GetWhiteTexture();
-	Ref<Texture> error = Texture::GetErrorTexture();
-	Sprite background({ 500.0f, 500.0f }, custom->GetID());
+	Sprite background({ 500.0f, 500.0f }, moss);
 
 	engine.mainView.setZoom(0.1f);
 	glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 1.0f }, green = { 0.0f, 1.0f, 0.0f, 1.0f },

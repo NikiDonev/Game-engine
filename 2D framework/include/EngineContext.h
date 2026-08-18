@@ -5,7 +5,6 @@
 #include "Input.h"
 #include "SpriteRenderer.h"
 #include "ShapeRenderer.h"
-#include "TextureManager.h"
 #include "ResourceManager.h"
 
 
@@ -17,7 +16,6 @@ public:
 
 	StateManager stateManager;
 	ResourceManager resourceManager;
-	TextureManager textureManager;
 
 	SpriteRenderer spriteRenderer;
 	ShapeRenderer shapeRenderer;
@@ -40,7 +38,10 @@ public:
 
 		input.SetupCallbacks(window.glfwWindow);
 
+		spriteRenderer.defaultShader = resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
 		spriteRenderer.Init();
+
+		shapeRenderer.defaultShader = resourceManager.Load<Shader>(SHADERS "shape.vert", SHADERS "SHAPE.frag");
 		shapeRenderer.Init();
 	}
 

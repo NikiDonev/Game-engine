@@ -4,11 +4,13 @@
 Texture::Texture(const std::string& filePath, GLint wrap, GLint filter)
 	: m_Path(filePath), m_Wrap(wrap), m_Filter(filter) {
 	LoadFromFile(filePath.c_str());
+	std::cout << "Creating texture from file" << std::endl;
 }
 
 Texture::Texture(const std::string& virtualPath, uint8_t* data, int width, int height, int channels, GLint wrap, GLint filter)
 	: m_Path(virtualPath), m_Width(width), m_Height(height), m_Wrap(wrap), m_Filter(filter) {
 	LoadFromData(data, channels);
+	std::cout << "Creating texture from data" << std::endl;
 }
 
 Texture::~Texture() {

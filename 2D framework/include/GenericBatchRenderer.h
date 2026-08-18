@@ -11,7 +11,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "View.h"
-#include "shader.h"
+#include "Shader.h"
 
 
 struct VertexAttribute {

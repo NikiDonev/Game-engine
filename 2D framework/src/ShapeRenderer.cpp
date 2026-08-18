@@ -2,7 +2,6 @@
 #include <iostream>
 
 void ShapeRenderer::Init() {
-	defaultShader.create(SHADERS "shape.vert", SHADERS "SHAPE.frag");
 
 	shapeLayout.size = sizeof(ShapeVertex);
 	shapeLayout.attributes = {
@@ -79,8 +78,8 @@ void ShapeRenderer::Add(const Shape& shape) {
 void ShapeRenderer::Draw() {
 	renderer.flushCount = 0;
 	glm::mat4 viewProj = view.getViewProjMatrix();
-	defaultShader.use();
-	defaultShader.setMat4("viewProj", viewProj);
+	defaultShader->use();
+	defaultShader->setMat4("viewProj", viewProj);
 
 	renderer.Flush();
 }

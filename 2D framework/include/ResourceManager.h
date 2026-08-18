@@ -8,10 +8,6 @@
 template <typename T>
 using Ref = std::shared_ptr<T>;
 
-template <typename T>
-using LoaderFunc = std::function<Ref<T>(const std::string&)>;
-
-
 
 class ResourceManager {
 public:

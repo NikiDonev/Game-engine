@@ -4,21 +4,20 @@
 #include "Sprite.h"
 
 
-
 class SpriteRenderer {
 public:
 	VertexLayout spriteLayout;
-	uint32_t emptyTexture{};
 	uint32_t currTexIndex{};
 
-	Shader defaultShader;
+
+	Ref<Shader> defaultShader;
 	View view;
+	std::array<Ref<Texture>, 16> textureRefs{};
 	std::array<uint32_t, 16> textureIDs{ 0 };
 	GenericBatchRenderer renderer;
 	SpriteRenderer() {
 	}
 	void Init() {
-		defaultShader.create(SHADERS "sprite.vert", SHADERS "sprite.frag");
 
 		spriteLayout.size = sizeof(SpriteVertex);
 		spriteLayout.attributes = {
@@ -29,13 +28,11 @@ public:
 		};
 		renderer.Init(spriteLayout);
 
-		defaultShader.use();
+		defaultShader->use();
 		for (int i = 0; i < 16; ++i) {
 			std::string textureUniform = "textures[" + std::to_string(i) + "]";
-			defaultShader.setInt(textureUniform, i);
+			defaultShader->setInt(textureUniform, i);
 		}
-
-		//emptyTexture = TextureManager::Get().createTexture(1, 1, GL_RGB);
 	}
 	glm::vec2 transformPosition(const Transformable& transformable, glm::vec2 position) {
 		if (abs(transformable.getRotation()) < 0.001f) {
@@ -51,19 +48,25 @@ public:
 	void Add(const Sprite& sprite) {
 		//if (!IsOnScreen(sprite)) return;
 		SpriteVertex quadVertices[4];
-		uint32_t spriteTexture = sprite.textureID;
-		if (spriteTexture == 0) spriteTexture = emptyTexture;
+		Ref<Texture> spriteTexture;
+		if (sprite.texture) {
+			spriteTexture = sprite.texture;
+		}
+		else {
+			spriteTexture = Texture::GetWhiteTexture();
+		}
 
-		auto it = std::find(textureIDs.begin(), textureIDs.begin() + currTexIndex, spriteTexture);
+		auto it = std::find(textureRefs.begin(), textureRefs.begin() + currTexIndex, spriteTexture);
 		uint32_t slot;
 
-		if (it == textureIDs.begin() + currTexIndex) {
+		if (it == textureRefs.begin() + currTexIndex) {
 			slot = currTexIndex;
-			textureIDs[currTexIndex] = spriteTexture;
+			textureRefs[currTexIndex] = spriteTexture;
+			//textureIDs[currTexIndex] = spriteTextureID;
 			currTexIndex++;
 		}
 		else {
-			slot = std::distance(textureIDs.begin(), it);
+			slot = std::distance(textureRefs.begin(), it);
 		}
 
 		quadVertices[0] = { transformPosition(sprite, {-0.5f, -0.5f}), sprite.color, {0.0f, 0.0f}, (float)slot };
@@ -98,16 +101,16 @@ public:
 	void Draw() {
 
 		glm::mat4 viewProj = view.getViewProjMatrix();
-		defaultShader.use();
-		defaultShader.setMat4("viewProj", viewProj);
+		defaultShader->use();
+		defaultShader->setMat4("viewProj", viewProj);
 
 		for (int i = 0; i < currTexIndex; ++i) {
 			glActiveTexture(GL_TEXTURE0 + i);
-			glBindTexture(GL_TEXTURE_2D, textureIDs[i]);
+			glBindTexture(GL_TEXTURE_2D, textureRefs[i]->GetID());
 		}
 		renderer.Flush();
-
-		std::fill(textureIDs.begin(), textureIDs.end(), 0);
+		for (auto& ref : textureRefs)
+			ref = nullptr;
 		currTexIndex = 0;
 	}
 

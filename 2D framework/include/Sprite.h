@@ -6,6 +6,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "View.h"
+#include "Texture.h"
 
 struct SpriteVertex {
 	glm::vec2 position;
@@ -15,21 +16,19 @@ struct SpriteVertex {
 };
 
 
-
-
 struct Sprite : public Transformable {
 public:
     glm::vec4 color{ 1.0f };
-    uint32_t textureID{};
+    Ref<Texture> texture;
 
     Sprite() {}
-    Sprite(const glm::vec2& size, uint32_t texture, glm::vec4 Color = glm::vec4(1.0f))
-        : textureID(texture), color(Color) {
+    Sprite(const glm::vec2& size, Ref<Texture> textureRef = nullptr, glm::vec4 Color = glm::vec4(1.0f))
+        : texture(textureRef), color(Color) {
         setScale(size);
     }
 
     Sprite& setColor(glm::vec4 Color) { color = Color; return *this; }
-    Sprite& setTexture(uint32_t texture) { textureID = texture; return *this; }
+    Sprite& setTexture(Ref<Texture> textureRef) { texture = textureRef; return *this; }
 
     Sprite& setPosition(const glm::vec2& pos) { Transformable::setPosition(pos); return *this; }
     Sprite& setRotation(float degrees) { Transformable::setRotation(degrees); return *this; }

@@ -3,12 +3,13 @@
 #include "GenericBatchRenderer.h"
 #include "Sprite.h"
 #include "Shape.h"
+#include "Shader.h"
 
 
 class ShapeRenderer {
 public:
 	VertexLayout shapeLayout;
-	Shader defaultShader;
+	Ref<Shader> defaultShader;
 	View view;
 	GenericBatchRenderer renderer;
 	void Init();

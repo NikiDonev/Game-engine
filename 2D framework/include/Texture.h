@@ -9,6 +9,9 @@
 #include <memory>
 
 
+template <typename T>
+using Ref = std::shared_ptr<T>;
+
 class Texture {
 public:
 	Texture(const std::string& filePath, GLint wrap = GL_REPEAT, GLint filter = GL_NEAREST);
