@@ -1,5 +1,4 @@
 #include "TextureManager.h"
-#include "TextureManager.h"
 
 
 TextureManager::~TextureManager() {

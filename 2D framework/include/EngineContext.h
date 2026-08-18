@@ -6,6 +6,7 @@
 #include "SpriteRenderer.h"
 #include "ShapeRenderer.h"
 #include "TextureManager.h"
+#include "ResourceManager.h"
 
 
 struct EngineContext {
@@ -15,6 +16,7 @@ public:
 	Input input;
 
 	StateManager stateManager;
+	ResourceManager resourceManager;
 	TextureManager textureManager;
 
 	SpriteRenderer spriteRenderer;

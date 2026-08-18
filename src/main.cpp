@@ -1,4 +1,5 @@
 #include "EngineContext.h"
+#include "Texture.h"
 
 float prevFactor = 0.0f;
 
@@ -15,12 +16,18 @@ void moveView(EngineContext& engine) {
 	prevFactor = factor;
 }
 
+
 int main() {
 	EngineContext engine;
 	engine.Initialize(800, 600, "2D game engine");
 
-	uint32_t mossTexture = engine.textureManager.loadTexture(RESOURCES_PATH "moss.png");
-	Sprite background({ 500.0f, 500.0f }, mossTexture);
+
+	Ref<Texture> moss = engine.resourceManager.Load<Texture>(RESOURCES_PATH "mosse.png");
+	uint8_t data[4] = { 255, 0, 0, 255 };
+	Ref<Texture> custom = engine.resourceManager.Load<Texture>("runtime://custom", data, 1, 1, 4);
+	Ref<Texture> white = Texture::GetWhiteTexture();
+	Ref<Texture> error = Texture::GetErrorTexture();
+	Sprite background({ 500.0f, 500.0f }, custom->GetID());
 
 	engine.mainView.setZoom(0.1f);
 	glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 1.0f }, green = { 0.0f, 1.0f, 0.0f, 1.0f },
@@ -34,12 +41,10 @@ int main() {
 		}
 		moveView(engine);
 
+		engine.Draw(background);
 		engine.Draw(Circle(10.0f, red, 100).setOutline(1.0f, black).setScale({ 2.0f, 1.0f }));
 		engine.Draw(Rect({ 10.0f, 6.0f }, blue).setPosition({ 20.0f, 0.0f }).setOutline(-0.1f, yellow));
 		engine.Draw(Line({ 1.0f, 4.0f }, { 10.0f, -6.0f }, 1.0f, black).setOutline(1.0f, red));
-		//engine.Draw(Point(red, 2.0f).setPosition({ 50.0f, 20.0f }));
-		//engine.Draw(RoundedRect({ 20.0f, 16.0f }, 5.0f).setOutline(5.0f, red));
-		//engine.Draw(Triangle({ 20.0f, 16.0f }, { 3.0f, -15.0f}, { 1.0f, 4.0f }, blue).setOutline(5.0f, black));
 
 		ImGui::Begin("Debug");
 		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / engine.deltaTime, engine.deltaTime * 1000.0f);
