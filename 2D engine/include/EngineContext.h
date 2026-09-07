@@ -6,7 +6,8 @@
 #include "SpriteRenderer.h"
 #include "ShapeRenderer.h"
 #include "ResourceManager.h"
-
+#include "RenderQueue.h"
+#include "sRenderer.h"
 
 struct EngineContext {
 public:
@@ -17,8 +18,13 @@ public:
 	StateManager stateManager;
 	ResourceManager resourceManager;
 
-	SpriteRenderer spriteRenderer;
-	ShapeRenderer shapeRenderer;
+	RenderQueue renderQueue;
+	SRenderer shapeRenderer;
+	//SpriteRenderer spriteRenderer;
+	//ShapeRenderer shapeRenderer;
+
+	Ref<Shader> shapeShader;
+	Ref<Shader> spriteShader;
 
 	float time = 0.0f;
 	float deltaTime = 0.0f;
@@ -31,18 +37,19 @@ public:
 
 	void Initialize(int width, int height, const char* title) {
 		input.m_Width = width;
-		input.m_Height = height = height;
+		input.m_Height = height;
 		window.Init(width, height, title);
 		mainView.setSize((float)width, (float)height);
 
 
 		input.SetupCallbacks(window.glfwWindow);
 
-		spriteRenderer.defaultShader = resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
-		spriteRenderer.Init();
+		renderQueue.Init();
+		shapeRenderer.Init(&renderQueue);
+		spriteShader = resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
 
-		shapeRenderer.defaultShader = resourceManager.Load<Shader>(SHADERS "shape.vert", SHADERS "SHAPE.frag");
-		shapeRenderer.Init();
+		shapeShader = resourceManager.Load<Shader>(SHADERS "shape.vert", SHADERS "SHAPE.frag");
+
 	}
 
 	void BeginFrame() {
@@ -63,11 +70,8 @@ public:
 	}
 
 	void EndFrame() {
-		spriteRenderer.setView(mainView);
-		shapeRenderer.setView(mainView);
-		spriteRenderer.Draw();
-		shapeRenderer.Draw();
 
+		renderQueue.Execute(mainView);
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -77,11 +81,9 @@ public:
 	}
 
 	void Draw(const Shape& shape) {
-		shapeRenderer.Add(shape);
+		shapeRenderer.Draw(shape, shapeShader);
 	}
-	void Draw(const Sprite& sprite) {
-		spriteRenderer.Add(sprite);
-	}
+
 
 	float getAverageFPS() {
 		return (float)frameCount / time;

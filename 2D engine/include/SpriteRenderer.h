@@ -2,6 +2,7 @@
 
 #include "GenericBatchRenderer.h"
 #include "Sprite.h"
+#include "TextureAtlas.h"
 
 
 class SpriteRenderer {
@@ -13,7 +14,6 @@ public:
 	Ref<Shader> defaultShader;
 	View view;
 	std::array<Ref<Texture>, 16> textureRefs{};
-	std::array<uint32_t, 16> textureIDs{ 0 };
 	GenericBatchRenderer renderer;
 	SpriteRenderer() {
 	}
@@ -45,6 +45,20 @@ public:
 	void setView(const View& newView) {
 		view = newView;
 	}
+	uint32_t getTextureSlot(Ref<Texture> spriteTexture) {
+		auto it = std::find(textureRefs.begin(), textureRefs.begin() + currTexIndex, spriteTexture);
+		uint32_t slot;
+
+		if (it == textureRefs.begin() + currTexIndex) {
+			slot = currTexIndex;
+			textureRefs[currTexIndex] = spriteTexture;
+			currTexIndex++;
+		}
+		else {
+			slot = std::distance(textureRefs.begin(), it);
+		}
+		return slot;
+	}
 	void Add(const Sprite& sprite) {
 		//if (!IsOnScreen(sprite)) return;
 		SpriteVertex quadVertices[4];
@@ -56,28 +70,19 @@ public:
 			spriteTexture = Texture::GetWhiteTexture();
 		}
 
-		auto it = std::find(textureRefs.begin(), textureRefs.begin() + currTexIndex, spriteTexture);
-		uint32_t slot;
+		uint32_t slot = getTextureSlot(spriteTexture);
+		const auto& texCoords = sprite.getTexCoords();
 
-		if (it == textureRefs.begin() + currTexIndex) {
-			slot = currTexIndex;
-			textureRefs[currTexIndex] = spriteTexture;
-			//textureIDs[currTexIndex] = spriteTextureID;
-			currTexIndex++;
-		}
-		else {
-			slot = std::distance(textureRefs.begin(), it);
-		}
-
-		quadVertices[0] = { transformPosition(sprite, {-0.5f, -0.5f}), sprite.color, {0.0f, 0.0f}, (float)slot };
-		quadVertices[1] = { transformPosition(sprite, { 0.5f, -0.5f}), sprite.color, {1.0f, 0.0f}, (float)slot };
-		quadVertices[2] = { transformPosition(sprite, {-0.5f,  0.5f}), sprite.color, {0.0f, 1.0f}, (float)slot };
-		quadVertices[3] = { transformPosition(sprite, { 0.5f,  0.5f}), sprite.color, {1.0f, 1.0f}, (float)slot };
+		quadVertices[0] = { transformPosition(sprite, {-0.5f, -0.5f}), sprite.color, { texCoords.x, texCoords.y }, (float)slot };
+		quadVertices[1] = { transformPosition(sprite, { 0.5f, -0.5f}), sprite.color, { texCoords.z, texCoords.y }, (float)slot };
+		quadVertices[2] = { transformPosition(sprite, {-0.5f,  0.5f}), sprite.color, { texCoords.x, texCoords.w }, (float)slot };
+		quadVertices[3] = { transformPosition(sprite, { 0.5f,  0.5f}), sprite.color, { texCoords.z, texCoords.w }, (float)slot };
 
 
 		uint32_t quadIndices[6] = { 0, 1, 2, 1, 3, 2 };
 		renderer.PushGeometry(&quadVertices, 4, quadIndices, 6);
 	}
+
 	bool IsOnScreen(const Sprite& sprite) {
 		glm::vec2 camPos = view.getPosition();
 		glm::vec2 halfView = view.getSize() / 2.0f;
@@ -99,7 +104,7 @@ public:
 	}
 
 	void Draw() {
-
+		//renderer.flushCount = 0;
 		glm::mat4 viewProj = view.getViewProjMatrix();
 		defaultShader->use();
 		defaultShader->setMat4("viewProj", viewProj);

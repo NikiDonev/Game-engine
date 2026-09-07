@@ -4,6 +4,7 @@
 #include "Sprite.h"
 #include "Shape.h"
 #include "Shader.h"
+#include "BatchRenderer.h"
 
 
 class ShapeRenderer {
@@ -11,7 +12,7 @@ public:
 	VertexLayout shapeLayout;
 	Ref<Shader> defaultShader;
 	View view;
-	GenericBatchRenderer renderer;
+	BatchRenderer renderer;
 	void Init();
 
 	glm::vec2 transformPosition(const Transformable& transformable, glm::vec2 position);

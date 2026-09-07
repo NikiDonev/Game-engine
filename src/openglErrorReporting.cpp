@@ -1,85 +1,92 @@
 #include "openglErrorReporting.h"
 #include <iostream>
+#include <windows.h>
+#include <dbghelp.h>
 
-GLenum glCheckError_(const char* file, int line)
+#pragma comment(lib, "dbghelp.lib")
+
+std::string TranslateGlDebugId(unsigned int id)
 {
-	GLenum errorCode;
-	while ((errorCode = glGetError()) != GL_NO_ERROR)
-	{
-		std::string error;
-		switch (errorCode)
-		{
-		case GL_INVALID_ENUM:                  error = "INVALID_ENUM"; break;
-		case GL_INVALID_VALUE:                 error = "INVALID_VALUE"; break;
-		case GL_INVALID_OPERATION:             error = "INVALID_OPERATION"; break;
-		case GL_STACK_OVERFLOW:                error = "STACK_OVERFLOW"; break;
-		case GL_STACK_UNDERFLOW:               error = "STACK_UNDERFLOW"; break;
-		case GL_OUT_OF_MEMORY:                 error = "OUT_OF_MEMORY"; break;
-		case GL_INVALID_FRAMEBUFFER_OPERATION: error = "INVALID_FRAMEBUFFER_OPERATION"; break;
-		}
-		std::cout << error << " | " << file << " (" << line << ")" << std::endl;
-	}
-	return errorCode;
+    switch (id) {
+    case 0x0500: return "GL_INVALID_ENUM";
+    case 0x0501: return "GL_INVALID_VALUE";
+    case 0x0502: return "GL_INVALID_OPERATION";
+    case 0x0503: return "GL_STACK_OVERFLOW";
+    case 0x0504: return "GL_STACK_UNDERFLOW";
+    case 0x0505: return "GL_OUT_OF_MEMORY";
+    case 0x0506: return "GL_INVALID_FRAMEBUFFER_OPERATION";
+    case 0x824C: return "GL_CONTEXT_LOST";
+    default:     return "Driver-Specific ID (" + std::to_string(id) + ")";
+    }
 }
 
-
-
-//https://learnopengl.com/In-Practice/Debugging
-void GLAPIENTRY glDebugOutput(GLenum source,
-	GLenum type,
-	unsigned int id,
-	GLenum severity,
-	GLsizei length,
-	const char* message,
-	const void* userParam)
+void PrintCppSourceLineTrace()
 {
-	// ignore non-significant error/warning codes
-	if (id == 131169 || id == 131185 || id == 131218 || id == 131204
-		|| id == 131222
-		) return;
-	if (type == GL_DEBUG_TYPE_PERFORMANCE) return;
+    HANDLE process = GetCurrentProcess();
 
-	std::cout << "---------------" << std::endl;
-	std::cout << "Debug message (" << id << "): " << message << std::endl;
+    // FIX: Allocated a real array to hold the stack frame addresses
+    void* stack[32];
+    USHORT frames = CaptureStackBackTrace(0, 32, stack, NULL);
 
-	switch (source)
-	{
-	case GL_DEBUG_SOURCE_API:             std::cout << "Source: API"; break;
-	case GL_DEBUG_SOURCE_WINDOW_SYSTEM:   std::cout << "Source: Window System"; break;
-	case GL_DEBUG_SOURCE_SHADER_COMPILER: std::cout << "Source: Shader Compiler"; break;
-	case GL_DEBUG_SOURCE_THIRD_PARTY:     std::cout << "Source: Third Party"; break;
-	case GL_DEBUG_SOURCE_APPLICATION:     std::cout << "Source: Application"; break;
-	case GL_DEBUG_SOURCE_OTHER:           std::cout << "Source: Other"; break;
-	} std::cout << std::endl;
+    IMAGEHLP_LINE64 line;
+    ZeroMemory(&line, sizeof(IMAGEHLP_LINE64));
+    line.SizeOfStruct = sizeof(IMAGEHLP_LINE64);
+    DWORD displacement;
 
-	switch (type)
-	{
-	case GL_DEBUG_TYPE_ERROR:               std::cout << "Type: Error"; break;
-	case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR: std::cout << "Type: Deprecated Behaviour"; break;
-	case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:  std::cout << "Type: Undefined Behaviour"; break;
-	case GL_DEBUG_TYPE_PORTABILITY:         std::cout << "Type: Portability"; break;
-	case GL_DEBUG_TYPE_PERFORMANCE:         std::cout << "Type: Performance"; break;
-	case GL_DEBUG_TYPE_MARKER:              std::cout << "Type: Marker"; break;
-	case GL_DEBUG_TYPE_PUSH_GROUP:          std::cout << "Type: Push Group"; break;
-	case GL_DEBUG_TYPE_POP_GROUP:           std::cout << "Type: Pop Group"; break;
-	case GL_DEBUG_TYPE_OTHER:               std::cout << "Type: Other"; break;
-	} std::cout << std::endl;
+    std::cout << "\n--- CALL STACK TRACE ---" << std::endl;
+    bool foundYourCode = false;
 
-	switch (severity)
-	{
-	case GL_DEBUG_SEVERITY_HIGH:         std::cout << "Severity: high"; break;
-	case GL_DEBUG_SEVERITY_MEDIUM:       std::cout << "Severity: medium"; break;
-	case GL_DEBUG_SEVERITY_LOW:          std::cout << "Severity: low"; break;
-	case GL_DEBUG_SEVERITY_NOTIFICATION: std::cout << "Severity: notification"; break;
-	} std::cout << std::endl;
-	std::cout << std::endl;
+    for (USHORT i = 0; i < frames; ++i)
+    {
+        // Translate each frame address to a file and line number
+        if (SymGetLineFromAddr64(process, (DWORD64)(stack[i]), &displacement, &line))
+        {
+            std::string file(line.FileName);
 
+            // Skip the error reporting files themselves to find your game code
+            if (file.find("openglErrorReporting") == std::string::npos &&
+                file.find("vctools") == std::string::npos)
+            {
+                std::cout << "  -> " << file << " (Line: " << line.LineNumber << ")" << std::endl;
+                foundYourCode = true;
+            }
+        }
+    }
+
+    if (!foundYourCode) {
+        std::cout << "  (Could not resolve symbols for these frames. Ensure your PDB matches.)" << std::endl;
+    }
+    std::cout << "------------------------\n" << std::endl;
 }
+
+void GLAPIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id, GLenum severity,
+    GLsizei length, const char* message, const void* userParam)
+{
+    // Filter out common background noise codes so it doesn't spam your terminal
+    if (id == 131169 || id == 131185 || id == 131218 || id == 131204 || id == 131222) return;
+    if (type == GL_DEBUG_TYPE_PERFORMANCE) return;
+
+    std::cout << "\n================= OPENGL CRASH BREAKPOINT =================" << std::endl;
+    std::cout << "Driver Message: " << message << std::endl;
+    std::cout << "===========================================================\n" << std::endl;
+
+    // FORCE VISUAL STUDIO TO STOP HERE INDEPENDENT OF INTEL SYMBOLS
+    int* crashPointer = nullptr;
+    *crashPointer = 0xDEAD;
+}
+
 
 void enableReportGlErrors()
 {
-	glEnable(GL_DEBUG_OUTPUT);
-	glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-	glDebugMessageCallback(glDebugOutput, nullptr);
-	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+    HANDLE process = GetCurrentProcess();
+
+    SymSetOptions(SYMOPT_LOAD_LINES | SYMOPT_DEFERRED_LOADS);
+
+    // Passing TRUE forces Windows to hunt down your project's local debug symbols (.pdb)
+    SymInitialize(process, NULL, TRUE);
+
+    glEnable(GL_DEBUG_OUTPUT);
+    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+    glDebugMessageCallback(glDebugOutput, nullptr);
+    glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 }

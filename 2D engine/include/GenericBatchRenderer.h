@@ -15,15 +15,27 @@
 
 
 struct VertexAttribute {
-	uint32_t count;
-	uint32_t type;
-	bool normalized;
-	uint32_t offset;
+	uint32_t count{};
+	uint32_t type{};
+	bool normalized{};
+	uint32_t offset{};
+	bool operator==(const VertexAttribute& other) const{
+		return ((count == other.count) && (type == other.type) && (normalized == other.normalized) && (offset == other.offset));
+	}
 };
 
 struct VertexLayout {
 	std::vector<VertexAttribute> attributes;
-	uint32_t size;
+	uint32_t size{};
+
+	bool operator==(const VertexLayout& other) const{
+		if (size != other.size) return false;
+		if (attributes != other.attributes) return false;
+		return true;
+	}
+	bool operator!=(const VertexLayout& other) const {
+		return !(*this == other);
+	}
 };
 
 

@@ -13,6 +13,26 @@
 template <typename T>
 using Ref = std::shared_ptr<T>;
 
+
+struct Uniform {
+	std::string name;
+	const void* data = nullptr;
+	uint32_t size{};
+};
+
+struct UniformPacket {
+	std::vector<Uniform> uniforms;
+
+	template <typename T>
+	void Add(const std::string& name, const T& value) {
+		Uniform uniform;
+		uniform.name = name;
+		uniform.data = &value;
+		uniform.size = sizeof(value);
+		uniforms.push_back(uniform);
+	}
+};
+
 enum class ShaderType {
 	Vertex,
 	Fragment,
@@ -74,7 +94,7 @@ public:
 		glUniform4f(getUniformLocation(name), x, y, z, w);
 	}
 	void setMat2(const std::string& name, const glm::mat2& mat) {
-		glUniformMatrix2fv(getUniformLocation( name), 1, GL_FALSE, &mat[0][0]);
+		glUniformMatrix2fv(getUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
 	}
 	void setMat3(const std::string& name, const glm::mat3& mat){
 		glUniformMatrix3fv(getUniformLocation(name), 1, GL_FALSE, &mat[0][0]);

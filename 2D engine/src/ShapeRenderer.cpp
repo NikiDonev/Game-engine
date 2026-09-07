@@ -9,7 +9,7 @@ void ShapeRenderer::Init() {
 		{4, GL_FLOAT, GL_FALSE, offsetof(ShapeVertex, color)}
 	};
 
-	renderer.Init(shapeLayout);
+	renderer.Init();
 }
 
 glm::vec2 ShapeRenderer::transformPosition(const Transformable& transformable, glm::vec2 position) {
@@ -70,16 +70,17 @@ void ShapeRenderer::Add(const Shape& shape) {
 	renderer.PushGeometry(
 		transformedVertices.data(),
 		transformedVertices.size(),
+		shapeLayout.size,
 		shape.indices.data(),
 		shape.indices.size()
 	);
 }
 
 void ShapeRenderer::Draw() {
-	renderer.flushCount = 0;
+	//renderer.flushCount = 0;
 	glm::mat4 viewProj = view.getViewProjMatrix();
 	defaultShader->use();
 	defaultShader->setMat4("viewProj", viewProj);
 
-	renderer.Flush();
+	renderer.Flush(shapeLayout);
 }

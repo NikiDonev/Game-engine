@@ -1,6 +1,9 @@
 #include "Texture.h"
 
 
+Ref<Texture> s_WhiteTexture;
+Ref<Texture> s_ErrorTexture;
+
 Texture::Texture(const std::string& filePath, GLint wrap, GLint filter)
 	: m_Path(filePath), m_Wrap(wrap), m_Filter(filter) {
 	LoadFromFile(filePath.c_str());
@@ -36,8 +39,8 @@ Texture& Texture::operator=(Texture&& other) noexcept {
 }
 
 std::shared_ptr<Texture> Texture::GetWhiteTexture() {
-	std::shared_ptr<Texture> s_WhiteTexture = nullptr;
 	if (!s_WhiteTexture) {
+		std::cout << "Creating new white texture" << std::endl;
 		uint8_t data[4] = { 255, 255, 255, 255 };
 		s_WhiteTexture = std::make_shared<Texture>("runtime://white_texture", data, 1, 1, 4, GL_REPEAT, GL_NEAREST);
 	}
@@ -45,7 +48,6 @@ std::shared_ptr<Texture> Texture::GetWhiteTexture() {
 }
 
 std::shared_ptr<Texture> Texture::GetErrorTexture() {
-	std::shared_ptr<Texture> s_ErrorTexture = nullptr;
 	if (!s_ErrorTexture) {
 		uint8_t data[16] = { 
 			0  , 0  , 0  , 255, 
@@ -94,6 +96,7 @@ void Texture::LoadFromFile(const char* path) {
 		channels = 4;
 
 		m_Wrap = GL_CLAMP_TO_EDGE;
+		m_Filter = GL_NEAREST;
 		LoadFromData(errorTexture, channels);
 		return;
 	}
@@ -145,3 +148,5 @@ void Texture::Bind(uint32_t slot) const {
 void Texture::Unbind() const {
 	glBindTexture(m_TextureType, 0);
 }
+
+

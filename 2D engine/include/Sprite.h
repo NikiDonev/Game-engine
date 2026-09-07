@@ -7,6 +7,7 @@
 
 #include "View.h"
 #include "Texture.h"
+#include "TextureAtlas.h"
 
 struct SpriteVertex {
 	glm::vec2 position;
@@ -20,11 +21,16 @@ struct Sprite : public Transformable {
 public:
     glm::vec4 color{ 1.0f };
     Ref<Texture> texture;
-
+    glm::vec4 texCoords{ 0.0f, 0.0f, 1.0f, 1.0f };
     Sprite() {}
     Sprite(const glm::vec2& size, Ref<Texture> textureRef = nullptr, glm::vec4 Color = glm::vec4(1.0f))
         : texture(textureRef), color(Color) {
         setScale(size);
+    }
+    Sprite& setTexCoords(const glm::vec4& TexCoords) { texCoords = TexCoords; return *this; };
+    glm::vec4 getTexCoords() const { return texCoords; };
+    void useAtlas(const TextureAtlas& atlas, int index) {
+        setTexCoords(atlas.getTexCoords(index));
     }
 
     Sprite& setColor(glm::vec4 Color) { color = Color; return *this; }
