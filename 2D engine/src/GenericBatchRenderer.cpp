@@ -65,8 +65,10 @@ void GenericBatchRenderer::Flush() {
 
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, indexBuffer.size(), GL_UNSIGNED_INT, 0);
-	glBindVertexArray(0);
 
+
+
+	glBindVertexArray(0);
 	vertexBuffer.clear();
 	indexBuffer.clear();
 	currentVertexCount = 0;

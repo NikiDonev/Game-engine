@@ -80,7 +80,9 @@ public:
 		window.Display();
 	}
 
-	void Draw(const Shape& shape) {
+	void Draw(const Shape& shape, const View& view) {
+		shapeShader->packet.uniforms.clear();
+		shapeShader->packet.Add("viewProj", view.getProjectionMatrix());
 		shapeRenderer.Draw(shape, shapeShader);
 	}
 

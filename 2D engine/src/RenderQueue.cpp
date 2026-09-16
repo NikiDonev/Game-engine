@@ -10,14 +10,14 @@ void RenderQueue::PushCommand(RenderCommand cmd) {
 }
 
 uint64_t RenderQueue::GenerateKey(const RenderCommand& cmd){
-	return 10000 * sin(glfwGetTime());
+	return 0;
 }
 
 void RenderQueue::Execute(const View& view) {
-	if (m_Commands.empty()) return;
-	std::sort(m_Commands.begin(), m_Commands.end(), [](const RenderCommand& a, const RenderCommand& b) {
-		return a.sortKey < b.sortKey;
-		});	
+	//if (m_Commands.empty()) return;
+	//std::sort(m_Commands.begin(), m_Commands.end(), [](const RenderCommand& a, const RenderCommand& b) {
+	//	return a.sortKey < b.sortKey;
+	//	});	
 
 	int i = 0;
 	for (const RenderCommand& cmd : m_Commands) {
@@ -29,6 +29,7 @@ void RenderQueue::Execute(const View& view) {
 
 		bool shaderChanged = (m_State.shader != cmd.shader);
 		bool layoutChanged = (m_State.layout != cmd.layout);
+		//TODO: Add texture slots
 		bool textureSlotsFull = false;
 		bool bufferOverflow = m_Renderer.WillBufferOverflow(cmd.vertexCount, cmd.vertexSize, cmd.indexCount);
 
@@ -38,9 +39,10 @@ void RenderQueue::Execute(const View& view) {
 			
 			if (shaderChanged) {
 				m_State.shader = cmd.shader;
-				m_State.shader->use();
-				glm::mat4 viewProj = view.getViewProjMatrix();
-				m_State.shader->setMat4("viewProj", viewProj);
+				m_State.shader->ApplyUniforms();
+				//m_State.shader->use();
+				//glm::mat4 viewProj = view.getViewProjMatrix();
+				//m_State.shader->setMat4("viewProj", viewProj);
 			}
 			if (layoutChanged) {
 				m_State.layout = cmd.layout;

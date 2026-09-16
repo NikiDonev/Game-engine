@@ -9,27 +9,25 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <filesystem>
+#include <variant>
 
 template <typename T>
 using Ref = std::shared_ptr<T>;
 
+using UniformValue = std::variant<int, float, glm::vec2, glm::vec3, glm::vec4, glm::mat4>;
 
 struct Uniform {
 	std::string name;
-	const void* data = nullptr;
-	uint32_t size{};
+	UniformValue value;
 };
+
 
 struct UniformPacket {
 	std::vector<Uniform> uniforms;
 
 	template <typename T>
 	void Add(const std::string& name, const T& value) {
-		Uniform uniform;
-		uniform.name = name;
-		uniform.data = &value;
-		uniform.size = sizeof(value);
-		uniforms.push_back(uniform);
+		uniforms.push_back({ name, UniformValue(value) });
 	}
 };
 
@@ -44,6 +42,8 @@ enum class ShaderType {
 
 class Shader {
 public:
+	UniformPacket packet{};
+
 	Shader() = default;
 	Shader(const std::string& vertexPath, const std::string& fragmentPath);
 	Shader::Shader(const std::vector<std::pair<std::string, ShaderType>>& shaderStagePaths);
@@ -103,9 +103,21 @@ public:
 		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
 	}
 
+	void ApplyUniforms() {
+		use();
+		for (const auto& uniform : packet.uniforms) {
+			if (auto* p = std::get_if<int>(&uniform.value)) setInt(uniform.name, *p);
+			else if (auto* p = std::get_if<float>(&uniform.value)) setFloat(uniform.name, *p);
+			else if (auto* p = std::get_if<glm::vec2>(&uniform.value)) setVec2(uniform.name, *p);
+			else if (auto* p = std::get_if<glm::vec3>(&uniform.value)) setVec3(uniform.name, *p);
+			else if (auto* p = std::get_if<glm::vec4>(&uniform.value)) setVec4(uniform.name, *p);
+			else if (auto* p = std::get_if<glm::mat4>(&uniform.value)) setMat4(uniform.name, *p);
+		}
+	}
+
 private:
 
-	void deleteProgram() {  }
+	void deleteProgram() {}
 
 	int getUniformLocation(const std::string& name);
 	void checkCompileErrors(unsigned int shader, std::string type)

@@ -33,18 +33,11 @@ int main() {
 	engine.Initialize(800, 600, "2D game engine");
 
 
-	UniformPacket packet;
-	setUniform(packet);
-
-
-
-
-
 
 	engine.mainView.setZoom(0.1f);
 	Rect rect = Rect({ 40.0f, 60.0f }, blue).setPosition({ 0.0f , 0.0f });
 	std::vector<Rect> shapes;
-	int shapeCount = 2000;
+	int shapeCount = 20;
 
 	for (int i = 0; i < shapeCount; ++i) {
 		int width = sqrt(shapeCount);
@@ -63,7 +56,7 @@ int main() {
 		ImGui::End();
 
 		for (int i = 0; i < shapes.size(); ++i) {
-			engine.Draw(shapes[i]);
+			engine.Draw(shapes[i], engine.mainView);
 		}
 		
 		engine.EndFrame();
