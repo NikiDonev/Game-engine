@@ -8,6 +8,9 @@ void Window::Init(uint32_t width, uint32_t height, const char* title) {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_SAMPLES, 4);
 
+#ifdef __APPLE__
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
 
 
 	glfwWindow = glfwCreateWindow(width, height, title, NULL, NULL);

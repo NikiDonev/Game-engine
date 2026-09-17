@@ -59,3 +59,12 @@ target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE
     raudio 
     imgui
 )
+
+if(APPLE)
+    target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE 
+        "-framework Cocoa"
+        "-framework IOKit"
+        "-framework CoreVideo"
+        "-framework QuartzCore"
+    )
+endif()
