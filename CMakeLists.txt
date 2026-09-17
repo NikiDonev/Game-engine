@@ -12,13 +12,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(PRODUCTION_BUILD "Make this a production build" OFF)
 
 # Add subdirectories
-add_subdirectory(thirdparty/glfw-3.3.2)
-add_subdirectory(thirdparty/glad)
-add_subdirectory(thirdparty/stb_image)
-add_subdirectory(thirdparty/stb_truetype)
-add_subdirectory(thirdparty/raudio)
-add_subdirectory(thirdparty/glm)
-add_subdirectory(thirdparty/imgui-docking)
+add_subdirectory(thirdparty/glfw-3.3.2 SYSTEM)
+add_subdirectory(thirdparty/glad SYSTEM)
+add_subdirectory(thirdparty/stb_image SYSTEM)
+add_subdirectory(thirdparty/stb_truetype SYSTEM)
+add_subdirectory(thirdparty/raudio SYSTEM)
+add_subdirectory(thirdparty/glm SYSTEM)
+add_subdirectory(thirdparty/imgui-docking SYSTEM)
 
 # Collect sources
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
@@ -45,7 +45,7 @@ if(MSVC)
     target_compile_options("${CMAKE_PROJECT_NAME}" PRIVATE /arch:AVX2)
 endif()
 
-target_include_directories("${CMAKE_PROJECT_NAME}" PUBLIC 
+target_include_directories("${CMAKE_PROJECT_NAME}" SYSTEM PUBLIC 
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
     "${CMAKE_CURRENT_SOURCE_DIR}/2D engine/include"
 )
