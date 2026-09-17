@@ -37,7 +37,7 @@ int main() {
 	engine.mainView.setZoom(0.1f);
 	Rect rect = Rect({ 40.0f, 60.0f }, blue).setPosition({ 0.0f , 0.0f });
 	std::vector<Rect> shapes;
-	int shapeCount = 20;
+	int shapeCount = 2000;
 
 	for (int i = 0; i < shapeCount; ++i) {
 		int width = sqrt(shapeCount);

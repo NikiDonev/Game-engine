@@ -1,0 +1,47 @@
+name: Build C++ CMake Project
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: ${{ matrix.os }}-${{ matrix.build_type }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        build_type: [Debug, Release]
+
+    steps:
+      # 1. Checkout the source code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Install Linux Dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev libasound2-dev
+
+      # 3. Configure CMake
+      - name: Configure CMake
+        run: cmake -B ${{ github.workspace }}/build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+      # 4. Build the executable
+      - name: Build Project
+        run: >
+          cmake --build ${{ github.workspace }}/build 
+          --config ${{ matrix.build_type }} -j 1 | tail -n 30
+
+      # 5. Upload the compiled executable as an artifact
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-${{ matrix.os }}-${{ matrix.build_type }}
+          path: ${{ github.workspace }}/build/
+          if-no-files-found: warn

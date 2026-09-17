@@ -5,11 +5,12 @@
 #include <sstream>
 #include <iostream>
 #include <unordered_map>
+#include <filesystem>
+#include <variant>
+#include <vector>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <filesystem>
-#include <variant>
 
 template <typename T>
 using Ref = std::shared_ptr<T>;
@@ -46,7 +47,7 @@ public:
 
 	Shader() = default;
 	Shader(const std::string& vertexPath, const std::string& fragmentPath);
-	Shader::Shader(const std::vector<std::pair<std::string, ShaderType>>& shaderStagePaths);
+	Shader(const std::vector<std::pair<std::string, ShaderType>>& shaderStagePaths);
 
 	std::string ReadShaderFile(const std::string& filePath);
 	std::string ProcessShaderCode(const std::string& rawShaderCode);

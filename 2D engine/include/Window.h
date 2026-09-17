@@ -41,7 +41,7 @@ public:
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
-	glm::ivec2 Window::getSize() const {
+	glm::ivec2 getSize() const {
 		int width, height;
 		glfwGetWindowSize(glfwWindow, &width, &height);
 		return { width, height };
