@@ -21,14 +21,12 @@ jobs:
       # 1. Checkout the source code
       - name: Checkout repository
         uses: actions/checkout@v4
+        
       - name: Install Linux Dependencies
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev libasound2-dev
-      # 2. Set up CMake and Ninja generator
-      - name: Set up CMake
-        uses: jwinarske/setup-cmake@v1
 
       # 3. Configure CMake
       - name: Configure CMake
