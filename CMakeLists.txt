@@ -50,6 +50,7 @@ target_include_directories("${CMAKE_PROJECT_NAME}" SYSTEM PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/2D engine/include"
 )
 
+
 target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE 
     glm 
     glfw 
