@@ -1,4 +1,4 @@
-#include "openglErrorReporting.h"
+/*#include "openglErrorReporting.h"
 #include <iostream>
 #include <windows.h>
 #include <dbghelp.h>
@@ -75,18 +75,18 @@ void GLAPIENTRY glDebugOutput(GLenum source, GLenum type, unsigned int id, GLenu
     *crashPointer = 0xDEAD;
 }
 
-
+*/
 void enableReportGlErrors()
 {
-    HANDLE process = GetCurrentProcess();
+    //HANDLE process = GetCurrentProcess();
 
-    SymSetOptions(SYMOPT_LOAD_LINES | SYMOPT_DEFERRED_LOADS);
+    //SymSetOptions(SYMOPT_LOAD_LINES | SYMOPT_DEFERRED_LOADS);
 
-    // Passing TRUE forces Windows to hunt down your project's local debug symbols (.pdb)
-    SymInitialize(process, NULL, TRUE);
+    //// Passing TRUE forces Windows to hunt down your project's local debug symbols (.pdb)
+    //SymInitialize(process, NULL, TRUE);
 
-    glEnable(GL_DEBUG_OUTPUT);
-    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-    glDebugMessageCallback(glDebugOutput, nullptr);
-    glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+    //glEnable(GL_DEBUG_OUTPUT);
+    //glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+    //glDebugMessageCallback(glDebugOutput, nullptr);
+    //glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
 }
