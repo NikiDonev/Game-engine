@@ -46,7 +46,7 @@ public:
 
 	Shader() = default;
 	Shader(const std::string& vertexPath, const std::string& fragmentPath);
-	Shader::Shader(const std::vector<std::pair<std::string, ShaderType>>& shaderStagePaths);
+	Shader(const std::vector<std::pair<std::string, ShaderType>>& shaderStagePaths);
 
 	std::string ReadShaderFile(const std::string& filePath);
 	std::string ProcessShaderCode(const std::string& rawShaderCode);
