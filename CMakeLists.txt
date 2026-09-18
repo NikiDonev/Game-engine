@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 cmake_policy(SET CMP0091 NEW)
 
-# 1. CMAKE_MSVC_RUNTIME_LIBRARY must be set BEFORE project()
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 project(mygame CXX)
@@ -31,13 +30,14 @@ target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC GLFW_INCLUDE_NONE=1)
 
 if(PRODUCTION_BUILD)
     target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC RESOURCES_PATH="./resources/")
+    target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC SHADERS="./shaders/")
     target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC PRODUCTION_BUILD=1)
 else()
     target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC RESOURCES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/")
+    target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC SHADERS="${CMAKE_CURRENT_SOURCE_DIR}/shaders/")
     target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC PRODUCTION_BUILD=0)
 endif()
 
-target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC SHADERS="${CMAKE_CURRENT_SOURCE_DIR}/shaders/")
 
 # Platform-specific options
 if(MSVC)
