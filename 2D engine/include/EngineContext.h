@@ -46,9 +46,27 @@ public:
 
 		renderQueue.Init();
 		shapeRenderer.Init(&renderQueue);
-		spriteShader = resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
+		//spriteShader = resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
+		const char* shapeShaderVertexCode = 
+		   "#version 330 core \n  \
+			layout(location = 0) in vec2 aPos;\
+			layout(location = 1) in vec4 aColor;\
+			out vec4 Color;\
+			uniform mat4 viewProj;\
+			void main() {\
+				gl_Position = viewProj * vec4(aPos, 0.0, 1.0);\
+				Color = aColor;\
+			}";
 
-		shapeShader = resourceManager.Load<Shader>(SHADERS "shape.vert", SHADERS "SHAPE.frag");
+		const char* shapeShaderFragmentCode = 
+			"#version 330 core \n \
+			out vec4 FragColor;\
+			in vec4 Color;\
+			void main() {\
+				FragColor = Color;\
+			}";
+
+		shapeShader = resourceManager.Load<Shader>(shapeShaderVertexCode, shapeShaderFragmentCode);
 
 	}
 

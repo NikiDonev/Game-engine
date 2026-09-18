@@ -27,6 +27,9 @@ std::string Shader::ProcessShaderCode(const std::string& rawShaderCode) {
 }
 
 std::string Shader::ReadShaderFile(const std::string& filePath) {
+	bool isSourceCode = (filePath.find("#version") != std::string::npos);
+	if (isSourceCode) return filePath;
+
 	std::ifstream file(filePath);
 	if (!file.is_open()) {
 		std::cerr << "[Shader Error] Failed to open file: " << filePath << std::endl;
