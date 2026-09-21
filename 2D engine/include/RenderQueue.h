@@ -13,6 +13,8 @@ struct RenderCommand {
 	
 	Ref<Texture> texture;
 	Ref<Shader> shader;
+	const UniformPacket* packet;
+
 	float zIndex{};
 	bool transparent = false;
 
@@ -31,11 +33,13 @@ struct RenderCommand {
 struct RenderState {
 	Ref<Shader> shader;
 	VertexLayout layout{};
+	const UniformPacket* packet{};
 };
 
 
 class RenderQueue {
 public:
+
 	void Init();
 	void PushCommand(RenderCommand cmd);
 	void Execute(const View& view);

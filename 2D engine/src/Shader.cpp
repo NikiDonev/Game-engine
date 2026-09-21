@@ -1,10 +1,10 @@
 #include "Shader.h"
 
 
-Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath) {
+Shader::Shader(const std::string& vertexPathOrCode, const std::string& fragmentPathOrCode) {
 	std::vector<uint32_t> compiledIDs;
-	compiledIDs.push_back(ShaderPipeline(vertexPath, ShaderType::Vertex));
-	compiledIDs.push_back(ShaderPipeline(fragmentPath, ShaderType::Fragment));
+	compiledIDs.push_back(ShaderPipeline(vertexPathOrCode, ShaderType::Vertex));
+	compiledIDs.push_back(ShaderPipeline(fragmentPathOrCode, ShaderType::Fragment));
 	LinkProgram(compiledIDs);
 }
 
@@ -16,8 +16,8 @@ Shader::Shader(const std::vector<std::pair<std::string, ShaderType>>& shaderStag
 	LinkProgram(compiledIDs);
 }
 
-uint32_t Shader::ShaderPipeline(const std::string& shaderPath, ShaderType type) {
-	std::string shaderSrc = ReadShaderFile(shaderPath);
+uint32_t Shader::ShaderPipeline(const std::string& shaderPathOrCode, ShaderType type) {
+	std::string shaderSrc = ReadShaderFile(shaderPathOrCode);
 	std::string processed = ProcessShaderCode(shaderSrc);
 	return CompileShader(shaderSrc, type);
 }
@@ -26,13 +26,13 @@ std::string Shader::ProcessShaderCode(const std::string& rawShaderCode) {
 	return rawShaderCode;
 }
 
-std::string Shader::ReadShaderFile(const std::string& filePath) {
-	bool isSourceCode = (filePath.find("#version") != std::string::npos);
-	if (isSourceCode) return filePath;
+std::string Shader::ReadShaderFile(const std::string& filePathorCode) {
+	bool isSourceCode = (filePathorCode.find("#version") != std::string::npos);
+	if (isSourceCode) return filePathorCode;
 
-	std::ifstream file(filePath);
+	std::ifstream file(filePathorCode);
 	if (!file.is_open()) {
-		std::cerr << "[Shader Error] Failed to open file: " << filePath << std::endl;
+		std::cerr << "[Shader Error] Failed to open file: " << filePathorCode << std::endl;
 		return "";
 	}
 	std::stringstream ss;
@@ -45,7 +45,15 @@ uint32_t Shader::CompileShader(const std::string& shaderCode, ShaderType type) {
 	const char* shaderSource = shaderCode.c_str();
 	glShaderSource(shaderID, 1, &shaderSource, NULL);
 	glCompileShader(shaderID);
-	checkCompileErrors(shaderID, "[shader type]");
+
+	std::string shaderType = "[shader type]";
+	switch (type) {
+	case ShaderType::Vertex: shaderType = "vertex"; break;
+	case ShaderType::Fragment: shaderType = "fragment"; break;
+	case ShaderType::Geometry: shaderType = "geometry"; break;
+	case ShaderType::Compute: shaderType = "compute"; break;
+	}
+	checkCompileErrors(shaderID, shaderType);
 	return shaderID;
 }
 
@@ -91,6 +99,18 @@ int Shader::getUniformLocation(const std::string& name) {
 	return location;
 }
 
+void Shader::ApplyUniforms(const UniformPacket& packet) {
+	use();
+	for (const auto& [name, value] : packet) {
+		if (auto* p = std::get_if<int>(&value)) setInt(name, *p);
+		else if (auto* p = std::get_if<float>(&value)) setFloat(name, *p);
+		else if (auto* p = std::get_if<glm::vec2>(&value)) setVec2(name, *p);
+		else if (auto* p = std::get_if<glm::vec3>(&value)) setVec3(name, *p);
+		else if (auto* p = std::get_if<glm::vec4>(&value)) setVec4(name, *p);
+		else if (auto* p = std::get_if<glm::mat4>(&value)) setMat4(name, *p);
+	}
+}
+
 GLenum Shader::getGLType(ShaderType type) {
 	switch (type) {
 	case ShaderType::Vertex: return GL_VERTEX_SHADER;
@@ -98,4 +118,28 @@ GLenum Shader::getGLType(ShaderType type) {
 	case ShaderType::Geometry: return GL_GEOMETRY_SHADER;
 	}
 	return -1;
+}
+
+void Shader::checkCompileErrors(unsigned int shader, std::string type)
+{
+	int success;
+	char infoLog[1024];
+	if (type != "PROGRAM")
+	{
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+			std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+		}
+	}
+	else
+	{
+		glGetProgramiv(shader, GL_LINK_STATUS, &success);
+		if (!success)
+		{
+			glGetProgramInfoLog(shader, 1024, NULL, infoLog);
+			std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+		}
+	}
 }

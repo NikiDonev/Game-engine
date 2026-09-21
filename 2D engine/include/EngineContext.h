@@ -34,7 +34,7 @@ public:
 
 	const int& width = input.m_Width;
 	const int& height = input.m_Height;
-
+	UniformPacket packet;
 	void Initialize(int width, int height, const char* title) {
 		input.m_Width = width;
 		input.m_Height = height;
@@ -88,7 +88,7 @@ public:
 	}
 
 	void EndFrame() {
-
+		packet["viewProj"] = mainView.getViewProjMatrix();
 		renderQueue.Execute(mainView);
 
 		ImGui::Render();
@@ -99,13 +99,10 @@ public:
 	}
 
 	void Draw(const Shape& shape, const View& view) {
-		shapeShader->packet.uniforms.clear();
-		shapeShader->packet.Add("viewProj", view.getProjectionMatrix());
-		shapeRenderer.Draw(shape, shapeShader);
+		
+		shapeRenderer.Draw(shape, shapeShader, &packet);
 	}
 
 
-	float getAverageFPS() {
-		return (float)frameCount / time;
-	}
+
 };

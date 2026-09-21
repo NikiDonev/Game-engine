@@ -18,46 +18,47 @@ void RenderQueue::Execute(const View& view) {
 	//std::sort(m_Commands.begin(), m_Commands.end(), [](const RenderCommand& a, const RenderCommand& b) {
 	//	return a.sortKey < b.sortKey;
 	//	});	
+	int flushCount{};
+	ImGui::Text("packet size %i", m_Commands[0].packet->size());
 
-	int i = 0;
-	for (const RenderCommand& cmd : m_Commands) {
+	for (int cmdI = 0; cmdI < m_Commands.size(); ++cmdI) {
+		const RenderCommand& cmd = m_Commands[cmdI];
 		if (cmd.shader == nullptr) {
-			std::cerr << "Error: command " << i << " didn't supply a shader \n";
+			std::cerr << "Error: command " << cmdI << " didn't supply a shader \n";
 			continue;
 		}
 
 
 		bool shaderChanged = (m_State.shader != cmd.shader);
 		bool layoutChanged = (m_State.layout != cmd.layout);
+		bool packetChanged = (m_State.packet != cmd.packet);
+		//if (m_State.packet == cmd.packet) packetChanged = (*m_State.packet == *cmd.packet);
 		//TODO: Add texture slots
 		bool textureSlotsFull = false;
 		bool bufferOverflow = m_Renderer.WillBufferOverflow(cmd.vertexCount, cmd.vertexSize, cmd.indexCount);
 
-		if (shaderChanged || layoutChanged || textureSlotsFull || bufferOverflow) {
-
+		if (shaderChanged || layoutChanged || packetChanged || textureSlotsFull || bufferOverflow) {
+			flushCount++;
 			m_Renderer.Flush(m_State.layout);
 			
 			if (shaderChanged) {
 				m_State.shader = cmd.shader;
-				m_State.shader->ApplyUniforms();
-				//m_State.shader->use();
-				//glm::mat4 viewProj = view.getViewProjMatrix();
-				//m_State.shader->setMat4("viewProj", viewProj);
+				m_State.shader->ApplyUniforms(*cmd.packet);
 			}
 			if (layoutChanged) {
 				m_State.layout = cmd.layout;
+			}
+			if (packetChanged) {
+				m_State.packet = cmd.packet;
 			}
 		}
 
 		//AABB worldBounds;
 		//worldBounds.min = glm::vec2(cmd.modelMatrix * glm::vec4(cmd.localBounds.min, 0.0f, 1.0f));
 		//worldBounds.max = glm::vec2(cmd.modelMatrix * glm::vec4(cmd.localBounds.max, 0.0f, 1.0f));
-
 		//AABB viewBounds = view.getFrustumBounds();
-
 		//bool isVisible = (worldBounds.max.x >= viewBounds.min.x && worldBounds.min.x <= viewBounds.max.x) &&
 		//	(worldBounds.max.y >= viewBounds.min.y && worldBounds.min.y <= viewBounds.max.y);
-
 		//if (!isVisible) continue;
 
 		uint32_t totalBytes = cmd.vertexCount * cmd.vertexSize;
@@ -75,6 +76,9 @@ void RenderQueue::Execute(const View& view) {
 		m_Renderer.PushGeometry(m_ScratchBuffer.data(), cmd.vertexCount, cmd.vertexSize, cmd.indexData, cmd.indexCount);
 	}
 	m_Renderer.Flush(m_State.layout);
+	flushCount++;
+	ImGui::Text("Flush count %i", flushCount);
+
 	m_Commands.clear();
 	m_State = {};
 }

@@ -14,7 +14,7 @@ public:
 		};
 	}
 
-	void Draw(const Shape& shape, Ref<Shader> shader) {
+	void Draw(const Shape& shape, const Ref<Shader>& shader, const UniformPacket* packet) {
 
 		RenderCommand cmd;
 		cmd.sortKey = 0;
@@ -22,6 +22,7 @@ public:
 		cmd.texture = nullptr;
 		cmd.layout = shapeLayout;
 		cmd.shader = shader;
+		cmd.packet = packet;
 		cmd.indexData = shape.indices.data();
 		cmd.indexCount = shape.indices.size();
 		cmd.vertexData = shape.vertices.data();

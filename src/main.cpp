@@ -22,10 +22,10 @@ void moveView(EngineContext& engine) {
 void setUniform(UniformPacket& packet) {
 	glm::mat4 viewProj = glm::mat4(1.0f);
 	float time = glfwGetTime();
-	packet.Add("u_Time", time);
+	packet.insert({ "u_Time", time });
 	int index = 4;
-	packet.Add("u_Index", index);
-	packet.Add("u_ViewProj", viewProj);
+	packet.insert({ "u_Index", index });
+	packet.insert({ "u_ViewProj", viewProj });
 }
 
 int main() {

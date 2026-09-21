@@ -17,20 +17,23 @@ using Ref = std::shared_ptr<T>;
 
 using UniformValue = std::variant<int, float, glm::vec2, glm::vec3, glm::vec4, glm::mat4>;
 
+using UniformPacket = std::unordered_map<std::string, UniformValue>;
+
 struct Uniform {
 	std::string name;
 	UniformValue value;
 };
 
-
-struct UniformPacket {
-	std::vector<Uniform> uniforms;
-
-	template <typename T>
-	void Add(const std::string& name, const T& value) {
-		uniforms.push_back({ name, UniformValue(value) });
-	}
-};
+//struct UniformPacket {
+//	//std::vector<Uniform> uniforms;
+//	std::unordered_map<std::string, UniformValue> uniforms;
+//
+//	template <typename T>
+//	void Add(const std::string& name, const T& value) {
+//		uniforms.insert({ name, UniformValue(value) });
+//	}
+//
+//};
 
 enum class ShaderType {
 	Vertex,
@@ -43,7 +46,6 @@ enum class ShaderType {
 
 class Shader {
 public:
-	UniformPacket packet{};
 
 	Shader() = default;
 	Shader(const std::string& vertexPath, const std::string& fragmentPath);
@@ -104,46 +106,14 @@ public:
 		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
 	}
 
-	void ApplyUniforms() {
-		use();
-		for (const auto& uniform : packet.uniforms) {
-			if (auto* p = std::get_if<int>(&uniform.value)) setInt(uniform.name, *p);
-			else if (auto* p = std::get_if<float>(&uniform.value)) setFloat(uniform.name, *p);
-			else if (auto* p = std::get_if<glm::vec2>(&uniform.value)) setVec2(uniform.name, *p);
-			else if (auto* p = std::get_if<glm::vec3>(&uniform.value)) setVec3(uniform.name, *p);
-			else if (auto* p = std::get_if<glm::vec4>(&uniform.value)) setVec4(uniform.name, *p);
-			else if (auto* p = std::get_if<glm::mat4>(&uniform.value)) setMat4(uniform.name, *p);
-		}
-	}
+	void ApplyUniforms(const UniformPacket& packet);
 
 private:
 
 	void deleteProgram() {}
 
 	int getUniformLocation(const std::string& name);
-	void checkCompileErrors(unsigned int shader, std::string type)
-	{
-		int success;
-		char infoLog[1024];
-		if (type != "PROGRAM")
-		{
-			glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-			if (!success)
-			{
-				glGetShaderInfoLog(shader, 1024, NULL, infoLog);
-				std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
-			}
-		}
-		else
-		{
-			glGetProgramiv(shader, GL_LINK_STATUS, &success);
-			if (!success)
-			{
-				glGetProgramInfoLog(shader, 1024, NULL, infoLog);
-				std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
-			}
-		}
-	}
+	void checkCompileErrors(unsigned int shader, std::string type);
 
 	GLenum getGLType(ShaderType type);
 
