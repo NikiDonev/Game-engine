@@ -11,18 +11,20 @@ protected:
     glm::vec2 m_Origin{ 0.0f };
     glm::vec2 m_Scale{ 1.0f };
     float m_Rotation{ 0.0f }; // In degrees
-
+    glm::mat4 m_Matrix{ 1.0f };
+    bool m_NeedUpdate{ true };
 public:
     virtual ~Transformable() = default;
 
-    Transformable& setPosition(const glm::vec2& pos) { m_Position = pos; return *this; }
-    Transformable& setOrigin(const glm::vec2& origin) { m_Origin = origin; return *this; }
+    Transformable& setPosition(const glm::vec2& pos) { m_Position = pos; m_NeedUpdate = true; return *this; }
+    Transformable& setOrigin(const glm::vec2& origin) { m_Origin = origin; m_NeedUpdate = true; return *this; }
     Transformable& setScale(const glm::vec2& scale) {
         m_Scale.x = std::max(scale.x, 0.0001f);
         m_Scale.y = std::max(scale.y, 0.0001f);
+        m_NeedUpdate = true;
         return *this;
     }
-    Transformable& setRotation(float degrees) { m_Rotation = degrees; return *this; }
+    Transformable& setRotation(float degrees) { m_Rotation = degrees; m_NeedUpdate = true; return *this; }
 
     const glm::vec2& getPosition() const { return m_Position; }
     const glm::vec2& getOrigin() const { return m_Origin; }
@@ -33,13 +35,16 @@ public:
     void rotate(float degrees) { m_Rotation += degrees; }
     void scale(const glm::vec2& factor) { if (factor.x > 0.0f && factor.y > 0.0f) m_Scale *= factor; }
 
-    glm::mat4 getTransformMatrix() const {
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(m_Position, 0.0f));
-        model = glm::rotate(model, glm::radians(m_Rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-        model = glm::scale(model, glm::vec3(m_Scale, 1.0f));
-        model = glm::translate(model, glm::vec3(-m_Origin, 0.0f));
-        return model;
+    glm::mat4 getTransformMatrix() {
+        if (m_NeedUpdate) {
+            m_Matrix = glm::mat4(1.0f);
+            m_Matrix = glm::translate(m_Matrix, glm::vec3(m_Position, 0.0f));
+            m_Matrix = glm::rotate(m_Matrix, glm::radians(m_Rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+            m_Matrix = glm::scale(m_Matrix, glm::vec3(m_Scale, 1.0f));
+            m_Matrix = glm::translate(m_Matrix, glm::vec3(-m_Origin, 0.0f));
+            m_NeedUpdate = false;
+        }
+        return m_Matrix;
     }
 };
 

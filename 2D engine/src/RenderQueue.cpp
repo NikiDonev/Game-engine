@@ -4,9 +4,9 @@ void RenderQueue::Init() {
 	m_Renderer.Init();
 }
 
-void RenderQueue::PushCommand(RenderCommand cmd) {
+void RenderQueue::PushCommand(RenderCommand& cmd) {
 	cmd.sortKey = GenerateKey(cmd);
-	m_Commands.push_back(cmd);
+	m_Commands.emplace_back(cmd);
 }
 
 uint64_t RenderQueue::GenerateKey(const RenderCommand& cmd){

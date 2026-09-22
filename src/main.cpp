@@ -16,10 +16,7 @@ void moveView(EngineContext& engine) {
 	float factor = engine.input.getScroll().y;
 
 	float zoom = factor - prevFactor;
-	if (zoom > 0.01f) {
-		engine.mainView.zoom(1.1f);
-		debugLog.setMaxLogs(debugLog.getMaxLogs() + 100);
-	}
+	if (zoom > 0.01f) engine.mainView.zoom(1.1f);
 	else if (zoom < -0.01f) engine.mainView.zoom(0.9f);
 	prevFactor = factor;
 }
@@ -48,14 +45,6 @@ int main() {
 		}
 		moveView(engine);
 
-		if (engine.input.KeyReleased(GLFW_KEY_R)) {
-			
-		}
-
-
-		LOG_ERROR("Some error %f", glfwGetTime());
-		LOG_WARN("Some error %f", glfwGetTime());
-		LOG_INFO("Some error %f", glfwGetTime());
 
 		for (int i = 0; i < shapes.size(); ++i) {
 			engine.Draw(shapes[i], engine.mainView);

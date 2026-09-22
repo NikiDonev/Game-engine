@@ -14,7 +14,7 @@ public:
 		};
 	}
 
-	void Draw(const Shape& shape, const Ref<Shader>& shader, const UniformPacket* packet) {
+	void Draw(Shape& shape, const Ref<Shader>& shader, const UniformPacket* packet) {
 
 		RenderCommand cmd;
 		cmd.sortKey = 0;

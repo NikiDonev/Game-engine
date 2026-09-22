@@ -34,7 +34,7 @@ public:
 			defaultShader->setInt(textureUniform, i);
 		}
 	}
-	glm::vec2 transformPosition(const Transformable& transformable, glm::vec2 position) {
+	glm::vec2 transformPosition(Transformable& transformable, glm::vec2 position) {
 		if (abs(transformable.getRotation()) < 0.001f) {
 			return (position * transformable.getScale()) + transformable.getPosition();
 		}
@@ -59,7 +59,7 @@ public:
 		}
 		return slot;
 	}
-	void Add(const Sprite& sprite) {
+	void Add(Sprite& sprite) {
 		//if (!IsOnScreen(sprite)) return;
 		SpriteVertex quadVertices[4];
 		Ref<Texture> spriteTexture;

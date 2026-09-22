@@ -15,11 +15,11 @@ public:
 	BatchRenderer renderer;
 	void Init();
 
-	glm::vec2 transformPosition(const Transformable& transformable, glm::vec2 position);
+	glm::vec2 transformPosition(Transformable& transformable, glm::vec2 position);
 
 	AABB getWorldBounds(const std::vector<ShapeVertex>& transformedVertices);
 
-	void Add(const Shape& shape);
+	void Add(Shape& shape);
 
 	void Draw();
 

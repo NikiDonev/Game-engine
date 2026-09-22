@@ -21,23 +21,27 @@ enum class ShapeTypes {
 
 
 class Shape : public Transformable {
+protected:
+	AABB m_Bounds;
+	bool m_UpdateBounds{ true };
 public:
 	std::vector<ShapeVertex> vertices;
 	std::vector<uint32_t> indices;
-	AABB bounds;
-	AABB getLocalBounds() const {
+	AABB getLocalBounds() {
 		if (vertices.empty()) return AABB{};
 
-		AABB bounds{ vertices[0].position, vertices[0].position };
-		for (const auto& vertex : vertices) {
-			bounds.min.x = std::min(bounds.min.x, vertex.position.x);
-			bounds.min.y = std::min(bounds.min.y, vertex.position.y);
-			bounds.max.x = std::max(bounds.max.x, vertex.position.x);
-			bounds.max.y = std::max(bounds.max.y, vertex.position.y);
+		if (m_UpdateBounds) {
+			m_Bounds = AABB { vertices[0].position, vertices[0].position };
+			for (const auto& vertex : vertices) {
+				m_Bounds.min.x = std::min(m_Bounds.min.x, vertex.position.x);
+				m_Bounds.min.y = std::min(m_Bounds.min.y, vertex.position.y);
+				m_Bounds.max.x = std::max(m_Bounds.max.x, vertex.position.x);
+				m_Bounds.max.y = std::max(m_Bounds.max.y, vertex.position.y);
+			}
+			return m_Bounds;
+			m_UpdateBounds = false;
 		}
-		return bounds;
 	}
-
 };
 
 

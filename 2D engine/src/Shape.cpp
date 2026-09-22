@@ -90,7 +90,7 @@ void Circle::generateGeometry() {
 			indices.push_back(outlineInnerNext);
 		}
 	}
-	bounds = getLocalBounds();
+	m_UpdateBounds = true;
 }
 
 #pragma endregion
@@ -271,7 +271,7 @@ void Triangle::generateGeometry() {
 	}
 
 	setPosition(center);
-	bounds = getLocalBounds();
+	m_UpdateBounds = true;
 }
 
 #pragma endregion
@@ -374,7 +374,7 @@ void Arrow::generateGeometry() {
 
 	float angle = glm::degrees(atan2(m_Direction.y, m_Direction.x));
 	setRotation(angle);
-	bounds = getLocalBounds();
+	m_UpdateBounds = true;
 }
 
 #pragma endregion
@@ -486,7 +486,7 @@ void RoundedRect::generateGeometry() {
 			indices.push_back(outCurr); indices.push_back(outNext); indices.push_back(inNext);
 		}
 	}
-	bounds = getLocalBounds();
+	m_UpdateBounds = true;
 }
 
 #pragma endregion

@@ -40,6 +40,8 @@ public:
 
 	Timer timer;
 
+	float frameHistory[120] = {};
+	int historyIdx = 0;
 	void Initialize(int width, int height, const char* title) {
 		input.m_Width = width;
 		input.m_Height = height;
@@ -96,14 +98,24 @@ public:
 			ImGuiDockNodeFlags_PassthruCentralNode);
 
 		DRAW_LOG();
-
+		timer.TimePoint("Imgui");
 		ImGui::Begin("Profiling");
 		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / deltaTime, deltaTime * 1000.0f);
 		ImGui::Text("Flush Count: %i \n", renderQueue.flushCount);
 		ImGui::Text("%s", timer.timerData.c_str());
-		ImGui::End();
+		float sum = 0;
+		for (float v : frameHistory) sum += v;
+		float avg = sum / 120.0f;
 
+		char overlay[32];
+		snprintf(overlay, sizeof(overlay), "avg %.2f ms", avg);
+		ImGui::PlotLines("Frame ms", frameHistory, 120, historyIdx,
+			overlay, 0.0f, 33.0f, ImVec2(240, 100));
+		ImGui::End();
 		timer.TimePoint("user loop");
+	}
+	float AverageMSGetter(float* data, int idx) {
+		return 0.0f;
 	}
 
 	void EndFrame() {
@@ -123,11 +135,13 @@ public:
 		mainView.setSize(width, height);
 		window.Display();
 
+		frameHistory[historyIdx] = deltaTime * 1000.0f; // ms
+		historyIdx = (historyIdx + 1) % 120;
+
 		timer.Reset();
 	}
 
-	void Draw(const Shape& shape, const View& view) {
-		
+	void Draw(Shape& shape, const View& view) {
 		shapeRenderer.Draw(shape, shapeShader, &packet);
 	}
 

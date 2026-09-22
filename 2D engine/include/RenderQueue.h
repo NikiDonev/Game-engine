@@ -43,7 +43,7 @@ class RenderQueue {
 public:
 
 	void Init();
-	void PushCommand(RenderCommand cmd);
+	void PushCommand(RenderCommand& cmd);
 	void Execute(const View& view, Timer& timer);
 
 	int flushCount{};

@@ -12,7 +12,7 @@ void ShapeRenderer::Init() {
 	renderer.Init();
 }
 
-glm::vec2 ShapeRenderer::transformPosition(const Transformable& transformable, glm::vec2 position) {
+glm::vec2 ShapeRenderer::transformPosition(Transformable& transformable, glm::vec2 position) {
 	if (abs(transformable.getRotation()) < 0.001f) {
 		return (position * transformable.getScale()) + transformable.getPosition();
 	}
@@ -45,7 +45,7 @@ AABB ShapeRenderer::getWorldBounds(const std::vector<ShapeVertex>& transformedVe
 	return worldBounds;
 }
 
-void ShapeRenderer::Add(const Shape& shape) {
+void ShapeRenderer::Add(Shape& shape) {
 
 	glm::mat4 modelMatrix = shape.getTransformMatrix();
 
