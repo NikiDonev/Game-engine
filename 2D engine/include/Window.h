@@ -14,7 +14,7 @@
 #include <glm/glm.hpp>
 
 #include "openglErrorReporting.h"
-
+#include "DebugUI.h"
 
 void ImGuiBegin();
 void ImGuiEnd();

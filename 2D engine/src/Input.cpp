@@ -1,5 +1,6 @@
 #include "Input.h"
 #include <iostream>
+#include "DebugUI.h"
 
 void Input::Update() {
 	previousKeys = currentKeys;
@@ -83,10 +84,8 @@ void Input::CheckActiveJoysticks() {
 
 
 void Input::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-	ImGui_ImplGlfw_KeyCallback(window, key, scancode, action, mods);
 
-	ImGuiIO& io = ImGui::GetIO();
-	if (io.WantCaptureKeyboard) return;
+	if (DebugUI::KeyCallback(window, key, scancode, action, mods)) return;
 
 	if (key < 0 || key >= 350) return;
 
@@ -96,10 +95,8 @@ void Input::KeyCallback(GLFWwindow* window, int key, int scancode, int action, i
 }
 
 void Input::MouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
-	ImGui_ImplGlfw_MouseButtonCallback(window, button, action, mods);
 
-	ImGuiIO& io = ImGui::GetIO();
-	if (io.WantCaptureMouse) return;
+	if (DebugUI::MouseCallback(window, button, action, mods)) return;
 
 	if (button < 0 || button >= 8) return;
 
@@ -119,12 +116,8 @@ void Input::CharCallback(GLFWwindow* window, unsigned int codepoint) {
 }
 
 void Input::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset) {
-	ImGui_ImplGlfw_ScrollCallback(window, xoffset, yoffset);
 
-	ImGuiIO& io = ImGui::GetIO();
-	if (io.WantCaptureMouse) {
-		return;
-	}
+	if (DebugUI::ScrollCallback(window, xoffset, yoffset)) return;
 	// TODO: fix scroll by finding the delta
 	scrollX += xoffset;
 	scrollY += yoffset;

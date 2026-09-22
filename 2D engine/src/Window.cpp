@@ -30,15 +30,7 @@ void Window::Init(uint32_t width, uint32_t height, const char* title) {
 	glViewport(0, 0, width, height);
 	glEnable(GL_MULTISAMPLE);
 
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-	ImGui::StyleColorsDark();
-
-
-	ImGui_ImplGlfw_InitForOpenGL(glfwWindow, false);
-	ImGui_ImplOpenGL3_Init("#version 330");
+	DebugUI::Init(glfwWindow);
 
 	enableReportGlErrors();
 }
@@ -47,9 +39,7 @@ Window::~Window() {
 	if (glfwWindow) {
 		glfwDestroyWindow(glfwWindow);
 	}
-	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplGlfw_Shutdown();
-	ImGui::DestroyContext();
+	DebugUI::Shutdown();
 
 	glfwTerminate();
 }

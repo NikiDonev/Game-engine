@@ -90,15 +90,13 @@ public:
 		frameCount++;
 
 
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
-		ImGui::DockSpaceOverViewport(
-			ImGui::GetMainViewport(),
-			ImGuiDockNodeFlags_PassthruCentralNode);
 
-		DRAW_LOG();
+		DebugUI::BeginFrame();
+		DebugUI::ShowLog();
+		
 		timer.TimePoint("Imgui");
+		//std::cout << deltaTime * 1000.0f << "\n";
+#if !PRODUCTION_BUILD
 		ImGui::Begin("Profiling");
 		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / deltaTime, deltaTime * 1000.0f);
 		ImGui::Text("Flush Count: %i \n", renderQueue.flushCount);
@@ -112,10 +110,8 @@ public:
 		ImGui::PlotLines("Frame ms", frameHistory, 120, historyIdx,
 			overlay, 0.0f, 33.0f, ImVec2(240, 100));
 		ImGui::End();
+#endif
 		timer.TimePoint("user loop");
-	}
-	float AverageMSGetter(float* data, int idx) {
-		return 0.0f;
 	}
 
 	void EndFrame() {
@@ -126,11 +122,8 @@ public:
 
 		timer.TimePoint("swap buffers");
 
+		DebugUI::EndFrame();
 
-
-
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		mainView.setSize(width, height);
 		window.Display();
