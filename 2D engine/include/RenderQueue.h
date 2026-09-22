@@ -8,6 +8,8 @@
 #include <glm/glm.hpp>
 #include <imgui.h>
 
+#include "Timer.h"
+
 struct RenderCommand {
 	uint64_t sortKey{};
 	
@@ -42,7 +44,9 @@ public:
 
 	void Init();
 	void PushCommand(RenderCommand cmd);
-	void Execute(const View& view);
+	void Execute(const View& view, Timer& timer);
+
+	int flushCount{};
 
 private:
 	uint64_t GenerateKey(const RenderCommand& cmd);

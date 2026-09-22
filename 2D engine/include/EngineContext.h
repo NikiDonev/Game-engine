@@ -8,6 +8,8 @@
 #include "ResourceManager.h"
 #include "RenderQueue.h"
 #include "sRenderer.h"
+#include "Timer.h"
+#include "Logging.h"
 
 struct EngineContext {
 public:
@@ -35,6 +37,9 @@ public:
 	const int& width = input.m_Width;
 	const int& height = input.m_Height;
 	UniformPacket packet;
+
+	Timer timer;
+
 	void Initialize(int width, int height, const char* title) {
 		input.m_Width = width;
 		input.m_Height = height;
@@ -71,6 +76,7 @@ public:
 	}
 
 	void BeginFrame() {
+		timer.TimePoint("Start");
 		window.Clear();
 		input.Update();
 
@@ -85,17 +91,39 @@ public:
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
+		ImGui::DockSpaceOverViewport(
+			ImGui::GetMainViewport(),
+			ImGuiDockNodeFlags_PassthruCentralNode);
+
+		DRAW_LOG();
+
+		ImGui::Begin("Profiling");
+		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / deltaTime, deltaTime * 1000.0f);
+		ImGui::Text("Flush Count: %i \n", renderQueue.flushCount);
+		ImGui::Text("%s", timer.timerData.c_str());
+		ImGui::End();
+
+		timer.TimePoint("user loop");
 	}
 
 	void EndFrame() {
 		packet["viewProj"] = mainView.getViewProjMatrix();
-		renderQueue.Execute(mainView);
+
+
+		renderQueue.Execute(mainView, timer);
+
+		timer.TimePoint("swap buffers");
+
+
+
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		mainView.setSize(width, height);
 		window.Display();
+
+		timer.Reset();
 	}
 
 	void Draw(const Shape& shape, const View& view) {

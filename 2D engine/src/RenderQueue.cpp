@@ -13,14 +13,17 @@ uint64_t RenderQueue::GenerateKey(const RenderCommand& cmd){
 	return 0;
 }
 
-void RenderQueue::Execute(const View& view) {
-	//if (m_Commands.empty()) return;
-	//std::sort(m_Commands.begin(), m_Commands.end(), [](const RenderCommand& a, const RenderCommand& b) {
-	//	return a.sortKey < b.sortKey;
-	//	});	
-	int flushCount{};
-	ImGui::Text("packet size %i", m_Commands[0].packet->size());
+void RenderQueue::Execute(const View& view, Timer& timer) {
+	if (m_Commands.empty()) return;
 
+	timer.TimePoint("sorting commands");
+
+	std::sort(m_Commands.begin(), m_Commands.end(), [](const RenderCommand& a, const RenderCommand& b) {
+		return a.sortKey < b.sortKey;
+		});	
+	int flushCounter{};
+
+	timer.TimePoint("loop through commands");
 	for (int cmdI = 0; cmdI < m_Commands.size(); ++cmdI) {
 		const RenderCommand& cmd = m_Commands[cmdI];
 		if (cmd.shader == nullptr) {
@@ -38,7 +41,7 @@ void RenderQueue::Execute(const View& view) {
 		bool bufferOverflow = m_Renderer.WillBufferOverflow(cmd.vertexCount, cmd.vertexSize, cmd.indexCount);
 
 		if (shaderChanged || layoutChanged || packetChanged || textureSlotsFull || bufferOverflow) {
-			flushCount++;
+			flushCounter++;
 			m_Renderer.Flush(m_State.layout);
 			
 			if (shaderChanged) {
@@ -76,8 +79,10 @@ void RenderQueue::Execute(const View& view) {
 		m_Renderer.PushGeometry(m_ScratchBuffer.data(), cmd.vertexCount, cmd.vertexSize, cmd.indexData, cmd.indexCount);
 	}
 	m_Renderer.Flush(m_State.layout);
-	flushCount++;
-	ImGui::Text("Flush count %i", flushCount);
+
+	flushCounter++;
+	flushCount = flushCounter;
+
 
 	m_Commands.clear();
 	m_State = {};

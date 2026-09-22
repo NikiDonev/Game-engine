@@ -2,6 +2,7 @@
 #include "Texture.h"
 #include "TextureAtlas.h"
 #include "Tilemap.h"
+#include "Logging.h"
 
 float prevFactor = 0.0f;
 glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 1.0f }, green = { 0.0f, 1.0f, 0.0f, 1.0f },
@@ -15,23 +16,19 @@ void moveView(EngineContext& engine) {
 	float factor = engine.input.getScroll().y;
 
 	float zoom = factor - prevFactor;
-	if (zoom > 0.01f) engine.mainView.zoom(1.1f);
+	if (zoom > 0.01f) {
+		engine.mainView.zoom(1.1f);
+		debugLog.setMaxLogs(debugLog.getMaxLogs() + 100);
+	}
 	else if (zoom < -0.01f) engine.mainView.zoom(0.9f);
 	prevFactor = factor;
 }
-void setUniform(UniformPacket& packet) {
-	glm::mat4 viewProj = glm::mat4(1.0f);
-	float time = glfwGetTime();
-	packet.insert({ "u_Time", time });
-	int index = 4;
-	packet.insert({ "u_Index", index });
-	packet.insert({ "u_ViewProj", viewProj });
-}
+
 
 int main() {
 	EngineContext engine;
 	engine.Initialize(800, 600, "2D game engine");
-
+	engine.window.maximizeWindow();
 
 
 	engine.mainView.setZoom(0.1f);
@@ -51,9 +48,14 @@ int main() {
 		}
 		moveView(engine);
 
-		ImGui::Begin("Debug");
-		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / engine.deltaTime, engine.deltaTime * 1000.0f);
-		ImGui::End();
+		if (engine.input.KeyReleased(GLFW_KEY_R)) {
+			
+		}
+
+
+		LOG_ERROR("Some error %f", glfwGetTime());
+		LOG_WARN("Some error %f", glfwGetTime());
+		LOG_INFO("Some error %f", glfwGetTime());
 
 		for (int i = 0; i < shapes.size(); ++i) {
 			engine.Draw(shapes[i], engine.mainView);
