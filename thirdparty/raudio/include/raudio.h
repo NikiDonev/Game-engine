@@ -83,6 +83,7 @@
         typedef enum { false, true } bool;
         #define _STDBOOL_H
     #endif
+    #include <stdbool.h>
 #endif
 
 // Wave type, defines audio wave data

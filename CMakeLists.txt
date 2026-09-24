@@ -19,6 +19,12 @@ add_subdirectory(thirdparty/raudio SYSTEM)
 add_subdirectory(thirdparty/glm SYSTEM)
 add_subdirectory(thirdparty/imgui-docking SYSTEM)
 
+
+if(APPLE)
+  target_compile_options(glfw PRIVATE -Wno-deprecated-declarations)
+  target_compile_options(raudio PRIVATE -Wno-deprecated-declarations)
+endif()
+
 # Collect sources
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 file(GLOB_RECURSE LIBRARY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/2D engine/src/*.cpp")
