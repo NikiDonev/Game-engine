@@ -18,30 +18,42 @@ jobs:
         build_type: [Debug, Release]
 
     steps:
-      # 1. Checkout the source code
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Install Linux Dependencies
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev libasound2-dev
 
-      # 3. Configure CMake
       - name: Configure CMake
-        run: cmake -B ${{ github.workspace }}/build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
-
-      # 4. Build the executable
-      - name: Build Project
         run: >
-          cmake --build ${{ github.workspace }}/build 
-          --config ${{ matrix.build_type }} -j 1 | tail -n 30
+          cmake -B ${{ github.workspace }}/build
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          -DPRODUCTION_BUILD=ON
+          -DGLFW_BUILD_EXAMPLES=OFF
+          -DGLFW_BUILD_TESTS=OFF
+          -DGLFW_BUILD_DOCS=OFF
+          "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
-      # 5. Upload the compiled executable as an artifact
-      - name: Upload Artifacts
+      - name: Build Project
+        run: cmake --build ${{ github.workspace }}/build --config ${{ matrix.build_type }} -j 2
+
+      # Single-config (Linux/Mac Make): build/mygame
+      - name: Upload Artifacts (Linux/macOS)
+        if: runner.os != 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: app-${{ matrix.os }}-${{ matrix.build_type }}
-          path: ${{ github.workspace }}/build/
-          if-no-files-found: warn
+          path: ${{ github.workspace }}/build/mygame
+          if-no-files-found: error
+
+      # Multi-config (Windows MSVC): build/Release/mygame.exe
+      - name: Upload Artifacts (Windows)
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-${{ matrix.os }}-${{ matrix.build_type }}
+          path: ${{ github.workspace }}/build/${{ matrix.build_type }}/mygame.exe
+          if-no-files-found: error
