@@ -27,7 +27,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev libasound2-dev
 
-      - name: Configure CMake
+      - name: Configure CMake (Linux/Windows)
+        if: runner.os != 'macOS'
         run: >
           cmake -B ${{ github.workspace }}/build
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
@@ -35,6 +36,19 @@ jobs:
           -DGLFW_BUILD_EXAMPLES=OFF
           -DGLFW_BUILD_TESTS=OFF
           -DGLFW_BUILD_DOCS=OFF
+          "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+      - name: Configure CMake (macOS universal)
+        if: runner.os == 'macOS'
+        run: >
+          cmake -B ${{ github.workspace }}/build
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          -DPRODUCTION_BUILD=ON
+          -DGLFW_BUILD_EXAMPLES=OFF
+          -DGLFW_BUILD_TESTS=OFF
+          -DGLFW_BUILD_DOCS=OFF
+          -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64"
+          -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
           "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
       - name: Build Project
