@@ -9,10 +9,10 @@ glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 1.0f }, g
 black = { 0.0f, 0.0f, 0.0f, 1.0f }, yellow = { 1.0f, 1.0f, 0.0f, 1.0f };
 
 void moveView(EngineContext& engine) {
-	if (engine.input.KeyHeld(GLFW_KEY_UP)) engine.mainView.move({    0.0f,  500 * engine.deltaTime });
-	if (engine.input.KeyHeld(GLFW_KEY_DOWN)) engine.mainView.move({  0.0f, -500 * engine.deltaTime });
-	if (engine.input.KeyHeld(GLFW_KEY_LEFT)) engine.mainView.move({  -500 * engine.deltaTime, 0.0f });
-	if (engine.input.KeyHeld(GLFW_KEY_RIGHT)) engine.mainView.move({  500 * engine.deltaTime, 0.0f });
+	if (engine.input.KeyHeld(GLFW_KEY_UP)) engine.mainView.move({    0.0f,  50 * engine.deltaTime });
+	if (engine.input.KeyHeld(GLFW_KEY_DOWN)) engine.mainView.move({  0.0f, -50 * engine.deltaTime });
+	if (engine.input.KeyHeld(GLFW_KEY_LEFT)) engine.mainView.move({  -50 * engine.deltaTime, 0.0f });
+	if (engine.input.KeyHeld(GLFW_KEY_RIGHT)) engine.mainView.move({  50 * engine.deltaTime, 0.0f });
 	float factor = engine.input.getScroll().y;
 
 	float zoom = factor - prevFactor;
@@ -35,7 +35,7 @@ int main() {
 
 	for (int i = 0; i < shapeCount; ++i) {
 		int width = sqrt(shapeCount);
-		shapes.push_back(Rect({ 40.0f, 40.0f }, green).setPosition({ i / width * 100.0f, (i % width) * 100.0f }));
+		shapes.push_back(Rect({ 40.0f, 40.0f }, green).setPosition({ i / width * 100.0f, (i % width) * 100.0f }).setRotation(45.0f));
 	}
 
 	while (engine.window.IsOpen()) {
@@ -47,6 +47,7 @@ int main() {
 
 
 		for (int i = 0; i < shapes.size(); ++i) {
+			shapes[i].move({ 0.01f, 0.0f });
 			engine.Draw(shapes[i], engine.mainView);
 		}
 		

@@ -28,7 +28,7 @@ public:
 		cmd.vertexData = shape.vertices.data();
 		cmd.vertexCount = shape.vertices.size();
 		cmd.modelMatrix = shape.getTransformMatrix();
-		cmd.localBounds = shape.getLocalBounds();
+		cmd.worldBounds = shape.getWorldBounds();
 		cmd.vertexSize = shapeLayout.size;
 		cmd.zIndex = 0.0f;
 

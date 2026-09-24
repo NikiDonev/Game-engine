@@ -52,7 +52,7 @@ glm::vec2 Input::getMousePixelPos() {
 	return glm::vec2((float)mouseX, (float)mouseY);
 }
 
-glm::vec2 Input::pixelToWorld(glm::vec2 pixelCoords, const View& view) {
+glm::vec2 Input::pixelToWorld(glm::vec2 pixelCoords, View& view) {
 	int windowWidth = m_Width, windowHeight = m_Height;
 	if (windowWidth == 0 || windowHeight == 0) return glm::vec2(0.0f);
 
@@ -67,7 +67,7 @@ glm::vec2 Input::pixelToWorld(glm::vec2 pixelCoords, const View& view) {
 	return glm::vec2(worldPos.x, worldPos.y);
 }
 
-glm::vec2 Input::getMouseWorldPos(const View& view) {
+glm::vec2 Input::getMouseWorldPos(View& view) {
 	return pixelToWorld(getMousePixelPos(), view);
 }
 

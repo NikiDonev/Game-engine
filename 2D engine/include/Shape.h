@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <algorithm>
+#include <cmath>
 #include "View.h"
 
 struct ShapeVertex {
@@ -22,25 +23,56 @@ enum class ShapeTypes {
 
 class Shape : public Transformable {
 protected:
-	AABB m_Bounds;
-	bool m_UpdateBounds{ true };
+	AABB m_LocalBounds;
+	AABB m_WorldBounds;
+	bool m_UpdateLocalBounds{ true };
+	bool m_UpdateWorldBounds{ true };
+	void markDirty() override { m_NeedUpdate = true; m_UpdateWorldBounds = true; }
+	void markGeometryDirty() { m_UpdateLocalBounds = true; m_UpdateWorldBounds = true; }
 public:
 	std::vector<ShapeVertex> vertices;
 	std::vector<uint32_t> indices;
 	AABB getLocalBounds() {
 		if (vertices.empty()) return AABB{};
 
-		if (m_UpdateBounds) {
-			m_Bounds = AABB { vertices[0].position, vertices[0].position };
+		if (m_UpdateLocalBounds) {
+			m_LocalBounds = AABB { vertices[0].position, vertices[0].position };
 			for (const auto& vertex : vertices) {
-				m_Bounds.min.x = std::min(m_Bounds.min.x, vertex.position.x);
-				m_Bounds.min.y = std::min(m_Bounds.min.y, vertex.position.y);
-				m_Bounds.max.x = std::max(m_Bounds.max.x, vertex.position.x);
-				m_Bounds.max.y = std::max(m_Bounds.max.y, vertex.position.y);
+				m_LocalBounds.min.x = std::min(m_LocalBounds.min.x, vertex.position.x);
+				m_LocalBounds.min.y = std::min(m_LocalBounds.min.y, vertex.position.y);
+				m_LocalBounds.max.x = std::max(m_LocalBounds.max.x, vertex.position.x);
+				m_LocalBounds.max.y = std::max(m_LocalBounds.max.y, vertex.position.y);
 			}
-			return m_Bounds;
-			m_UpdateBounds = false;
+			m_UpdateLocalBounds = false;
 		}
+		return m_LocalBounds;
+	}
+	glm::vec2 transformPosition(glm::vec2 position) {
+		if (abs(getRotation()) < 0.001f) {
+			return (position * getScale()) + getPosition();
+		}
+		else {
+			return glm::vec2(getTransformMatrix() * glm::vec4(position, 0.0f, 1.0f));
+		}
+	}
+	AABB getWorldBounds() {
+		if (m_UpdateWorldBounds) {
+			AABB localBounds = getLocalBounds();
+			glm::vec2 p1, p2, p3, p4;
+			p1 = transformPosition(localBounds.min);
+			p2 = transformPosition(localBounds.max);
+			p3 = transformPosition({ localBounds.min.x, localBounds.max.y });
+			p4 = transformPosition({ localBounds.max.x, localBounds.min.y });
+
+			m_WorldBounds.min.x = std::min({ p1.x, p2.x, p3.x, p4.x });
+			m_WorldBounds.min.y = std::min({ p1.y, p2.y, p3.y, p4.y });
+			m_WorldBounds.max.x = std::max({ p1.x, p2.x, p3.x, p4.x });
+			m_WorldBounds.max.y = std::max({ p1.y, p2.y, p3.y, p4.y });
+			//m_WorldBounds.min = glm::vec2(model * glm::vec4(localBounds.min, 0.0f, 1.0f));
+			//m_WorldBounds.max = glm::vec2(model * glm::vec4(localBounds.max, 0.0f, 1.0f));
+			m_UpdateWorldBounds = false;
+		}
+		return m_WorldBounds;
 	}
 };
 

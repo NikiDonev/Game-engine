@@ -29,7 +29,7 @@ struct RenderCommand {
 	uint32_t indexCount{};
 
 	glm::mat4 modelMatrix{ 1.0f };
-	AABB localBounds;
+	AABB worldBounds;
 };
 
 struct RenderState {
@@ -44,7 +44,7 @@ public:
 
 	void Init();
 	void PushCommand(RenderCommand& cmd);
-	void Execute(const View& view, Timer& timer);
+	void Execute(View& view, Timer& timer);
 
 	int flushCount{};
 

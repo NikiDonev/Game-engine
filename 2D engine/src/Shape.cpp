@@ -90,7 +90,7 @@ void Circle::generateGeometry() {
 			indices.push_back(outlineInnerNext);
 		}
 	}
-	m_UpdateBounds = true;
+	markGeometryDirty();
 }
 
 #pragma endregion
@@ -169,6 +169,7 @@ void Rect::generateGeometry() {
 			indices.push_back(oC); indices.push_back(oN); indices.push_back(iN);
 		}
 	}
+	markGeometryDirty();
 }
 
 #pragma endregion
@@ -271,7 +272,7 @@ void Triangle::generateGeometry() {
 	}
 
 	setPosition(center);
-	m_UpdateBounds = true;
+	markGeometryDirty();
 }
 
 #pragma endregion
@@ -374,7 +375,7 @@ void Arrow::generateGeometry() {
 
 	float angle = glm::degrees(atan2(m_Direction.y, m_Direction.x));
 	setRotation(angle);
-	m_UpdateBounds = true;
+	markGeometryDirty();
 }
 
 #pragma endregion
@@ -486,7 +487,7 @@ void RoundedRect::generateGeometry() {
 			indices.push_back(outCurr); indices.push_back(outNext); indices.push_back(inNext);
 		}
 	}
-	m_UpdateBounds = true;
+	markGeometryDirty();
 }
 
 #pragma endregion
@@ -584,6 +585,7 @@ void Line::generateGeometry() {
 		}
 	}
 	setPosition(m_P1);
+	markGeometryDirty();
 }
 
 #pragma endregion
@@ -598,6 +600,7 @@ void Point::generateGeometry() {
 		{ {-hs,  hs}, m_Color }, { { hs,  hs}, m_Color }
 	};
 	indices = { 0, 1, 2, 1, 3, 2 };
+	markGeometryDirty();
 }
 
 #pragma endregion

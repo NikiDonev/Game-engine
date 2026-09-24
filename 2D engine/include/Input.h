@@ -60,8 +60,8 @@ public:
 	bool MouseReleased(int button);
 
 	glm::vec2 getMousePixelPos();
-	glm::vec2 pixelToWorld(glm::vec2 pixelCoords, const View& view);
-	glm::vec2 getMouseWorldPos(const View& view);
+	glm::vec2 pixelToWorld(glm::vec2 pixelCoords, View& view);
+	glm::vec2 getMouseWorldPos(View& view);
 
 	glm::vec2 getScroll();
 	

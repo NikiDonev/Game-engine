@@ -13,7 +13,7 @@ uint64_t RenderQueue::GenerateKey(const RenderCommand& cmd){
 	return 0;
 }
 
-void RenderQueue::Execute(const View& view, Timer& timer) {
+void RenderQueue::Execute(View& view, Timer& timer) {
 	if (m_Commands.empty()) return;
 
 	timer.TimePoint("sorting commands");
@@ -30,6 +30,12 @@ void RenderQueue::Execute(const View& view, Timer& timer) {
 			std::cerr << "Error: command " << cmdI << " didn't supply a shader \n";
 			continue;
 		}
+
+		AABB worldBounds = cmd.worldBounds;
+		AABB viewBounds = view.getFrustumBounds();
+		bool isVisible = (worldBounds.max.x >= viewBounds.min.x && worldBounds.min.x <= viewBounds.max.x) &&
+			(worldBounds.max.y >= viewBounds.min.y && worldBounds.min.y <= viewBounds.max.y);
+		if (!isVisible) continue;
 
 
 		bool shaderChanged = (m_State.shader != cmd.shader);
@@ -56,13 +62,7 @@ void RenderQueue::Execute(const View& view, Timer& timer) {
 			}
 		}
 
-		//AABB worldBounds;
-		//worldBounds.min = glm::vec2(cmd.modelMatrix * glm::vec4(cmd.localBounds.min, 0.0f, 1.0f));
-		//worldBounds.max = glm::vec2(cmd.modelMatrix * glm::vec4(cmd.localBounds.max, 0.0f, 1.0f));
-		//AABB viewBounds = view.getFrustumBounds();
-		//bool isVisible = (worldBounds.max.x >= viewBounds.min.x && worldBounds.min.x <= viewBounds.max.x) &&
-		//	(worldBounds.max.y >= viewBounds.min.y && worldBounds.min.y <= viewBounds.max.y);
-		//if (!isVisible) continue;
+
 
 		uint32_t totalBytes = cmd.vertexCount * cmd.vertexSize;
 		m_ScratchBuffer.resize(totalBytes);
