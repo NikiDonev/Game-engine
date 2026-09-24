@@ -48,8 +48,8 @@ public:
 		return m_LocalBounds;
 	}
 	glm::vec2 transformPosition(glm::vec2 position) {
-		if (abs(getRotation()) < 0.001f) {
-			return (position * getScale()) + getPosition();
+		if (std::fabs(getRotation()) < 0.001f) {
+			return (position - getOrigin()) * getScale() + getPosition();
 		}
 		else {
 			return glm::vec2(getTransformMatrix() * glm::vec4(position, 0.0f, 1.0f));

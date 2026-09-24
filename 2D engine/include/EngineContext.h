@@ -134,7 +134,10 @@ public:
 		timer.Reset();
 	}
 
-	void Draw(Shape& shape, const View& view) {
+	//void Draw(Shape& shape, const View& view) {
+	//	shapeRenderer.Draw(shape, shapeShader, &packet);
+	//}
+	void Draw(Shape& shape) {
 		shapeRenderer.Draw(shape, shapeShader, &packet);
 	}
 
