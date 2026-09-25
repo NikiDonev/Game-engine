@@ -3,13 +3,11 @@
 #include "Window.h"
 #include "State.h"
 #include "Input.h"
-#include "SpriteRenderer.h"
-#include "ShapeRenderer.h"
 #include "ResourceManager.h"
-#include "RenderQueue.h"
-#include "sRenderer.h"
-#include "Timer.h"
-#include "Logging.h"
+#include "../Renderer/RenderQueue.h"
+#include "../Renderer/ShapeRenderer.h"
+#include "../Debug/Timer.h"
+#include "../Debug/Logging.h"
 
 struct EngineContext {
 public:
@@ -21,7 +19,7 @@ public:
 	ResourceManager resourceManager;
 
 	RenderQueue renderQueue;
-	SRenderer shapeRenderer;
+	ShapeRenderer shapeRenderer;
 	//SpriteRenderer spriteRenderer;
 	//ShapeRenderer shapeRenderer;
 
@@ -95,7 +93,7 @@ public:
 		DebugUI::ShowLog();
 		
 		timer.TimePoint("Imgui");
-		//std::cout << deltaTime * 1000.0f << "\n";
+
 #if !PRODUCTION_BUILD
 		ImGui::Begin("Profiling");
 		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / deltaTime, deltaTime * 1000.0f);
@@ -134,9 +132,6 @@ public:
 		timer.Reset();
 	}
 
-	//void Draw(Shape& shape, const View& view) {
-	//	shapeRenderer.Draw(shape, shapeShader, &packet);
-	//}
 	void Draw(Shape& shape) {
 		shapeRenderer.Draw(shape, shapeShader, &packet);
 	}

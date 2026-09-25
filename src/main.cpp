@@ -1,8 +1,6 @@
-#include "EngineContext.h"
-#include "Texture.h"
-#include "TextureAtlas.h"
-#include "Tilemap.h"
-#include "Logging.h"
+#include "Core/EngineContext.h"
+#include "Debug/Logging.h"
+
 
 float prevFactor = 0.0f;
 glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 1.0f }, green = { 0.0f, 1.0f, 0.0f, 1.0f },

@@ -1,7 +1,7 @@
 #pragma once
 #include "RenderQueue.h"
 #include "Shape.h"
-class SRenderer {
+class ShapeRenderer {
 public:
 	VertexLayout shapeLayout;
 

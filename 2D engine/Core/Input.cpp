@@ -1,6 +1,6 @@
 #include "Input.h"
 #include <iostream>
-#include "DebugUI.h"
+#include "../Debug/DebugUI.h"
 
 void Input::Update() {
 	previousKeys = currentKeys;
