@@ -69,5 +69,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-${{ matrix.os }}-${{ matrix.build_type }}
-          path: ${{ github.workspace }}/build/${{ matrix.build_type }}/mygame.exe
+          path: |
+            ${{ github.workspace }}/build/${{ matrix.build_type }}/mygame.exe
+                shaders/
+                resources/
           if-no-files-found: error

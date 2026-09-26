@@ -41,7 +41,7 @@ uint64_t RenderQueue::GenerateKey(const RenderCommand& cmd){
 	uint64_t layout = cmd.layout.id;
 	uint64_t texture = cmd.texture ? cmd.texture->GetID() : 0;
 	uint64_t packet = cmd.packet ? cmd.packet->id : 0;
-	packer.PushBits(transparency, 1);
+	//packer.PushBits(transparency, 1);
 	packer.PushBits(layer, 2);
 	packer.PushBits(depth, 32);
 	packer.PushBits(shader, 6);

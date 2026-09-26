@@ -3,7 +3,7 @@
 
 
 float prevFactor = 0.0f;
-glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 1.0f }, green = { 0.0f, 1.0f, 0.0f, 1.0f },
+glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 0.5f }, green = { 0.0f, 1.0f, 0.0f, 1.0f },
 black = { 0.0f, 0.0f, 0.0f, 1.0f }, yellow = { 1.0f, 1.0f, 0.0f, 1.0f };
 
 void moveView(EngineContext& engine) {
@@ -30,7 +30,7 @@ int main() {
 	rect.setOrigin({ 20.0f, 30.0f });
 
 	glm::vec2 dir = { 10.0f, 60.0f };
-	Arrow vector = Arrow(dir);
+	Arrow vector = Arrow(dir).setColor(red);
 
 	Circle circle = Circle(20.0f, red).setPosition({ -100.0f, -100.0f });
 
@@ -42,6 +42,7 @@ int main() {
 	for (int i = 0; i < shapeCount; ++i) {
 		int width = sqrt(shapeCount);
 		shapes.push_back(Rect({ 40.0f, 40.0f }, green).setPosition({ i / width * 100.0f, (i % width) * 100.0f }));
+		shapes.back().zIndex = 10.0f;
 	}
 
 	while (engine.window.IsOpen()) {

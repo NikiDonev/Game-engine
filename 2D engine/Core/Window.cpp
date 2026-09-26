@@ -33,6 +33,9 @@ void Window::Init(uint32_t width, uint32_t height, const char* title) {
 	DebugUI::Init(glfwWindow);
 
 	enableReportGlErrors();
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 Window::~Window() {
