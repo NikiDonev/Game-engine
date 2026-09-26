@@ -97,7 +97,7 @@ public:
 #if !PRODUCTION_BUILD
 		ImGui::Begin("Profiling");
 		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / deltaTime, deltaTime * 1000.0f);
-		ImGui::Text("Flush Count: %i \n", renderQueue.flushCount);
+		//ImGui::Text("Flush Count: %i \n", renderQueue.flushCount);
 		ImGui::Text("%s", timer.timerData.c_str());
 		float sum = 0;
 		for (float v : frameHistory) sum += v;
@@ -107,14 +107,22 @@ public:
 		snprintf(overlay, sizeof(overlay), "avg %.2f ms", avg);
 		ImGui::PlotLines("Frame ms", frameHistory, 120, historyIdx,
 			overlay, 0.0f, 33.0f, ImVec2(240, 100));
+
+
+		auto& s = renderQueue.stats;
+		ImGui::Text("submitted %d  culled %d  draw calls %d", s.commandsSubmitted, s.commandsCulled, s.drawCalls);
+		ImGui::Text("vertices %i  indices %i", s.vertices, s.indices);
+		ImGui::Text("flush reason: shader %d  layout %d  packet %d  overflow %d",
+			s.shaderFlushes, s.layoutFlushes, s.packetFlushes, s.overflowFlushes);
+
 		ImGui::End();
 #endif
 		timer.TimePoint("user loop");
 	}
 
 	void EndFrame() {
-		packet["viewProj"] = mainView.getViewProjMatrix();
-
+		packet.uniforms["viewProj"] = mainView.getViewProjMatrix();
+		
 
 		renderQueue.Execute(mainView, timer);
 
@@ -135,7 +143,4 @@ public:
 	void Draw(Shape& shape) {
 		shapeRenderer.Draw(shape, shapeShader, &packet);
 	}
-
-
-
 };

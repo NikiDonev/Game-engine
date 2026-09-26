@@ -30,6 +30,7 @@ protected:
 	void markDirty() override { m_NeedUpdate = true; m_UpdateWorldBounds = true; }
 	void markGeometryDirty() { m_UpdateLocalBounds = true; m_UpdateWorldBounds = true; }
 public:
+	float zIndex{};
 	std::vector<ShapeVertex> vertices;
 	std::vector<uint32_t> indices;
 	AABB getLocalBounds() {

@@ -13,7 +13,7 @@
 
 #include <glm/glm.hpp>
 
-#include "openglErrorReporting.h"
+#include "../Debug/openglErrorReporting.h"
 #include "../Debug/DebugUI.h"
 
 void ImGuiBegin();

@@ -17,23 +17,29 @@ using Ref = std::shared_ptr<T>;
 
 using UniformValue = std::variant<int, float, glm::vec2, glm::vec3, glm::vec4, glm::mat4>;
 
-using UniformPacket = std::unordered_map<std::string, UniformValue>;
+//using UniformPacket = std::unordered_map<std::string, UniformValue>;
 
 struct Uniform {
 	std::string name;
 	UniformValue value;
 };
 
-//struct UniformPacket {
-//	//std::vector<Uniform> uniforms;
-//	std::unordered_map<std::string, UniformValue> uniforms;
-//
-//	template <typename T>
-//	void Add(const std::string& name, const T& value) {
-//		uniforms.insert({ name, UniformValue(value) });
-//	}
-//
-//};
+struct UniformPacket {
+	std::unordered_map<std::string, UniformValue> uniforms;
+
+	uint32_t id{ 0 };
+	UniformPacket() : id(s_NextID) { s_NextID++; }
+	template <typename T>
+	void insert(const std::string& name, const T& value) {
+		uniforms.insert({ name, UniformValue(value) });
+	}
+	template <typename T>
+	void insert(const std::pair<std::string, T>& pair) {
+		uniforms.insert(pair);
+	}
+private:
+	static inline uint32_t s_NextID = 0;
+};
 
 enum class ShaderType {
 	Vertex,
@@ -67,6 +73,8 @@ public:
 	void Swap(Shader& other) noexcept;
 
 	void use() { glUseProgram(m_ID); }
+	uint32_t GetID() { return m_ID; }
+
 	~Shader() { if(m_ID != 0) glDeleteProgram(m_ID); }
 
 	void setBool(const std::string& name, bool value) {

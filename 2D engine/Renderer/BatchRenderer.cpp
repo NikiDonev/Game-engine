@@ -1,5 +1,5 @@
 #include "BatchRenderer.h"
-
+#include "../Debug/Logging.h"
 
 void BatchRenderer::Init() {
 	glGenBuffers(1, &m_VBO);
@@ -19,20 +19,20 @@ void BatchRenderer::Init() {
 
 }
 
-void BatchRenderer::Flush(const VertexLayout& currentLayout) {
-	if (m_VertexBuffer.empty()) return;
+bool BatchRenderer::Flush(const VertexLayout& currentLayout) {
+	if (m_VertexBuffer.empty()) return false;
 
 	glBindVertexArray(m_VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 	if (m_VertexBuffer.size() <= maxVertexBytes)
 		glBufferSubData(GL_ARRAY_BUFFER, 0, m_VertexBuffer.size() * sizeof(uint8_t), m_VertexBuffer.data());
-	else std::cerr << "Vertex buffer overflow \n";
+	else LOG_ERROR("Vertex buffer overflow \n");
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
 	if (m_IndexBuffer.size() <= maxIndices)
 		glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, m_IndexBuffer.size() * sizeof(uint32_t), m_IndexBuffer.data());
-	else std::cerr << "Index buffer overflow \n";
+	else LOG_ERROR("Index buffer overflow \n");
 
 	// TODO: change vertex layout only when needed
 	for (int i = 0; i < currentLayout.attributes.size(); ++i) {
@@ -52,6 +52,8 @@ void BatchRenderer::Flush(const VertexLayout& currentLayout) {
 	m_VertexBuffer.clear();
 	m_IndexBuffer.clear();
 	m_CurrentVertexCount = 0;
+
+	return true;
 }
 
 void BatchRenderer::PushGeometry(const void* vertexData, uint32_t vertexCount, uint32_t vertexByteSize, const uint32_t* indexData, uint32_t indexCount) {

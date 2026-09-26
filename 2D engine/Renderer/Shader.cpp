@@ -1,5 +1,5 @@
 #include "Shader.h"
-
+#include "../Debug/Logging.h"
 
 Shader::Shader(const std::string& vertexPathOrCode, const std::string& fragmentPathOrCode) {
 	std::vector<uint32_t> compiledIDs;
@@ -26,13 +26,13 @@ std::string Shader::ProcessShaderCode(const std::string& rawShaderCode) {
 	return rawShaderCode;
 }
 
-std::string Shader::ReadShaderFile(const std::string& filePathorCode) {
-	bool isSourceCode = (filePathorCode.find("#version") != std::string::npos);
-	if (isSourceCode) return filePathorCode;
+std::string Shader::ReadShaderFile(const std::string& filePathOrCode) {
+	bool isSourceCode = (filePathOrCode.find("#version") != std::string::npos);
+	if (isSourceCode) return filePathOrCode;
 
-	std::ifstream file(filePathorCode);
+	std::ifstream file(filePathOrCode);
 	if (!file.is_open()) {
-		std::cerr << "[Shader Error] Failed to open file: " << filePathorCode << std::endl;
+		LOG_ERROR("SHADER ERROR: Failed to open file: %s", filePathOrCode.c_str());
 		return "";
 	}
 	std::stringstream ss;
@@ -93,6 +93,7 @@ int Shader::getUniformLocation(const std::string& name) {
 
 	if (location == -1) {
 		std::cerr << "ERROR::SHADER UNIFORM: Uniform '" << name << "' does not exist! \n";
+		LOG_ERROR("SHADER UNIFORM: Uniform %s does not exist", name.c_str());
 	}
 
 	m_UniformCache[name] = location;
@@ -101,7 +102,7 @@ int Shader::getUniformLocation(const std::string& name) {
 
 void Shader::ApplyUniforms(const UniformPacket& packet) {
 	use();
-	for (const auto& [name, value] : packet) {
+	for (const auto& [name, value] : packet.uniforms) {
 		if (auto* p = std::get_if<int>(&value)) setInt(name, *p);
 		else if (auto* p = std::get_if<float>(&value)) setFloat(name, *p);
 		else if (auto* p = std::get_if<glm::vec2>(&value)) setVec2(name, *p);
@@ -130,7 +131,8 @@ void Shader::checkCompileErrors(unsigned int shader, std::string type)
 		if (!success)
 		{
 			glGetShaderInfoLog(shader, 1024, NULL, infoLog);
-			std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+			//std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+			LOG_ERROR("SHADER COMPILATION ERROR of type: %s \n %s \n -- --------------------------------------------------- -- ", type.c_str(), infoLog);
 		}
 	}
 	else
@@ -139,7 +141,8 @@ void Shader::checkCompileErrors(unsigned int shader, std::string type)
 		if (!success)
 		{
 			glGetProgramInfoLog(shader, 1024, NULL, infoLog);
-			std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+			LOG_ERROR("PROGRAM LINKING ERROR of type: %s \n %s \n -- --------------------------------------------------- -- ", type.c_str(), infoLog);
+			//std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
 		}
 	}
 }

@@ -35,7 +35,9 @@ int main() {
 	Circle circle = Circle(20.0f, red).setPosition({ -100.0f, -100.0f });
 
 	std::vector<Rect> shapes;
-	int shapeCount = 2000;
+	int shapeCount = 200;
+
+	Ref<Shader> customShader = engine.resourceManager.Load<Shader>(SHADERS "shape.vert", SHADERS "shape.frag");
 
 	for (int i = 0; i < shapeCount; ++i) {
 		int width = sqrt(shapeCount);
@@ -54,14 +56,19 @@ int main() {
 		vector.setDirection(dir);
 
 		rect.rotate(0.05f);
+		rect.zIndex = 1.0f;
+
+
+		//engine.shapeRenderer.Draw(vector, customShader, &engine.packet);
 		engine.Draw(circle);
 		engine.Draw(rect);
-		engine.Draw(vector);
+
 
 		for (int i = 0; i < shapes.size(); ++i) {
 			float offset = 0.1 * sin( engine.time);
 			//shapes[i].move({ offset, 0.0f });
 			engine.Draw(shapes[i]);
+			engine.shapeRenderer.Draw(vector.setPosition(shapes[i].getPosition()), customShader, &engine.packet);
 		}
 		
 		engine.EndFrame();

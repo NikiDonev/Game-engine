@@ -30,7 +30,7 @@ public:
 		cmd.modelMatrix = shape.getTransformMatrix();
 		cmd.worldBounds = shape.getWorldBounds();
 		cmd.vertexSize = shapeLayout.size;
-		cmd.zIndex = 0.0f;
+		cmd.zIndex = shape.zIndex;
 
 		m_RenderQueue->PushCommand(cmd);
 	}

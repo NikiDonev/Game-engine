@@ -24,11 +24,11 @@ struct VertexAttribute {
 		return ((count == other.count) && (type == other.type) && (normalized == other.normalized) && (offset == other.offset));
 	}
 };
-
 struct VertexLayout {
 	std::vector<VertexAttribute> attributes;
 	uint32_t size{};
-
+	uint32_t id{ 0 };
+	VertexLayout() : id(s_NextID) { s_NextID++; }
 	bool operator==(const VertexLayout& other) const{
 		if (size != other.size) return false;
 		if (attributes != other.attributes) return false;
@@ -37,7 +37,10 @@ struct VertexLayout {
 	bool operator!=(const VertexLayout& other) const {
 		return !(*this == other);
 	}
+private:
+	static inline uint32_t s_NextID = 0;
 };
+
 
 
 class BatchRenderer {
@@ -49,7 +52,7 @@ public:
 	uint32_t maxVertexBytes = 36 * maxVertices;
 
 	void Init();
-	void Flush(const VertexLayout& currentLayout);
+	bool Flush(const VertexLayout& currentLayout);
 	void PushGeometry(const void* vertexData, uint32_t vertexCount, uint32_t vertexByteSize, const uint32_t* indexData, uint32_t indexCount);
 	bool WillBufferOverflow(uint32_t vertexCount, uint32_t vertexSize, uint32_t indexCount);
 

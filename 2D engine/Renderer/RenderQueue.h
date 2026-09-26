@@ -1,14 +1,21 @@
 #pragma once
 #include <vector>
 #include <algorithm>
-#include <iostream>
-#include "BatchRenderer.h"
-#include "Texture.h"
 
 #include <glm/glm.hpp>
-#include <imgui.h>
 
+#include "BatchRenderer.h"
+#include "Texture.h"
 #include "../Debug/Timer.h"
+
+struct RenderStats {
+	int commandsSubmitted{ 0 };
+	int commandsCulled{ 0 };
+	int drawCalls{ 0 };
+	int vertices{ 0 }, indices{ 0 };
+	int shaderFlushes{0}, packetFlushes{0}, layoutFlushes{0}, overflowFlushes{0}, textureFlushes{0};
+	void Reset() { *this = RenderStats(); }
+};
 
 struct RenderCommand {
 	uint64_t sortKey{};
@@ -46,7 +53,7 @@ public:
 	void PushCommand(RenderCommand& cmd);
 	void Execute(View& view, Timer& timer);
 
-	int flushCount{};
+	RenderStats stats;
 
 private:
 	uint64_t GenerateKey(const RenderCommand& cmd);
