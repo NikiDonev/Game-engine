@@ -54,12 +54,23 @@ jobs:
       - name: Build Project
         run: cmake --build ${{ github.workspace }}/build --config ${{ matrix.build_type }} -j 2
 
+      - name: Read executable name from CMake
+        shell: bash
+        run: |
+          APP_NAME=$(grep -m1 '^CMAKE_PROJECT_NAME:STATIC=' build/CMakeCache.txt | cut -d= -f2-)
+          test -n "$APP_NAME" || { echo "could not read project name"; exit 1; }
+          echo "APP_NAME=$APP_NAME" >> "$GITHUB_ENV"
+
+      - name: Stage package
+        shell: bash
+        run: |
+          mkdir -p dist
+          if [ "$RUNNER_OS" = "Windows" ]; then cp "build/${{ matrix.build_type }}/${{ env.APP_NAME }}.exe" dist/; else cp "build/${{ env.APP_NAME }}" dist/; fi
+          cp -r shaders resources dist/
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: app-${{ matrix.os }}-${{ matrix.build_type }}
-          path: |
-            ${{ github.workspace }}/build/**/mygame*
-            ${{ github.workspace }}/shaders/
-            ${{ github.workspace }}/resources/
+          path: dist/
           if-no-files-found: error
