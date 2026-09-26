@@ -54,23 +54,12 @@ jobs:
       - name: Build Project
         run: cmake --build ${{ github.workspace }}/build --config ${{ matrix.build_type }} -j 2
 
-      # Single-config (Linux/Mac Make): build/mygame
-      - name: Upload Artifacts (Linux/macOS)
-        if: runner.os != 'Windows'
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-${{ matrix.os }}-${{ matrix.build_type }}
-          path: ${{ github.workspace }}/build/mygame
-          if-no-files-found: error
-
-      # Multi-config (Windows MSVC): build/Release/mygame.exe
-      - name: Upload Artifacts (Windows)
-        if: runner.os == 'Windows'
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: app-${{ matrix.os }}-${{ matrix.build_type }}
           path: |
-            ${{ github.workspace }}/build/${{ matrix.build_type }}/mygame.exe
-                shaders/
-                resources/
+            ${{ github.workspace }}/build/**/mygame*
+            ${{ github.workspace }}/shaders/
+            ${{ github.workspace }}/resources/
           if-no-files-found: error
