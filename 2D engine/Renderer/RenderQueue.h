@@ -6,6 +6,7 @@
 
 #include "BatchRenderer.h"
 #include "Texture.h"
+#include "TextureTable.h"
 #include "../Debug/Timer.h"
 
 struct RenderStats {
@@ -21,6 +22,7 @@ struct RenderCommand {
 	uint64_t sortKey{};
 	
 	Ref<Texture> texture;
+	int32_t texSlotOffset = -1;
 	Ref<Shader> shader;
 	const UniformPacket* packet;
 
@@ -54,7 +56,7 @@ public:
 	void Execute(View& view, Timer& timer);
 
 	RenderStats stats;
-
+	TextureTable textureTable;
 private:
 	uint64_t GenerateKey(const RenderCommand& cmd);
 

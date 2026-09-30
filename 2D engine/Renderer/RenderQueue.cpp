@@ -3,6 +3,7 @@
 
 void RenderQueue::Init() {
 	m_Renderer.Init();
+	textureTable.Init();
 }
 
 void RenderQueue::PushCommand(RenderCommand& cmd) {
@@ -15,7 +16,7 @@ struct BitPacker {
 	int i{};
 	void PushBits(uint64_t bits, int bitCount) {
 		if (i + bitCount > 64) LOG_WARN("Pushed too many bits");
-		uint64_t mask = (1 << bitCount) - 1;
+		uint64_t mask = (1ULL << bitCount) - 1;
 		bits &= mask;
 		result <<= bitCount;
 		result |= bits;
@@ -89,8 +90,15 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 		bool packetChanged = (m_State.packet != cmd.packet);
 
 
-		//TODO: Add texture slots
+		
+		int slot = -1;
+
 		bool textureSlotsFull = false;
+		if (cmd.texture) {
+			slot = textureTable.Find(cmd.texture->GetID());
+			if (slot < 0) textureSlotsFull = textureTable.Full();
+		}
+
 		bool bufferOverflow = m_Renderer.WillBufferOverflow(cmd.vertexCount, cmd.vertexSize, cmd.indexCount);
 
 
@@ -98,6 +106,7 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 		bool needsFlush = shaderChanged || layoutChanged || packetChanged || textureSlotsFull || bufferOverflow;
 
 		if (needsFlush) {
+			textureTable.BindAll();
 			if (m_Renderer.Flush(m_State.layout)) {
 				stats.drawCalls++;
 				if (shaderChanged) stats.shaderFlushes++;
@@ -106,14 +115,18 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 				if (textureSlotsFull) stats.textureFlushes++;
 				if (bufferOverflow) stats.overflowFlushes++;
 			}
+			textureTable.Clear();
 			
 			if (shaderChanged) m_State.shader = cmd.shader;
 			if (packetChanged) m_State.packet = cmd.packet;
-			if (shaderChanged || packetChanged) m_State.shader->ApplyUniforms(*cmd.packet);
+			if (shaderChanged || packetChanged) {
+				m_State.shader->ApplyUniforms(*cmd.packet);
+				if (cmd.texture) m_State.shader->SetSamplerSlots("textures", textureTable.MaxSlots());
+			}
 			if (layoutChanged) m_State.layout = cmd.layout;
 		}
 
-
+		if (slot < 0 && cmd.texture) slot = textureTable.Add(cmd.texture->GetID());
 
 		uint32_t totalBytes = cmd.vertexCount * cmd.vertexSize;
 		m_ScratchBuffer.resize(totalBytes);
@@ -123,13 +136,20 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 			uint8_t* currentVertexBytePtr = m_ScratchBuffer.data() + (i * cmd.vertexSize);
 			glm::vec2* pos = reinterpret_cast<glm::vec2*>(currentVertexBytePtr);
 			*pos = glm::vec2(cmd.modelMatrix * glm::vec4(*pos, 0.0f, 1.0f));
+
+			if (cmd.texSlotOffset >= 0 && slot >= 0) {
+				float* texIndex = reinterpret_cast<float*>(currentVertexBytePtr + cmd.texSlotOffset);
+				*texIndex = (float)slot;
+				
+			}
 		}
 
 		m_Renderer.PushGeometry(m_ScratchBuffer.data(), cmd.vertexCount, cmd.vertexSize, cmd.indexData, cmd.indexCount);
 		stats.vertices += cmd.vertexCount; stats.indices += cmd.indexCount;
 	}
+	textureTable.BindAll();
 	if(m_Renderer.Flush(m_State.layout)) stats.drawCalls++;
-
+	textureTable.Clear();
 
 
 	m_Commands.clear();

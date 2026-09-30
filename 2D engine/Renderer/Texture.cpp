@@ -1,5 +1,5 @@
 #include "Texture.h"
-
+#include "Debug/Logging.h"
 
 Ref<Texture> s_WhiteTexture;
 Ref<Texture> s_ErrorTexture;
@@ -7,18 +7,15 @@ Ref<Texture> s_ErrorTexture;
 Texture::Texture(const std::string& filePath, GLint wrap, GLint filter)
 	: m_Path(filePath), m_Wrap(wrap), m_Filter(filter) {
 	LoadFromFile(filePath.c_str());
-	std::cout << "Creating texture from file" << std::endl;
 }
 
 Texture::Texture(const std::string& virtualPath, uint8_t* data, int width, int height, int channels, GLint wrap, GLint filter)
 	: m_Path(virtualPath), m_Width(width), m_Height(height), m_Wrap(wrap), m_Filter(filter) {
 	LoadFromData(data, channels);
-	std::cout << "Creating texture from data" << std::endl;
 }
 
 Texture::~Texture() {
 	if (m_ID != 0) {
-		std::cout << "Deleting texture " << m_ID << std::endl;
 		glDeleteTextures(1, &m_ID);
 	}
 }
@@ -40,7 +37,6 @@ Texture& Texture::operator=(Texture&& other) noexcept {
 
 std::shared_ptr<Texture> Texture::GetWhiteTexture() {
 	if (!s_WhiteTexture) {
-		std::cout << "Creating new white texture" << std::endl;
 		uint8_t data[4] = { 255, 255, 255, 255 };
 		s_WhiteTexture = std::make_shared<Texture>("runtime://white_texture", data, 1, 1, 4, GL_REPEAT, GL_NEAREST);
 	}
@@ -83,7 +79,7 @@ void Texture::LoadFromFile(const char* path) {
 		stbi_image_free(data);
 	}
 	else {
-		std::cout << "[Texture Error] Failed to load texture at path: " << path << std::endl;
+		LOG_ERROR("[Texture Error] Failed to load texture at path: %s", path);
 		uint8_t errorTexture[16] = {
 			0  , 0  , 0  , 255,
 			255, 0  , 255, 255,

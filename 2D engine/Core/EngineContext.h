@@ -6,6 +6,7 @@
 #include "ResourceManager.h"
 #include "../Renderer/RenderQueue.h"
 #include "../Renderer/ShapeRenderer.h"
+#include "../Renderer/SpriteRenderer.h"
 #include "../Debug/Timer.h"
 #include "../Debug/Logging.h"
 
@@ -20,7 +21,7 @@ public:
 
 	RenderQueue renderQueue;
 	ShapeRenderer shapeRenderer;
-	//SpriteRenderer spriteRenderer;
+	SpriteRenderer spriteRenderer;
 	//ShapeRenderer shapeRenderer;
 
 	Ref<Shader> shapeShader;
@@ -51,6 +52,7 @@ public:
 
 		renderQueue.Init();
 		shapeRenderer.Init(&renderQueue);
+		spriteRenderer.Init(&renderQueue);
 		//spriteShader = resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
 		const char* shapeShaderVertexCode = 
 		   "#version 330 core \n  \

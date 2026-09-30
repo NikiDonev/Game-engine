@@ -75,6 +75,16 @@ public:
 	void use() { glUseProgram(m_ID); }
 	uint32_t GetID() { return m_ID; }
 
+
+	void SetSamplerSlots(const std::string& name, uint32_t count) {
+		if (count > 32) count = 32;
+		int loc = getUniformLocation(name);
+		if (loc < 0) return;
+		int slots[32];
+		for (uint32_t i = 0; i < count; ++i) slots[i] = (int)i;
+		glUniform1iv(loc, count, slots);
+	}
+
 	~Shader() { if(m_ID != 0) glDeleteProgram(m_ID); }
 
 	void setBool(const std::string& name, bool value) {
