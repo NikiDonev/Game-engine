@@ -12,6 +12,9 @@
 //
 // You will probably want to macro-fy this, to switch on/off easily and use things like __FUNCSIG__ for the profile name.
 //
+
+
+
 #pragma once
 
 #include <string>
@@ -19,7 +22,28 @@
 #include <algorithm>
 #include <fstream>
 
+#include <regex>
 #include <thread>
+#include <mutex>
+
+
+#define PROFILING 1
+#if PROFILING
+#define PROFILE_SCOPE(name) InstrumentationTimer timer##__LINE__(name)
+    #define PROFILE_SESSION(filepath) Instrumentor::BeginSession(filepath)
+    #if defined(_MSC_VER)
+    #define PROFILE_FUNCTION() PROFILE_SCOPE(__FUNCSIG__)
+    #elif defined(__GNUC__) || defined(__clang__)
+    #define PROFILE_FUNCTION() PROFILE_SCOPE(__PRETTY_FUNCTION__)
+    #else
+    #define PROFILE_FUNCTION() PROFILE_SCOPE(__func__)
+    #endif
+#else
+#define PROFILE_SESSION(filepath) 
+#define PROFILING_SCOPE(name)
+#define PROFILE_FUNCTION()
+#endif
+
 
 struct ProfileResult
 {
@@ -28,43 +52,32 @@ struct ProfileResult
     uint32_t ThreadID;
 };
 
-struct InstrumentationSession
-{
-    std::string Name;
-};
 
 class Instrumentor
 {
-private:
-    InstrumentationSession* m_CurrentSession;
-    std::ofstream m_OutputStream;
-    int m_ProfileCount;
 public:
-    Instrumentor()
-        : m_CurrentSession(nullptr), m_ProfileCount(0)
+    static void BeginSession(const std::string& filepath = "results.json")
     {
-    }
-
-    void BeginSession(const std::string& name, const std::string& filepath = "results.json")
-    {
+        if (m_ActiveSession) EndSession();
+        m_ActiveSession = true;
         m_OutputStream.open(filepath);
         WriteHeader();
-        m_CurrentSession = new InstrumentationSession{ name };
     }
 
-    void EndSession()
+    static void EndSession()
     {
+        if (!m_ActiveSession) return;
+        m_ActiveSession = false;
         WriteFooter();
         m_OutputStream.close();
-        delete m_CurrentSession;
-        m_CurrentSession = nullptr;
         m_ProfileCount = 0;
     }
 
-    void WriteProfile(const ProfileResult& result)
+    static void WriteProfile(const ProfileResult& result)
     {
-        if (m_ProfileCount++ > 0)
-            m_OutputStream << ",";
+        std::lock_guard<std::mutex> lock(m_Lock);
+
+        if (m_ProfileCount++ > 0) m_OutputStream << ",";
 
         std::string name = result.Name;
         std::replace(name.begin(), name.end(), '"', '\'');
@@ -82,24 +95,23 @@ public:
         m_OutputStream.flush();
     }
 
-    void WriteHeader()
+    static void WriteHeader()
     {
         m_OutputStream << "{\"otherData\": {},\"traceEvents\":[";
-        m_OutputStream.flush();
     }
 
-    void WriteFooter()
+    static void WriteFooter()
     {
         m_OutputStream << "]}";
-        m_OutputStream.flush();
     }
 
-    static Instrumentor& Get()
-    {
-        static Instrumentor instance;
-        return instance;
-    }
+private:
+    static inline bool m_ActiveSession{ false };
+    static inline std::ofstream m_OutputStream;
+    static inline int m_ProfileCount{ 0 };
+    static inline std::mutex m_Lock;
 };
+
 
 class InstrumentationTimer
 {
@@ -107,6 +119,7 @@ public:
     InstrumentationTimer(const char* name)
         : m_Name(name), m_Stopped(false)
     {
+        if (auto p = m_Name.find("__cdecl "); p != std::string::npos) m_Name.erase(p, 8);
         m_StartTimepoint = std::chrono::high_resolution_clock::now();
     }
 
@@ -124,12 +137,14 @@ public:
         long long end = std::chrono::time_point_cast<std::chrono::microseconds>(endTimepoint).time_since_epoch().count();
 
         uint32_t threadID = std::hash<std::thread::id>{}(std::this_thread::get_id());
-        Instrumentor::Get().WriteProfile({ m_Name, start, end, threadID });
+        Instrumentor::WriteProfile({ m_Name, start, end, threadID });
 
         m_Stopped = true;
     }
 private:
-    const char* m_Name;
+    std::string m_Name;
     std::chrono::time_point<std::chrono::high_resolution_clock> m_StartTimepoint;
     bool m_Stopped;
 };
+
+

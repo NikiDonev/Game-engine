@@ -1,7 +1,8 @@
 #include "DebugUI.h"
 #include "Logging.h"
+#include "Instrumentor.h"
 
-#if PRODUCTION_BUILD
+#if !DEBUG_UI
 	void DebugUI::Init(GLFWwindow* glfwWindow) {}
 	void DebugUI::Shutdown() {}
 	void DebugUI::BeginFrame() {}
@@ -13,6 +14,7 @@
 	//void DebugUI::ShowProfiler(float* frameHistory, int historyIdx = 0, float deltaTime);
 #else
 	void DebugUI::Init(GLFWwindow* glfwWindow) {
+		PROFILE_FUNCTION();
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
@@ -24,11 +26,13 @@
 		ImGui_ImplOpenGL3_Init("#version 330");
 	}
 	void DebugUI::Shutdown() {
+		PROFILE_FUNCTION();
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
 	}
 	void DebugUI::BeginFrame(){
+		PROFILE_FUNCTION();
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
@@ -37,6 +41,7 @@
 			ImGuiDockNodeFlags_PassthruCentralNode);
 	}
 	void DebugUI::EndFrame(){
+		PROFILE_FUNCTION();
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}

@@ -1,5 +1,7 @@
 #pragma once
 
+#define DEBUG_UI 0
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 

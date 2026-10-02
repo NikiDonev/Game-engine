@@ -9,6 +9,7 @@
 #include "../Renderer/SpriteRenderer.h"
 #include "../Debug/Timer.h"
 #include "../Debug/Logging.h"
+#include "../Debug/Instrumentor.h"
 
 struct EngineContext {
 public:
@@ -20,12 +21,10 @@ public:
 	ResourceManager resourceManager;
 
 	RenderQueue renderQueue;
+
 	ShapeRenderer shapeRenderer;
 	SpriteRenderer spriteRenderer;
-	//ShapeRenderer shapeRenderer;
 
-	Ref<Shader> shapeShader;
-	Ref<Shader> spriteShader;
 
 	float time = 0.0f;
 	float deltaTime = 0.0f;
@@ -42,6 +41,7 @@ public:
 	float frameHistory[120] = {};
 	int historyIdx = 0;
 	void Initialize(int width, int height, const char* title) {
+		PROFILE_FUNCTION();
 		input.m_Width = width;
 		input.m_Height = height;
 		window.Init(width, height, title);
@@ -51,33 +51,13 @@ public:
 		input.SetupCallbacks(window.glfwWindow);
 
 		renderQueue.Init();
-		shapeRenderer.Init(&renderQueue);
-		spriteRenderer.Init(&renderQueue);
-		//spriteShader = resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
-		const char* shapeShaderVertexCode = 
-		   "#version 330 core \n  \
-			layout(location = 0) in vec2 aPos;\
-			layout(location = 1) in vec4 aColor;\
-			out vec4 Color;\
-			uniform mat4 viewProj;\
-			void main() {\
-				gl_Position = viewProj * vec4(aPos, 0.0, 1.0);\
-				Color = aColor;\
-			}";
-
-		const char* shapeShaderFragmentCode = 
-			"#version 330 core \n \
-			out vec4 FragColor;\
-			in vec4 Color;\
-			void main() {\
-				FragColor = Color;\
-			}";
-
-		shapeShader = resourceManager.Load<Shader>(shapeShaderVertexCode, shapeShaderFragmentCode);
+		shapeRenderer.Init(&renderQueue, resourceManager);
+		spriteRenderer.Init(&renderQueue, resourceManager);
 
 	}
 
 	void BeginFrame() {
+		PROFILE_FUNCTION();
 		timer.TimePoint("Start");
 		window.Clear();
 		input.Update();
@@ -96,10 +76,9 @@ public:
 		
 		timer.TimePoint("Imgui");
 
-#if !PRODUCTION_BUILD
+#if DEBUG_UI
 		ImGui::Begin("Profiling");
 		ImGui::Text("FPS: %f, DeltaTime : %f ms", 1.0f / deltaTime, deltaTime * 1000.0f);
-		//ImGui::Text("Flush Count: %i \n", renderQueue.flushCount);
 		ImGui::Text("%s", timer.timerData.c_str());
 		float sum = 0;
 		for (float v : frameHistory) sum += v;
@@ -123,6 +102,7 @@ public:
 	}
 
 	void EndFrame() {
+		PROFILE_FUNCTION();
 		packet.uniforms["viewProj"] = mainView.getViewProjMatrix();
 		
 
@@ -143,6 +123,9 @@ public:
 	}
 
 	void Draw(Shape& shape) {
-		shapeRenderer.Draw(shape, shapeShader, &packet);
+		shapeRenderer.Draw(shape, shapeRenderer.shapeShader, &packet);
+	}
+	void Draw(Sprite& sprite) {
+		spriteRenderer.Draw(sprite, spriteRenderer.spriteShader, &packet);
 	}
 };

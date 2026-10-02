@@ -15,9 +15,7 @@
 
 #include "../Debug/openglErrorReporting.h"
 #include "../Debug/DebugUI.h"
-
-void ImGuiBegin();
-void ImGuiEnd();
+#include "Debug/Instrumentor.h"
 
 
 
@@ -32,9 +30,12 @@ public:
 
 	void Init(uint32_t width, uint32_t height, const char* title);
 
-	bool IsOpen() { return !glfwWindowShouldClose(glfwWindow); }
+	bool IsOpen() const { return !glfwWindowShouldClose(glfwWindow); }
 
-	void Close() { glfwSetWindowShouldClose(glfwWindow, GLFW_TRUE); }
+	void Close() const { 
+		PROFILE_FUNCTION();
+		glfwSetWindowShouldClose(glfwWindow, GLFW_TRUE); 
+	}
 
 	void Clear() {
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -47,10 +48,10 @@ public:
 		return { width, height };
 	}
 
-	void maximizeWindow() {
+	void maximizeWindow() const {
 		glfwMaximizeWindow(glfwWindow);
 	}
-	void setSize(int width, int height) {
+	void setSize(int width, int height) const {
 		glfwSetWindowSize(glfwWindow, width, height);
 	}
 
@@ -65,7 +66,8 @@ public:
 		return height;
 	}
 
-	void Display() {
+	void Display() const {
+		PROFILE_FUNCTION();
 		glfwSwapBuffers(glfwWindow);
 		glfwPollEvents();
 	}

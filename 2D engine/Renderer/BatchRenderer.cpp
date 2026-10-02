@@ -1,7 +1,9 @@
 #include "BatchRenderer.h"
 #include "../Debug/Logging.h"
+#include "../Debug/Instrumentor.h"
 
 void BatchRenderer::Init() {
+	PROFILE_FUNCTION();
 	glGenBuffers(1, &m_VBO);
 	glGenBuffers(1, &m_EBO);
 	glGenVertexArrays(1, &m_VAO);
@@ -20,6 +22,7 @@ void BatchRenderer::Init() {
 }
 
 bool BatchRenderer::Flush(const VertexLayout& currentLayout) {
+	PROFILE_FUNCTION();
 	if (m_VertexBuffer.empty()) return false;
 
 	glBindVertexArray(m_VAO);
@@ -57,6 +60,7 @@ bool BatchRenderer::Flush(const VertexLayout& currentLayout) {
 }
 
 void BatchRenderer::PushGeometry(const void* vertexData, uint32_t vertexCount, uint32_t vertexByteSize, const uint32_t* indexData, uint32_t indexCount) {
+	PROFILE_FUNCTION();
 	uint32_t newVerticesSize = vertexCount * vertexByteSize;
 	const uint8_t* bytePointer = reinterpret_cast<const uint8_t*>(vertexData);
 	m_VertexBuffer.insert(m_VertexBuffer.end(), bytePointer, bytePointer + newVerticesSize);

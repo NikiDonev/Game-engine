@@ -5,8 +5,8 @@
 class SpriteRenderer {
 public:
 	VertexLayout spriteLayout;
-
-	void Init(RenderQueue* renderQueue) {
+	Ref<Shader> spriteShader;
+	void Init(RenderQueue* renderQueue, ResourceManager& resourceManager) {
 		m_RenderQueue = renderQueue;
 		spriteLayout.size = sizeof(SpriteVertex);
 		spriteLayout.attributes = {
@@ -15,6 +15,7 @@ public:
 			{2, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, texCoords)},
 			{1, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, texIndex)}
 		};
+		spriteShader = resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
 	}
 
 	void Draw(Sprite& sprite, const Ref<Shader>& shader, const UniformPacket* packet) {

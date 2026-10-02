@@ -1,7 +1,7 @@
 #include "Window.h"
 
-
 void Window::Init(uint32_t width, uint32_t height, const char* title) {
+	PROFILE_FUNCTION();
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -39,6 +39,7 @@ void Window::Init(uint32_t width, uint32_t height, const char* title) {
 }
 
 Window::~Window() {
+	PROFILE_FUNCTION();
 	if (glfwWindow) {
 		glfwDestroyWindow(glfwWindow);
 	}

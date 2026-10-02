@@ -53,6 +53,10 @@ public:
 
 	void Init();
 	void PushCommand(RenderCommand& cmd);
+	bool CullRenderCommand(const RenderCommand& cmd, View& view);
+	void CallFlush(const RenderCommand& cmd, bool shaderChanged, bool packetChanged, bool layoutChanged, bool textureSlotsFull, bool bufferOverflow);
+	void EditVertexData(const RenderCommand& cmd, uint32_t slot);
+
 	void Execute(View& view, Timer& timer);
 
 	RenderStats stats;
