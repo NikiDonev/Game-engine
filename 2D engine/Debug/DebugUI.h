@@ -1,6 +1,6 @@
 #pragma once
 
-#define DEBUG_UI 0
+#define DEBUG_UI !PRODUCTION_BUILD
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

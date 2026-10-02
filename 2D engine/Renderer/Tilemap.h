@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include "SpriteRenderer.h"
 
-
+/*
 struct PairHash {
 	std::size_t operator()(const std::pair<int, int>& p) const {
 		// A simple, classic spatial hash combination that works perfectly with negative numbers
@@ -93,7 +93,7 @@ public:
 					tileOrigin + xAxis + yAxis,
 					tileOrigin + yAxis
 				};
-				uint32_t slot = renderer.getTextureSlot(m_Tileset);
+				//uint32_t slot = renderer.getTextureSlot(m_Tileset);
 
 				SpriteVertex vertices[4] = {
 					{ positions[0], white, { uvs.x, uvs.y }, slot },
@@ -102,7 +102,10 @@ public:
 					{ positions[3], white, { uvs.x, uvs.w }, slot }
 				};
 
-				renderer.renderer.PushGeometry(vertices, 4, indices, 6);
+				RenderCommand cmd;
+				cmd.
+
+				//renderer.renderer.PushGeometry(vertices, 4, indices, 6);
 			}
 		}
 	}
@@ -112,4 +115,4 @@ private:
 	Ref<Texture> m_Tileset;
 	float m_TileSize{ }, m_ChunkSize{};
 	std::unordered_map<std::pair<int,int>, TilemapChunk, PairHash> m_Chunks;
-};
+};*/

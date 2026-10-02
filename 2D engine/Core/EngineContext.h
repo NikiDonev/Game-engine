@@ -61,7 +61,7 @@ public:
 		timer.TimePoint("Start");
 		window.Clear();
 		input.Update();
-
+		glfwPollEvents();
 
 		float currentFrame = glfwGetTime();
 		time = currentFrame;

@@ -18,7 +18,7 @@ public:
 	}
 
 	void Clear() { textureSlots.clear(); }
-	bool Full() const { return (int)textureSlots.size() >= m_MaxSlots; }
+	bool IsFull() const { return (int)textureSlots.size() >= m_MaxSlots; }
 	int Count() const { return (int)textureSlots.size(); }
 	int MaxSlots() { return m_MaxSlots; }
 
@@ -29,7 +29,7 @@ public:
 	int Add(uint32_t textureID) {      // slot index, or -1 when full
 		int slot = Find(textureID);
 		if (slot >= 0) return slot;
-		if (Full()) return -1;
+		if (IsFull()) return -1;
 		textureSlots.push_back(textureID);
 		return (int)textureSlots.size() - 1;
 	}

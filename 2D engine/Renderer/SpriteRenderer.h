@@ -24,7 +24,7 @@ public:
 		cmd.sortKey = 0;
 		cmd.transparent = false;
 		cmd.texture = sprite.texture;
-		int32_t texSlotOffset = offsetof(SpriteVertex, texIndex);
+		cmd.texSlotOffset = offsetof(SpriteVertex, texIndex);
 		cmd.layout = spriteLayout;
 		cmd.shader = shader;
 		cmd.packet = packet;

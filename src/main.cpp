@@ -8,14 +8,13 @@ float prevFactor = 0.0f;
 glm::vec4 red = { 1.0f, 0.0f, 0.0f, 1.0f }, blue = { 0.0f, 0.0f, 1.0f, 0.5f }, green = { 0.0f, 1.0f, 0.0f, 1.0f },
 black = { 0.0f, 0.0f, 0.0f, 1.0f }, yellow = { 1.0f, 1.0f, 0.0f, 1.0f }, white = {1.0f, 1.0f, 1.0f, 1.0f};
 
-bool grateVisible = true;
 
 void moveView(EngineContext& engine) {
 	PROFILE_FUNCTION();
-	if (engine.input.KeyHeld(GLFW_KEY_UP)) engine.mainView.move({    0.0f,  500 * engine.deltaTime });
-	if (engine.input.KeyHeld(GLFW_KEY_DOWN)) engine.mainView.move({  0.0f, -500 * engine.deltaTime });
-	if (engine.input.KeyHeld(GLFW_KEY_LEFT)) engine.mainView.move({  -500 * engine.deltaTime, 0.0f });
-	if (engine.input.KeyHeld(GLFW_KEY_RIGHT)) engine.mainView.move({  500 * engine.deltaTime, 0.0f });
+	if (engine.input.KeyHeld(GLFW_KEY_W)) engine.mainView.move({    0.0f,  500 * engine.deltaTime });
+	if (engine.input.KeyHeld(GLFW_KEY_S)) engine.mainView.move({  0.0f, -500 * engine.deltaTime });
+	if (engine.input.KeyHeld(GLFW_KEY_A)) engine.mainView.move({  -500 * engine.deltaTime, 0.0f });
+	if (engine.input.KeyHeld(GLFW_KEY_D)) engine.mainView.move({  500 * engine.deltaTime, 0.0f });
 	float factor = engine.input.getScroll().y;
 
 	float zoom = factor - prevFactor;
@@ -31,16 +30,24 @@ int main() {
 	engine.Initialize(800, 600, "2D game engine");
 	engine.window.maximizeWindow();
 
-	Ref<Shader> spriteShader = engine.resourceManager.Load<Shader>(SHADERS "sprite.vert", SHADERS "sprite.frag");
 
-	RoundedRect rect = RoundedRect({ 40.0f, 60.0f }, 6, blue).setPosition({ 0.0f , 0.0f }).setOutline(1.0f, {0.8f, 0.1f, 1.0f, 1.0f});
-	rect.setOrigin({ 20.0f, 30.0f });
+	Ref<Texture> grateTexture = engine.resourceManager.Load<Texture>(RESOURCES_PATH "copperGrate.png");
+	Ref<Texture> containerTexture = engine.resourceManager.Load<Texture>(RESOURCES_PATH "container.jpg");
+	Ref<Texture> glassTexture = engine.resourceManager.Load<Texture>(RESOURCES_PATH "blue_glass.png");
+	Ref<Texture> deepslateTexture = engine.resourceManager.Load<Texture>(RESOURCES_PATH "deepslate.png");
+	Ref<Texture> darkoakTexture = engine.resourceManager.Load<Texture>(RESOURCES_PATH "dark_oak.png");
 
-	Ref<Texture> texture = engine.resourceManager.Load<Texture>(RESOURCES_PATH "copperGrate.png");
-	Sprite grate({ 100.0f, 100.0f }, texture);
+	glm::vec2 size(100.0f);
+	std::vector<Sprite> sprites;
+	sprites.push_back(Sprite(size, grateTexture).setColor(red));
+	sprites.push_back(Sprite(size, containerTexture));
+	sprites.push_back(Sprite(size, glassTexture).setColor(yellow));
+	sprites.push_back(Sprite(size, deepslateTexture));
+	sprites.push_back(Sprite(size, darkoakTexture));
 
-	
-	Ref<Shader> customShader = engine.resourceManager.Load<Shader>(SHADERS "shape.vert", SHADERS "shape.frag");
+	for (int i = 0; i < sprites.size(); ++i) {
+		sprites[i].setPosition({ i * 100.0f, 600.0f - i * 120.0f });
+	}
 
 
 	PROFILE_SESSION("Runtime.json");
@@ -54,17 +61,10 @@ int main() {
 		}
 		moveView(engine);
 		
-		if (engine.input.KeyReleased(GLFW_KEY_T)) {
-			grateVisible = !grateVisible;
-		}
-
-		rect.rotate(0.05f);
-		rect.zIndex = 1.0f;
+		for(auto& sprite : sprites)
+			engine.Draw(sprite);
 
 
-		//engine.Draw(rect);
-		if(grateVisible) engine.Draw(grate);
-		//engine.spriteRenderer.Draw(grate, spriteShader, &engine.packet);
 
 		engine.EndFrame();
 	}

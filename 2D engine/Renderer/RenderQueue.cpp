@@ -132,7 +132,6 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 			stats.commandsCulled++; continue;
 		}
 
-
 		bool shaderChanged = (m_State.shader != cmd.shader);
 		bool layoutChanged = (m_State.layout != cmd.layout);
 		bool packetChanged = (m_State.packet != cmd.packet);
@@ -142,7 +141,7 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 		bool textureSlotsFull = false;
 		if (cmd.texture) {
 			slot = textureTable.Find(cmd.texture->GetID());
-			if (slot < 0) textureSlotsFull = textureTable.Full();
+			if (slot < 0) textureSlotsFull = textureTable.IsFull();
 		}
 
 		bool bufferOverflow = m_Renderer.WillBufferOverflow(cmd.vertexCount, cmd.vertexSize, cmd.indexCount);
@@ -151,8 +150,8 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 		if (needsFlush) 
 			CallFlush(cmd, shaderChanged, packetChanged, layoutChanged, textureSlotsFull, bufferOverflow);
 		
-
 		if (slot < 0 && cmd.texture) slot = textureTable.Add(cmd.texture->GetID());
+		//LOG_INFO("index: %i, texture slot: %i",cmdI, slot);
 
 		EditVertexData(cmd, slot);
 

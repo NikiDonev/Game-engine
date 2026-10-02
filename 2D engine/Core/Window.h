@@ -69,7 +69,7 @@ public:
 	void Display() const {
 		PROFILE_FUNCTION();
 		glfwSwapBuffers(glfwWindow);
-		glfwPollEvents();
+
 	}
 
 
