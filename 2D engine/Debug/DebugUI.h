@@ -12,6 +12,7 @@
 
 struct DebugUI {
 	static void Init(GLFWwindow* glfwWindow);
+	static void ApplyStyle();
 	static void Shutdown();
 	static void BeginFrame();
 	static void EndFrame();

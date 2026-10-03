@@ -1,5 +1,9 @@
 #include "Window.h"
 
+void ApplyCustomStyle() {
+
+}
+
 void Window::Init(uint32_t width, uint32_t height, const char* title) {
 	PROFILE_FUNCTION();
 	glfwInit();
@@ -31,12 +35,15 @@ void Window::Init(uint32_t width, uint32_t height, const char* title) {
 	glEnable(GL_MULTISAMPLE);
 
 	DebugUI::Init(glfwWindow);
+    DebugUI::ApplyStyle();
 
 	enableReportGlErrors();
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
+
+
 
 Window::~Window() {
 	PROFILE_FUNCTION();

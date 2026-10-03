@@ -151,7 +151,6 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 			CallFlush(cmd, shaderChanged, packetChanged, layoutChanged, textureSlotsFull, bufferOverflow);
 		
 		if (slot < 0 && cmd.texture) slot = textureTable.Add(cmd.texture->GetID());
-		//LOG_INFO("index: %i, texture slot: %i",cmdI, slot);
 
 		EditVertexData(cmd, slot);
 
