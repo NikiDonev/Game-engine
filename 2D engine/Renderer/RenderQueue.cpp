@@ -54,7 +54,6 @@ uint64_t RenderQueue::GenerateKey(const RenderCommand& cmd){
 	return packer.result;
 }
 bool RenderQueue::CullRenderCommand(const RenderCommand& cmd, View& view) {
-	PROFILE_FUNCTION();
 	AABB worldBounds = cmd.worldBounds;
 	AABB viewBounds = view.getFrustumBounds();
 	bool isVisible = (worldBounds.max.x >= viewBounds.min.x && worldBounds.min.x <= viewBounds.max.x) &&
@@ -85,7 +84,6 @@ void RenderQueue::CallFlush(const RenderCommand& cmd, bool shaderChanged, bool p
 }
 
 void RenderQueue::EditVertexData(const RenderCommand& cmd, uint32_t slot) {
-	PROFILE_FUNCTION();
 	uint32_t totalBytes = cmd.vertexCount * cmd.vertexSize;
 	m_ScratchBuffer.resize(totalBytes);
 	std::memcpy(m_ScratchBuffer.data(), cmd.vertexData, totalBytes);
@@ -112,7 +110,7 @@ void RenderQueue::Execute(View& view, Timer& timer) {
 
 	timer.TimePoint("sorting commands");
 
-	std::stable_sort(m_Commands.begin(), m_Commands.end(), [](const RenderCommand& a, const RenderCommand& b) {
+	std::sort(m_Commands.begin(), m_Commands.end(), [](const RenderCommand& a, const RenderCommand& b) {
 		return a.sortKey < b.sortKey;
 		});	
 

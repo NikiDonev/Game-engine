@@ -21,15 +21,13 @@
 #include <chrono>
 #include <algorithm>
 #include <fstream>
-
-#include <regex>
 #include <thread>
 #include <mutex>
 
 
-#define PROFILING 1
+#define PROFILING 0
 #if PROFILING
-#define PROFILE_SCOPE(name) InstrumentationTimer timer##__LINE__(name)
+    #define PROFILE_SCOPE(name) InstrumentationTimer timer##__LINE__(name)
     #define PROFILE_SESSION(filepath) Instrumentor::BeginSession(filepath)
     #if defined(_MSC_VER)
     #define PROFILE_FUNCTION() PROFILE_SCOPE(__FUNCSIG__)
@@ -39,9 +37,9 @@
     #define PROFILE_FUNCTION() PROFILE_SCOPE(__func__)
     #endif
 #else
-#define PROFILE_SESSION(filepath) 
-#define PROFILING_SCOPE(name)
-#define PROFILE_FUNCTION()
+    #define PROFILE_SESSION(filepath) ((void)0)
+    #define PROFILE_SCOPE(name) ((void)0)
+    #define PROFILE_FUNCTION() ((void)0)
 #endif
 
 
@@ -75,7 +73,7 @@ public:
 
     static void WriteProfile(const ProfileResult& result)
     {
-        std::lock_guard<std::mutex> lock(m_Lock);
+        //std::lock_guard<std::mutex> lock(m_Lock);
 
         if (m_ProfileCount++ > 0) m_OutputStream << ",";
 
@@ -92,7 +90,6 @@ public:
         m_OutputStream << "\"ts\":" << result.Start;
         m_OutputStream << "}";
 
-        m_OutputStream.flush();
     }
 
     static void WriteHeader()
@@ -103,6 +100,7 @@ public:
     static void WriteFooter()
     {
         m_OutputStream << "]}";
+        m_OutputStream.flush();
     }
 
 private:
