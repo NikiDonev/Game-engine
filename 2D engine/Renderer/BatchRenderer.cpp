@@ -42,7 +42,7 @@ bool BatchRenderer::Flush(const VertexLayout& currentLayout) {
 		const VertexAttribute& attrib = currentLayout.attributes[i];
 		glEnableVertexAttribArray(i);
 		GLboolean normalized = (attrib.normalized ? GL_TRUE : GL_FALSE);
-		glVertexAttribPointer(i, attrib.count, attrib.type, normalized, currentLayout.size, (void*)attrib.offset);
+		glVertexAttribPointer(i, attrib.count, attrib.type, normalized, currentLayout.size, reinterpret_cast<void*>(static_cast<uintptr_t>(attrib.offset)));
 	}
 
 	glDrawElements(GL_TRIANGLES, m_IndexBuffer.size(), GL_UNSIGNED_INT, 0);
