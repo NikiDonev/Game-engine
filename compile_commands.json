@@ -1,0 +1,722 @@
+[
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\src\\main.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\src\\main.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\src\\main.cpp",
+  "output": "CMakeFiles\\mygame.dir\\src\\main.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Core\\Input.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Core\\Input.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Core\\Input.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Core\\Input.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Core\\Window.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Core\\Window.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Core\\Window.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Core\\Window.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Debug\\DebugUI.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Debug\\DebugUI.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Debug\\DebugUI.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Debug\\DebugUI.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Debug\\Logging.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Debug\\Logging.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Debug\\Logging.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Debug\\Logging.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Debug\\Tests.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Debug\\Tests.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Debug\\Tests.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Debug\\Tests.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Debug\\openglErrorReporting.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Debug\\openglErrorReporting.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Debug\\openglErrorReporting.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Debug\\openglErrorReporting.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Drawable\\Shape.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Drawable\\Shape.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Drawable\\Shape.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Drawable\\Shape.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Drawable\\Sprite.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Drawable\\Sprite.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Drawable\\Sprite.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Drawable\\Sprite.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Renderer\\BatchRenderer.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\BatchRenderer.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\BatchRenderer.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Renderer\\BatchRenderer.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Renderer\\Framebuffer.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\Framebuffer.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\Framebuffer.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Renderer\\Framebuffer.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Renderer\\RenderQueue.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\RenderQueue.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\RenderQueue.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Renderer\\RenderQueue.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Renderer\\Shader.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\Shader.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\Shader.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Renderer\\Shader.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DGLFW_INCLUDE_NONE=1 -DPRODUCTION_BUILD=0 -DRESOURCES_PATH=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/resources/\\\"\" -DSHADERS=\"\\\"C:/Users/niki/Desktop/Niki/C++/openGL/2D library/shaders/\\\"\" -D_CRT_SECURE_NO_WARNINGS -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glm\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /arch:AVX2 /FoCMakeFiles\\mygame.dir\\2D_engine\\Renderer\\Texture.cpp.obj /FdCMakeFiles\\mygame.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\Texture.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\2D engine\\Renderer\\Texture.cpp",
+  "output": "CMakeFiles\\mygame.dir\\2D_engine\\Renderer\\Texture.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\context.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\context.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\context.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\context.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\init.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\init.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\init.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\init.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\input.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\input.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\input.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\input.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\monitor.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\monitor.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\monitor.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\monitor.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\vulkan.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\vulkan.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\vulkan.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\vulkan.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\window.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\window.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\window.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\window.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_init.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_init.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_init.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_init.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_joystick.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_joystick.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_joystick.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_joystick.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_monitor.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_monitor.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_monitor.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_monitor.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_time.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_time.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_time.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_time.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_thread.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_thread.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_thread.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_thread.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_window.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_window.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\win32_window.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\win32_window.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\wgl_context.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\wgl_context.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\wgl_context.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\wgl_context.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\egl_context.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\egl_context.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\egl_context.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\egl_context.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -D_GLFW_USE_CONFIG_H -D_UNICODE -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\" -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\out\\build\\x64-Debug\\thirdparty\\glfw-3.3.2\\src\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\osmesa_context.c.obj /Fdthirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\glfw.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\osmesa_context.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\src\\osmesa_context.c",
+  "output": "thirdparty\\glfw-3.3.2\\src\\CMakeFiles\\glfw.dir\\osmesa_context.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\boing.dir\\boing.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\boing.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\boing.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\boing.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\boing.dir\\boing.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\boing.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\boing.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\boing.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\boing.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\boing.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\gears.dir\\gears.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\gears.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\gears.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\gears.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\gears.dir\\gears.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\gears.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\gears.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\gears.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\gears.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\gears.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\heightmap.dir\\heightmap.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\heightmap.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\heightmap.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\heightmap.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\heightmap.dir\\heightmap.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\heightmap.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\heightmap.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\heightmap.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\heightmap.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\heightmap.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\offscreen.dir\\offscreen.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\offscreen.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\offscreen.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\offscreen.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\offscreen.dir\\offscreen.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\offscreen.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\offscreen.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\offscreen.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\offscreen.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\offscreen.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\particles.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\particles.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\particles.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\particles.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\__\\deps\\tinycthread.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\tinycthread.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\tinycthread.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\__\\deps\\tinycthread.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\particles.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\sharing.dir\\sharing.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\sharing.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\sharing.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\sharing.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\sharing.dir\\sharing.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\sharing.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\sharing.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\sharing.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\sharing.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\sharing.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\simple.dir\\simple.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\simple.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\simple.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\simple.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\simple.dir\\simple.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\simple.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\simple.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\simple.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\simple.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\simple.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\splitview.dir\\splitview.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\splitview.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\splitview.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\splitview.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\splitview.dir\\splitview.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\splitview.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\splitview.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\splitview.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\splitview.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\splitview.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\wave.dir\\wave.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\wave.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\wave.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\wave.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\wave.dir\\wave.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100261~1.0\\x64\\rc.exe -D_CRT_SECURE_NO_WARNINGS -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -I \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -DWIN32 -D_DEBUG /fo thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\wave.dir\\glfw.rc.res \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\examples\\glfw.rc",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\wave.dir\\glfw.rc.res"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\wave.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\wave.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\examples\\CMakeFiles\\wave.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\clipboard.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\clipboard.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\clipboard.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\clipboard.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\clipboard.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\events.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\events.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\events.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\events.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\events.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\msaa.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\msaa.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\msaa.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\msaa.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\msaa.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\glfwinfo.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\glfwinfo.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\glfwinfo.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\glfwinfo.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\__\\deps\\glad_vulkan.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_vulkan.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_vulkan.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\glfwinfo.dir\\__\\deps\\glad_vulkan.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\iconify.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\iconify.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\iconify.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\iconify.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\iconify.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\monitors.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\monitors.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\monitors.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\monitors.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\monitors.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\reopen.dir\\reopen.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\reopen.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\reopen.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\reopen.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\reopen.dir\\reopen.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\reopen.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\reopen.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\reopen.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\cursor.dir\\cursor.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\cursor.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\cursor.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\cursor.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\cursor.dir\\cursor.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\cursor.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\cursor.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\cursor.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\empty.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\empty.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\empty.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\empty.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\__\\deps\\tinycthread.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\tinycthread.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\tinycthread.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\__\\deps\\tinycthread.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\empty.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\gamma.dir\\gamma.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\gamma.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\gamma.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\gamma.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\gamma.dir\\gamma.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\gamma.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\gamma.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\gamma.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\icon.dir\\icon.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\icon.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\icon.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\icon.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\icon.dir\\icon.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\icon.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\icon.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\icon.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\inputlag.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\inputlag.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\inputlag.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\inputlag.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\inputlag.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\joysticks.dir\\joysticks.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\joysticks.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\joysticks.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\joysticks.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\joysticks.dir\\joysticks.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\joysticks.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\joysticks.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\joysticks.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\opacity.dir\\opacity.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\opacity.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\opacity.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\opacity.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\opacity.dir\\opacity.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\opacity.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\opacity.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\opacity.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\tearing.dir\\tearing.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\tearing.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\tearing.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\tearing.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\tearing.dir\\tearing.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\tearing.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\tearing.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\tearing.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\threads.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\threads.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\threads.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\threads.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\__\\deps\\tinycthread.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\tinycthread.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\tinycthread.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\__\\deps\\tinycthread.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\threads.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\timeout.dir\\timeout.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\timeout.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\timeout.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\timeout.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\timeout.dir\\timeout.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\timeout.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\timeout.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\timeout.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\title.dir\\title.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\title.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\title.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\title.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\title.dir\\title.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\title.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\title.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\title.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\triangle-vulkan.dir\\triangle-vulkan.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\triangle-vulkan.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\triangle-vulkan.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\triangle-vulkan.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\triangle-vulkan.dir\\triangle-vulkan.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\triangle-vulkan.dir\\__\\deps\\glad_vulkan.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\triangle-vulkan.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_vulkan.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_vulkan.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\triangle-vulkan.dir\\__\\deps\\glad_vulkan.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\windows.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\windows.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\tests\\windows.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\windows.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\__\\deps\\getopt.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\getopt.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\__\\deps\\getopt.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -D_CRT_SECURE_NO_WARNINGS -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:W0 /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\__\\deps\\glad_gl.c.obj /Fdthirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\ /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\deps\\glad_gl.c",
+  "output": "thirdparty\\glfw-3.3.2\\tests\\CMakeFiles\\windows.dir\\__\\deps\\glad_gl.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\glad\\CMakeFiles\\glad.dir\\src\\glad.c.obj /Fdthirdparty\\glad\\CMakeFiles\\glad.dir\\glad.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\src\\glad.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\src\\glad.c",
+  "output": "thirdparty\\glad\\CMakeFiles\\glad.dir\\src\\glad.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\include\" /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\stb_image\\CMakeFiles\\stb_image.dir\\src\\stb_image.cpp.obj /Fdthirdparty\\stb_image\\CMakeFiles\\stb_image.dir\\stb_image.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\src\\stb_image.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_image\\src\\stb_image.cpp",
+  "output": "thirdparty\\stb_image\\CMakeFiles\\stb_image.dir\\src\\stb_image.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\include\" /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\stb_truetype\\CMakeFiles\\stb_truetype.dir\\src\\stb_truetype.cpp.obj /Fdthirdparty\\stb_truetype\\CMakeFiles\\stb_truetype.dir\\stb_truetype.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\src\\stb_truetype.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\stb_truetype\\src\\stb_truetype.cpp",
+  "output": "thirdparty\\stb_truetype\\CMakeFiles\\stb_truetype.dir\\src\\stb_truetype.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\include\" /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MTd /Fothirdparty\\raudio\\CMakeFiles\\raudio.dir\\src\\raudio.c.obj /Fdthirdparty\\raudio\\CMakeFiles\\raudio.dir\\raudio.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\src\\raudio.c\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\raudio\\src\\raudio.c",
+  "output": "thirdparty\\raudio\\CMakeFiles\\raudio.dir\\src\\raudio.c.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui.cpp.obj /Fdthirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui.cpp",
+  "output": "thirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui_demo.cpp.obj /Fdthirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui_demo.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui_demo.cpp",
+  "output": "thirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui_demo.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui_draw.cpp.obj /Fdthirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui_draw.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui_draw.cpp",
+  "output": "thirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui_draw.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui_tables.cpp.obj /Fdthirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui_tables.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui_tables.cpp",
+  "output": "thirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui_tables.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui_widgets.cpp.obj /Fdthirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui_widgets.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\imgui_widgets.cpp",
+  "output": "thirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\imgui_widgets.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\backends\\imgui_impl_glfw.cpp.obj /Fdthirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\backends\\imgui_impl_glfw.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\backends\\imgui_impl_glfw.cpp",
+  "output": "thirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\backends\\imgui_impl_glfw.cpp.obj"
+},
+{
+  "directory": "C:/Users/niki/Desktop/Niki/C++/openGL/2D library/out/build/x64-Debug",
+  "command": "C:\\PROGRA~1\\MICROS~2\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1444~1.352\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glfw-3.3.2\\include\" -external:I\"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\glad\\include\" -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MTd /Fothirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\backends\\imgui_impl_opengl3.cpp.obj /Fdthirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui.pdb /FS -c \"C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\backends\\imgui_impl_opengl3.cpp\"",
+  "file": "C:\\Users\\niki\\Desktop\\Niki\\C++\\openGL\\2D library\\thirdparty\\imgui-docking\\imgui\\backends\\imgui_impl_opengl3.cpp",
+  "output": "thirdparty\\imgui-docking\\CMakeFiles\\imgui.dir\\imgui\\backends\\imgui_impl_opengl3.cpp.obj"
+}
+]

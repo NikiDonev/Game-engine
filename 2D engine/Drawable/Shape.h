@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
-#include "View.h"
+#include "Renderer/View.h"
 
 struct ShapeVertex {
 	glm::vec2 position;

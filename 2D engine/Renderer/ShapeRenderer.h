@@ -1,13 +1,13 @@
 #pragma once
+#include "Core/ResourceManager.h"
 #include "RenderQueue.h"
-#include "Shape.h"
+#include "Drawable/Shape.h"
 
 class ShapeRenderer {
 public:
-	VertexLayout shapeLayout;
+  VertexLayout shapeLayout;
 
-	const char* shapeShaderVertexCode =
-		   "#version 330 core \n  \
+  const char *shapeShaderVertexCode = "#version 330 core \n  \
 			layout(location = 0) in vec2 aPos;\
 			layout(location = 1) in vec4 aColor;\
 			out vec4 Color;\
@@ -17,48 +17,47 @@ public:
 				Color = aColor;\
 			}";
 
-	const char* shapeShaderFragmentCode =
-		   "#version 330 core \n \
+  const char *shapeShaderFragmentCode = "#version 330 core \n \
 			out vec4 FragColor;\
 			in vec4 Color;\
 			void main() {\
 				FragColor = Color;\
 			}";
 
-	Ref<Shader> shapeShader;
+  Ref<Shader> shapeShader;
 
-	void Init(RenderQueue* renderQueue, ResourceManager& resourceManager) {
-		m_RenderQueue = renderQueue;
-		shapeLayout.size = sizeof(ShapeVertex);
-		shapeLayout.attributes = {
-			{2, GL_FLOAT, GL_FALSE, offsetof(ShapeVertex, position)},
-			{4, GL_FLOAT, GL_FALSE, offsetof(ShapeVertex, color)}
-		};
-		shapeShader = resourceManager.Load<Shader>(shapeShaderVertexCode, shapeShaderFragmentCode);
-	}
+  void Init(RenderQueue *renderQueue, ResourceManager &resourceManager) {
+    m_RenderQueue = renderQueue;
+    shapeLayout.size = sizeof(ShapeVertex);
+    shapeLayout.attributes = {
+        {2, GL_FLOAT, GL_FALSE, offsetof(ShapeVertex, position)},
+        {4, GL_FLOAT, GL_FALSE, offsetof(ShapeVertex, color)}};
+    shapeShader = resourceManager.Load<Shader>(shapeShaderVertexCode,
+                                               shapeShaderFragmentCode);
+  }
 
-	void Draw(Shape& shape, const Ref<Shader>& shader, const UniformPacket* packet) {
+  void Draw(Shape &shape, const Ref<Shader> &shader,
+            const UniformPacket *packet) {
 
-		RenderCommand cmd;
-		cmd.sortKey = 0;
-		cmd.transparent = false;
-		cmd.texture = nullptr;
-		cmd.layout = shapeLayout;
-		cmd.shader = shader;
-		cmd.packet = packet;
-		cmd.indexData = shape.indices.data();
-		cmd.indexCount = shape.indices.size();
-		cmd.vertexData = shape.vertices.data();
-		cmd.vertexCount = shape.vertices.size();
-		cmd.modelMatrix = shape.getTransformMatrix();
-		cmd.worldBounds = shape.getWorldBounds();
-		cmd.vertexSize = shapeLayout.size;
-		cmd.zIndex = shape.zIndex;
+    RenderCommand cmd;
+    cmd.sortKey = 0;
+    cmd.transparent = false;
+    cmd.texture = nullptr;
+    cmd.layout = shapeLayout;
+    cmd.shader = shader;
+    cmd.packet = packet;
+    cmd.indexData = shape.indices.data();
+    cmd.indexCount = shape.indices.size();
+    cmd.vertexData = shape.vertices.data();
+    cmd.vertexCount = shape.vertices.size();
+    cmd.modelMatrix = shape.getTransformMatrix();
+    cmd.worldBounds = shape.getWorldBounds();
+    cmd.vertexSize = shapeLayout.size;
+    cmd.zIndex = shape.zIndex;
 
-		m_RenderQueue->PushCommand(cmd);
-	}
+    m_RenderQueue->PushCommand(cmd);
+  }
 
 private:
-
-	RenderQueue* m_RenderQueue;
+  RenderQueue *m_RenderQueue;
 };

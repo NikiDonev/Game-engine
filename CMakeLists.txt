@@ -1,9 +1,11 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.25)
 cmake_policy(SET CMP0091 NEW)
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 project(mygame CXX)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED OFF)
@@ -15,7 +17,7 @@ add_subdirectory(thirdparty/glfw-3.3.2 SYSTEM)
 add_subdirectory(thirdparty/glad SYSTEM)
 add_subdirectory(thirdparty/stb_image SYSTEM)
 add_subdirectory(thirdparty/stb_truetype SYSTEM)
-add_subdirectory(thirdparty/raudio SYSTEM)
+# add_subdirectory(thirdparty/raudio SYSTEM)
 add_subdirectory(thirdparty/glm SYSTEM)
 add_subdirectory(thirdparty/imgui-docking SYSTEM)
 
@@ -63,7 +65,7 @@ target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE
     glad 
     stb_image 
     stb_truetype 
-    raudio 
+    # raudio 
     imgui
 )
 
