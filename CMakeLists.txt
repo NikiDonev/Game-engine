@@ -1,16 +1,28 @@
 cmake_minimum_required(VERSION 3.25)
-cmake_policy(SET CMP0091 NEW)
+# cmake_policy(SET CMP0091 NEW)
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-project(mygame CXX)
+project(mygame LANGUAGES C CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(PRODUCTION_BUILD "Make this a production build" OFF)
+
+option(ENABLE_AVX2 "Compile the game with AVX2 instructions" ON)
+
+# Project rule: third-party libraries stay statically linked.
+set(BUILD_SHARED_LIBS OFF)
+
+# GLFW: library only (skips examples/tests/docs/install targets).
+set(GLFW_BUILD_EXAMPLES OFF)
+set(GLFW_BUILD_TESTS OFF)
+set(GLFW_BUILD_DOCS OFF)
+set(GLFW_INSTALL OFF)
+
 
 # Add subdirectories
 add_subdirectory(thirdparty/glfw-3.3.2 SYSTEM)
@@ -24,7 +36,7 @@ add_subdirectory(thirdparty/imgui-docking SYSTEM)
 
 if(APPLE)
   target_compile_options(glfw PRIVATE -Wno-deprecated-declarations)
-  target_compile_options(raudio PRIVATE -Wno-deprecated-declarations)
+  # target_compile_options(raudio PRIVATE -Wno-deprecated-declarations)
 endif()
 
 # Collect sources
@@ -50,7 +62,15 @@ endif()
 # Platform-specific options
 if(MSVC)
     target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC _CRT_SECURE_NO_WARNINGS)
-    target_compile_options("${CMAKE_PROJECT_NAME}" PRIVATE /arch:AVX2)
+    # target_compile_options("${CMAKE_PROJECT_NAME}" PRIVATE /arch:AVX2)
+endif()
+
+if(ENABLE_AVX2)
+    if(MSVC)
+        target_compile_options("${CMAKE_PROJECT_NAME}" PRIVATE /arch:AVX2)
+    else()
+        target_compile_options("${CMAKE_PROJECT_NAME}" PRIVATE -mavx2)
+    endif()
 endif()
 
 target_include_directories("${CMAKE_PROJECT_NAME}" SYSTEM PUBLIC 

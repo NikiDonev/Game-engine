@@ -1,29 +1,116 @@
 {
-  "version": 3,
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+
   "configurePresets": [
     {
-      "name": "debug",
+      "name": "base",
+      "hidden": true,
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/out/build/x64-Debug",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "MSVC x64 Debug",
+      "description": "Requires a Visual Studio Developer PowerShell (or vcvars64.bat).",
+      "inherits": "base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "CMAKE_POLICY_VERSION_MINIMUM": "3.5"
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
       }
     },
     {
       "name": "release",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/out/build/x64-Release",
+      "displayName": "MSVC x64 Release",
+      "description": "Requires a Visual Studio Developer PowerShell (or vcvars64.bat).",
+      "inherits": "base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "CMAKE_POLICY_VERSION_MINIMUM": "3.5"
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "clang-cl-debug",
+      "displayName": "Clang (MSVC ABI) x64 Debug",
+      "description": "Requires LLVM on PATH plus a Visual Studio Developer PowerShell.",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang-cl",
+        "CMAKE_CXX_COMPILER": "clang-cl"
+      }
+    },
+    {
+      "name": "clang-cl-release",
+      "displayName": "Clang (MSVC ABI) x64 Release",
+      "description": "Requires LLVM on PATH plus a Visual Studio Developer PowerShell.",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "clang-cl",
+        "CMAKE_CXX_COMPILER": "clang-cl"
+      }
+    },
+    {
+      "name": "gcc-debug",
+      "displayName": "MinGW GCC x64 Debug",
+      "description": "MSYS2 UCRT64. Override MSYS2_ROOT in CMakeUserPresets.json if needed.",
+      "inherits": "base",
+      "environment": { "MSYS2_ROOT": "C:/msys64" },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "$env{MSYS2_ROOT}/ucrt64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "$env{MSYS2_ROOT}/ucrt64/bin/g++.exe",
+        "CMAKE_EXE_LINKER_FLAGS": "-static"
+      }
+    },
+    {
+      "name": "gcc-release",
+      "displayName": "MinGW GCC x64 Release",
+      "description": "MSYS2 UCRT64. Override MSYS2_ROOT in CMakeUserPresets.json if needed.",
+      "inherits": "base",
+      "environment": { "MSYS2_ROOT": "C:/msys64" },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "$env{MSYS2_ROOT}/ucrt64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "$env{MSYS2_ROOT}/ucrt64/bin/g++.exe",
+        "CMAKE_EXE_LINKER_FLAGS": "-static"
       }
     }
   ],
+
   "buildPresets": [
     { "name": "debug", "configurePreset": "debug" },
-    { "name": "release", "configurePreset": "release" }
+    { "name": "release", "configurePreset": "release" },
+    { "name": "clang-cl-debug", "configurePreset": "clang-cl-debug" },
+    { "name": "clang-cl-release", "configurePreset": "clang-cl-release" },
+    { "name": "gcc-debug", "configurePreset": "gcc-debug" },
+    { "name": "gcc-release", "configurePreset": "gcc-release" }
+  ],
+
+  "workflowPresets": [
+    { "name": "debug", "steps": [
+        { "type": "configure", "name": "debug" },
+        { "type": "build", "name": "debug" } ] },
+    { "name": "release", "steps": [
+        { "type": "configure", "name": "release" },
+        { "type": "build", "name": "release" } ] },
+    { "name": "clang-cl-debug", "steps": [
+        { "type": "configure", "name": "clang-cl-debug" },
+        { "type": "build", "name": "clang-cl-debug" } ] },
+    { "name": "clang-cl-release", "steps": [
+        { "type": "configure", "name": "clang-cl-release" },
+        { "type": "build", "name": "clang-cl-release" } ] },
+    { "name": "gcc-debug", "steps": [
+        { "type": "configure", "name": "gcc-debug" },
+        { "type": "build", "name": "gcc-debug" } ] },
+    { "name": "gcc-release", "steps": [
+        { "type": "configure", "name": "gcc-release" },
+        { "type": "build", "name": "gcc-release" } ] }
   ]
 }
