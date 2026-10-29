@@ -36,7 +36,6 @@ jobs:
           -DGLFW_BUILD_EXAMPLES=OFF
           -DGLFW_BUILD_TESTS=OFF
           -DGLFW_BUILD_DOCS=OFF
-          "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
       - name: Configure CMake (macOS universal)
         if: runner.os == 'macOS'
@@ -49,7 +48,6 @@ jobs:
           -DGLFW_BUILD_DOCS=OFF
           -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64"
           -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
-          "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
       - name: Build Project
         run: cmake --build ${{ github.workspace }}/build --config ${{ matrix.build_type }} -j 2

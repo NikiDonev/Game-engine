@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.25)
-# cmake_policy(SET CMP0091 NEW)
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
@@ -11,8 +10,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(PRODUCTION_BUILD "Make this a production build" OFF)
-
-option(ENABLE_AVX2 "Compile the game with AVX2 instructions" ON)
+option(ENABLE_AVX2 "Enable AVX2 code generation on x86" ON)
 
 # Project rule: third-party libraries stay statically linked.
 set(BUILD_SHARED_LIBS OFF)
@@ -23,20 +21,17 @@ set(GLFW_BUILD_TESTS OFF)
 set(GLFW_BUILD_DOCS OFF)
 set(GLFW_INSTALL OFF)
 
-
 # Add subdirectories
 add_subdirectory(thirdparty/glfw-3.3.2 SYSTEM)
 add_subdirectory(thirdparty/glad SYSTEM)
 add_subdirectory(thirdparty/stb_image SYSTEM)
 add_subdirectory(thirdparty/stb_truetype SYSTEM)
-# add_subdirectory(thirdparty/raudio SYSTEM)
 add_subdirectory(thirdparty/glm SYSTEM)
 add_subdirectory(thirdparty/imgui-docking SYSTEM)
 
 
 if(APPLE)
   target_compile_options(glfw PRIVATE -Wno-deprecated-declarations)
-  # target_compile_options(raudio PRIVATE -Wno-deprecated-declarations)
 endif()
 
 # Collect sources
@@ -62,10 +57,22 @@ endif()
 # Platform-specific options
 if(MSVC)
     target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC _CRT_SECURE_NO_WARNINGS)
-    # target_compile_options("${CMAKE_PROJECT_NAME}" PRIVATE /arch:AVX2)
 endif()
 
-if(ENABLE_AVX2)
+# MinGW: link the GCC runtime statically so the exe needs no extra DLLs next to it.
+if(MINGW)
+    target_link_options("${CMAKE_PROJECT_NAME}" PRIVATE -static)
+endif()
+
+# macOS: OpenGL is deprecated but functional; silence the deprecation warnings.
+if(APPLE)
+    target_compile_definitions("${CMAKE_PROJECT_NAME}" PRIVATE GL_SILENCE_DEPRECATION)
+endif()
+
+# AVX2 is x86-only: skip ARM (Apple Silicon, Windows on ARM) and Apple universal builds.
+if(ENABLE_AVX2
+   AND CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|AMD64|amd64|i[3-6]86)$"
+   AND NOT (APPLE AND CMAKE_OSX_ARCHITECTURES MATCHES "arm64"))
     if(MSVC)
         target_compile_options("${CMAKE_PROJECT_NAME}" PRIVATE /arch:AVX2)
     else()
@@ -85,7 +92,6 @@ target_link_libraries("${CMAKE_PROJECT_NAME}" PRIVATE
     glad 
     stb_image 
     stb_truetype 
-    # raudio 
     imgui
 )
 

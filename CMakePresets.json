@@ -13,104 +13,100 @@
       }
     },
     {
-      "name": "debug",
-      "displayName": "MSVC x64 Debug",
-      "description": "Requires a Visual Studio Developer PowerShell (or vcvars64.bat).",
+      "name": "windows-debug",
+      "displayName": "Windows x64 Debug (Visual Studio, no Developer shell needed)",
+      "description": "Run from any PowerShell. CMake uses the Visual Studio installation directly.",
       "inherits": "base",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" },
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64"
+    },
+    {
+      "name": "windows-release",
+      "displayName": "Windows x64 Release (Visual Studio, no Developer shell needed)",
+      "description": "Run from any PowerShell. CMake uses the Visual Studio installation directly.",
+      "inherits": "base",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" },
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64"
+    },
+    {
+      "name": "mingw-debug",
+      "displayName": "MinGW GCC Debug (Windows)",
+      "description": "Requires gcc/g++ on PATH, e.g. from an MSYS2 UCRT64 shell.",
+      "inherits": "base",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" },
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_C_COMPILER": "cl",
-        "CMAKE_CXX_COMPILER": "cl"
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
       }
     },
     {
-      "name": "release",
-      "displayName": "MSVC x64 Release",
-      "description": "Requires a Visual Studio Developer PowerShell (or vcvars64.bat).",
+      "name": "mingw-release",
+      "displayName": "MinGW GCC Release (Windows)",
+      "description": "Requires gcc/g++ on PATH, e.g. from an MSYS2 UCRT64 shell.",
       "inherits": "base",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" },
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_C_COMPILER": "cl",
-        "CMAKE_CXX_COMPILER": "cl"
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
       }
     },
     {
-      "name": "clang-cl-debug",
-      "displayName": "Clang (MSVC ABI) x64 Debug",
-      "description": "Requires LLVM on PATH plus a Visual Studio Developer PowerShell.",
+      "name": "linux-debug",
+      "displayName": "Linux Debug (system GCC/Clang)",
+      "description": "Needs the X11 and OpenGL development packages.",
       "inherits": "base",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_C_COMPILER": "clang-cl",
-        "CMAKE_CXX_COMPILER": "clang-cl"
-      }
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Linux" },
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
     },
     {
-      "name": "clang-cl-release",
-      "displayName": "Clang (MSVC ABI) x64 Release",
-      "description": "Requires LLVM on PATH plus a Visual Studio Developer PowerShell.",
+      "name": "linux-release",
+      "displayName": "Linux Release (system GCC/Clang)",
+      "description": "Needs the X11 and OpenGL development packages.",
       "inherits": "base",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_C_COMPILER": "clang-cl",
-        "CMAKE_CXX_COMPILER": "clang-cl"
-      }
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Linux" },
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
     },
     {
-      "name": "gcc-debug",
-      "displayName": "MinGW GCC x64 Debug",
-      "description": "MSYS2 UCRT64. Override MSYS2_ROOT in CMakeUserPresets.json if needed.",
+      "name": "macos-debug",
+      "displayName": "macOS Debug (AppleClang)",
+      "description": "Uses Xcode's clang; nothing to install.",
       "inherits": "base",
-      "environment": { "MSYS2_ROOT": "C:/msys64" },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_C_COMPILER": "$env{MSYS2_ROOT}/ucrt64/bin/gcc.exe",
-        "CMAKE_CXX_COMPILER": "$env{MSYS2_ROOT}/ucrt64/bin/g++.exe",
-        "CMAKE_EXE_LINKER_FLAGS": "-static"
-      }
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Darwin" },
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
     },
     {
-      "name": "gcc-release",
-      "displayName": "MinGW GCC x64 Release",
-      "description": "MSYS2 UCRT64. Override MSYS2_ROOT in CMakeUserPresets.json if needed.",
+      "name": "macos-release",
+      "displayName": "macOS Release (AppleClang)",
+      "description": "Uses Xcode's clang; nothing to install.",
       "inherits": "base",
-      "environment": { "MSYS2_ROOT": "C:/msys64" },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_C_COMPILER": "$env{MSYS2_ROOT}/ucrt64/bin/gcc.exe",
-        "CMAKE_CXX_COMPILER": "$env{MSYS2_ROOT}/ucrt64/bin/g++.exe",
-        "CMAKE_EXE_LINKER_FLAGS": "-static"
-      }
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Darwin" },
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
     }
   ],
 
   "buildPresets": [
-    { "name": "debug", "configurePreset": "debug" },
-    { "name": "release", "configurePreset": "release" },
-    { "name": "clang-cl-debug", "configurePreset": "clang-cl-debug" },
-    { "name": "clang-cl-release", "configurePreset": "clang-cl-release" },
-    { "name": "gcc-debug", "configurePreset": "gcc-debug" },
-    { "name": "gcc-release", "configurePreset": "gcc-release" }
+    { "name": "windows-debug", "configurePreset": "windows-debug", "configuration": "Debug" },
+    { "name": "windows-release", "configurePreset": "windows-release", "configuration": "Release" },
+    { "name": "mingw-debug", "configurePreset": "mingw-debug" },
+    { "name": "mingw-release", "configurePreset": "mingw-release" },
+    { "name": "linux-debug", "configurePreset": "linux-debug" },
+    { "name": "linux-release", "configurePreset": "linux-release" },
+    { "name": "macos-debug", "configurePreset": "macos-debug" },
+    { "name": "macos-release", "configurePreset": "macos-release" }
   ],
 
   "workflowPresets": [
-    { "name": "debug", "steps": [
-        { "type": "configure", "name": "debug" },
-        { "type": "build", "name": "debug" } ] },
-    { "name": "release", "steps": [
-        { "type": "configure", "name": "release" },
-        { "type": "build", "name": "release" } ] },
-    { "name": "clang-cl-debug", "steps": [
-        { "type": "configure", "name": "clang-cl-debug" },
-        { "type": "build", "name": "clang-cl-debug" } ] },
-    { "name": "clang-cl-release", "steps": [
-        { "type": "configure", "name": "clang-cl-release" },
-        { "type": "build", "name": "clang-cl-release" } ] },
-    { "name": "gcc-debug", "steps": [
-        { "type": "configure", "name": "gcc-debug" },
-        { "type": "build", "name": "gcc-debug" } ] },
-    { "name": "gcc-release", "steps": [
-        { "type": "configure", "name": "gcc-release" },
-        { "type": "build", "name": "gcc-release" } ] }
+    { "name": "windows-debug", "steps": [ { "type": "configure", "name": "windows-debug" }, { "type": "build", "name": "windows-debug" } ] },
+    { "name": "windows-release", "steps": [ { "type": "configure", "name": "windows-release" }, { "type": "build", "name": "windows-release" } ] },
+    { "name": "mingw-debug", "steps": [ { "type": "configure", "name": "mingw-debug" }, { "type": "build", "name": "mingw-debug" } ] },
+    { "name": "mingw-release", "steps": [ { "type": "configure", "name": "mingw-release" }, { "type": "build", "name": "mingw-release" } ] },
+    { "name": "linux-debug", "steps": [ { "type": "configure", "name": "linux-debug" }, { "type": "build", "name": "linux-debug" } ] },
+    { "name": "linux-release", "steps": [ { "type": "configure", "name": "linux-release" }, { "type": "build", "name": "linux-release" } ] },
+    { "name": "macos-debug", "steps": [ { "type": "configure", "name": "macos-debug" }, { "type": "build", "name": "macos-debug" } ] },
+    { "name": "macos-release", "steps": [ { "type": "configure", "name": "macos-release" }, { "type": "build", "name": "macos-release" } ] }
   ]
 }
