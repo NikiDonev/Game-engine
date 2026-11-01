@@ -7,15 +7,15 @@
 
 struct Animation {
   uint32_t startFrame{};
-  uint32_t frameCount{}, frame{};
+  uint32_t frameCount{4}, frame{};
   bool loop{true};
-  void Play() {
-    frame = 0;
-    m_DelaySec = 0.0f;
+  Animation(float fps, uint32_t frameCount) : frameCount(frameCount) {
+    setFPS(fps);
     m_Time = glfwGetTime();
   }
   void setFPS(float fps) { m_DelaySec = 1.0f / fps; }
-  glm::vec4 UpdateFrame(const TextureAtlas &atlas) {
+
+  void UpdateFrame(const TextureAtlas &atlas, Sprite &sprite) {
     float newTime = glfwGetTime();
     float duration = newTime - m_Time;
     if (duration > fabs(m_DelaySec)) {
@@ -24,9 +24,8 @@ struct Animation {
       frame %= frameCount;
       LOG_INFO("frame %i, delay %f s, duration %f s", frame, m_DelaySec,
                duration);
-      return (atlas.getTexCoords(startFrame + frame));
+      sprite.setTexCoords(atlas.getTexCoords(startFrame + frame));
     }
-    return {};
   }
 
 private:
@@ -43,11 +42,11 @@ public:
   void SetAutoplay(int autoplay) {
     m_Autoplay = std::clamp(autoplay, -1, (int)animations.size());
   }
-  void Update() {
-    if (!animations.empty())
-      animations[m_ActiveAnimation].UpdateFrame(atlas);
+  void Play(uint32_t index) {
+    if (index < animations.size()) {
+      animations[index].UpdateFrame(atlas, *this);
+    }
   }
-  void setActiveAnimation() {}
 
 private:
   uint32_t m_ActiveAnimation{};

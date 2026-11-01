@@ -74,14 +74,15 @@ void AnimationInit(EngineContext &engine) {
   test.atlas.SetDimentions(texture, 8, 8);
   test.setTexture(texture);
   test.setSize({100.0f, 100.0f});
-
-  // test.UpdateFrame();
-  // test.setFPS(10.0f);
+  test.animations.push_back({10.0f, 4});
+  // test.Play(0);
+  test.animations[0].setFPS(10.0f);
   LOG_INFO("%f %f %f %f", test.getTexCoords().x, test.getTexCoords().y,
            test.getTexCoords().z, test.getTexCoords().w);
 }
 
 void AnimationUpdate(EngineContext &engine) {
+  test.Play(0);
   engine.Draw(sprite);
   engine.spriteRenderer.DrawAnimated(test, engine.spriteRenderer.spriteShader,
                                      &engine.packet);
