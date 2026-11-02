@@ -11,7 +11,7 @@ void RectTestInit(EngineContext &engine) {
   for (Rect &rect : rects) {
     rect = Rect({100.0f, 100.0f});
     int sqrt = std::sqrt(rects.size());
-    float width = i % sqrt, height = i / sqrt;
+    float width = i % sqrt, height = (float)i / sqrt;
     rect.setPosition({width * 150.0f, height * 150.0f});
     float count = rects.size();
     float red = width / count * sqrt;
